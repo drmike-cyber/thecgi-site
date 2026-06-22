@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G.A.I.N.S. Certification Course | The Capital Gains Institute</title>
+<meta name="description" content="The G.A.I.N.S. AGZ-110 Certification Course — 6 modules, embedded quizzes, final exam, and verifiable digital certificate. WIOA reimbursement pathway for eligible Florida employers (pending ETPL approval).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&family=DM+Mono:wght@400;500&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #06080F; --ink2: #0C1120; --ink3: #111827;
+  --navy: #0A1628; --slate: #1C2E48;
+  --gold: #C9A84C; --gold-l: #E8C96A; --gold-d: #8A6A1A;
+  --gold-soft: rgba(201,168,76,0.14); --gold-glow: rgba(201,168,76,0.22);
+  --teal: #00D4B8; --teal-soft: rgba(0,212,184,0.10);
+  --green: #4ade80; --green-soft: rgba(74,222,128,0.12);
+  --red: #f87171; --red-soft: rgba(248,113,113,0.10);
+  --white: #F5F2EC; --off: #E8E2D6; --muted: #8A94A6;
+  --dim: rgba(255,255,255,0.07); --dim2: rgba(255,255,255,0.04);
+  --border: rgba(201,168,76,0.18); --border2: rgba(255,255,255,0.09);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  background: var(--ink); color: var(--off);
+  line-height: 1.6; min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+a { color: var(--gold); text-decoration: none; }
+
+/* HEADER */
+.site-header { position: sticky; top: 0; z-index: 50; background: rgba(6,8,15,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border2); }
+.header-inner { max-width: 1200px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-seal { width: 38px; height: 38px; background: linear-gradient(135deg, var(--gold), var(--gold-d)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue'; font-size: 14px; color: var(--ink); letter-spacing: 1px; }
+.brand-text { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--white); letter-spacing: .3px; }
+.brand-text em { font-style: italic; color: var(--gold); }
+.back-link { font-family: 'DM Mono'; font-size: 11px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; transition: color .2s; }
+.back-link:hover { color: var(--gold); }
+
+/* HERO */
+.course-hero { max-width: 1200px; margin: 0 auto; padding: 64px 32px 32px; }
+.eyebrow { font-family: 'DM Mono'; font-size: 11px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 18px; display: inline-flex; align-items: center; gap: 12px; }
+.eyebrow::before { content: ''; width: 22px; height: 1px; background: var(--gold); }
+.serif-xl { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 56px); font-weight: 600; color: var(--white); line-height: 1.08; margin-bottom: 18px; }
+.serif-xl em { font-style: italic; color: var(--gold); }
+.serif-lg { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 3.5vw, 36px); font-weight: 600; color: var(--white); line-height: 1.2; }
+.body-lg { font-size: 17px; color: var(--off); line-height: 1.7; max-width: 720px; }
+.cert-tags { display: flex; gap: 10px; flex-wrap: wrap; margin: 28px 0 0; }
+.tag { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 7px 14px; border-radius: 2px; font-weight: 600; font-family: 'DM Mono'; }
+.tag-g { background: var(--green-soft); border: 1px solid rgba(74,222,128,.3); color: var(--green); }
+.tag-y { background: rgba(250,204,21,.1); border: 1px solid rgba(250,204,21,.25); color: #facc15; }
+.tag-b { background: var(--teal-soft); border: 1px solid rgba(0,212,184,.25); color: var(--teal); }
+
+/* PROGRESS */
+.progress-panel { max-width: 1200px; margin: 32px auto; padding: 24px 32px; background: linear-gradient(135deg, var(--ink2), var(--ink3)); border: 1px solid var(--gold); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+.progress-meta { font-family: 'DM Mono'; font-size: 11px; color: var(--muted); letter-spacing: 2px; margin-bottom: 8px; text-transform: uppercase; }
+.progress-text { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--white); }
+.progress-text strong { color: var(--gold); }
+.progress-bar { height: 6px; background: var(--ink3); border-radius: 3px; overflow: hidden; margin-top: 12px; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-l)); width: 0%; transition: width .5s ease; box-shadow: 0 0 10px var(--gold-glow); }
+.reset-btn { font-family: 'DM Mono'; font-size: 10px; letter-spacing: 2px; color: var(--muted); padding: 8px 14px; border: 1px solid var(--border2); text-transform: uppercase; transition: all .2s; }
+.reset-btn:hover { color: var(--red); border-color: var(--red); }
+
+/* MODULES */
+.modules-wrap { max-width: 1200px; margin: 0 auto; padding: 24px 32px 64px; }
+.module-card { background: var(--ink2); border: 1px solid var(--border); overflow: hidden; transition: border-color .25s; margin-bottom: 12px; }
+.module-card:hover { border-color: rgba(201,168,76,.4); }
+.module-card.open { border-color: var(--gold); }
+.module-card.complete { border-color: var(--green); }
+.module-header { display: flex; align-items: center; gap: 20px; padding: 24px 28px; cursor: pointer; }
+.mh-num { font-family: 'Bebas Neue'; font-size: 44px; color: rgba(201,168,76,.14); line-height: 1; flex-shrink: 0; width: 56px; }
+.module-card.complete .mh-num { color: var(--green); }
+.mh-meta { flex: 1; min-width: 0; }
+.mh-tag { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); font-family: 'DM Mono'; margin-bottom: 6px; }
+.mh-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--white); }
+.mh-sub { font-size: 13px; color: var(--muted); margin-top: 6px; }
+.mh-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.mh-status { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 12px; font-weight: 700; font-family: 'DM Mono'; border: 1px solid var(--border2); color: var(--muted); }
+.mh-status.done { background: var(--green-soft); border-color: var(--green); color: var(--green); }
+.mh-arrow { color: var(--gold); font-size: 14px; transition: transform .3s; }
+.module-card.open .mh-arrow { transform: rotate(180deg); }
+.module-detail { max-height: 0; overflow: hidden; transition: max-height .5s cubic-bezier(.4,0,.2,1); }
+.module-card.open .module-detail { max-height: 4000px; border-top: 1px solid var(--border); }
+.detail-inner { padding: 28px; }
+.chapter-row { display: flex; gap: 20px; background: var(--ink3); padding: 20px 24px; border: 1px solid var(--border2); margin-bottom: 2px; transition: border-color .25s; }
+.chapter-row:hover { border-color: rgba(201,168,76,.2); }
+.ch-num { font-family: 'DM Mono'; font-size: 12px; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+.ch-title { font-size: 14px; font-weight: 600; color: var(--off); margin-bottom: 6px; }
+.ch-body { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+/* QUIZ */
+.quiz-block { margin-top: 28px; padding: 28px; background: linear-gradient(135deg, var(--ink3), var(--ink2)); border: 1px solid var(--gold); }
+.quiz-eyebrow { font-family: 'DM Mono'; font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; }
+.quiz-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+.quiz-sub { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+.quiz-q { margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--border2); }
+.quiz-q:last-of-type { border-bottom: none; }
+.quiz-q-num { font-family: 'DM Mono'; font-size: 10px; letter-spacing: 2px; color: var(--teal); margin-bottom: 8px; }
+.quiz-q-text { font-size: 15px; color: var(--white); margin-bottom: 14px; line-height: 1.5; font-weight: 500; }
+.quiz-opt { display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; margin-bottom: 8px; background: var(--ink); border: 1px solid var(--border2); cursor: pointer; transition: all .2s; font-size: 14px; color: var(--off); }
+.quiz-opt:hover { border-color: var(--gold); background: var(--ink3); }
+.quiz-opt.selected { border-color: var(--gold); background: var(--gold-soft); color: var(--white); }
+.quiz-opt.correct { border-color: var(--green); background: var(--green-soft); color: var(--green); }
+.quiz-opt.wrong { border-color: var(--red); background: var(--red-soft); color: var(--red); }
+.opt-marker { width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--border); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'DM Mono'; font-size: 10px; color: var(--muted); }
+.quiz-opt.selected .opt-marker { border-color: var(--gold); color: var(--gold); }
+
+.btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold-d)); color: var(--ink); padding: 14px 28px; font-family: 'DM Sans'; font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; transition: all .25s; display: inline-block; text-align: center; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px var(--gold-glow); }
+.btn-ghost { background: transparent; color: var(--gold); border: 1px solid var(--gold); padding: 13px 24px; font-family: 'DM Sans'; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: all .25s; display: inline-block; }
+.btn-ghost:hover { background: var(--gold-soft); }
+
+.quiz-result { margin-top: 20px; padding: 20px; background: var(--ink); border: 1px solid var(--border); font-family: 'DM Mono'; font-size: 13px; display: none; }
+.quiz-result.show { display: block; }
+.quiz-result.pass { border-color: var(--green); color: var(--green); }
+.quiz-result.fail { border-color: var(--red); color: var(--red); }
+
+/* FINAL */
+.final-section { max-width: 1200px; margin: 24px auto 64px; padding: 48px 32px; background: linear-gradient(135deg, var(--ink2), var(--ink3)); border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); }
+.final-lock { text-align: center; padding: 40px 24px; background: var(--ink); border: 1px dashed var(--border2); }
+.lock-icon { font-size: 36px; margin-bottom: 14px; opacity: .5; }
+.final-lock-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--muted); }
+
+/* CERTIFICATE */
+.cert-section { max-width: 1200px; margin: 24px auto 80px; padding: 0 32px; }
+.cert-card { background: linear-gradient(135deg, #0C1120, #1C2E48); border: 2px solid var(--gold); padding: 64px 48px; text-align: center; position: relative; overflow: hidden; }
+.cert-card::before { content: ''; position: absolute; inset: 8px; border: 1px solid rgba(201,168,76,.3); pointer-events: none; }
+.cert-seal { width: 100px; height: 100px; margin: 0 auto 28px; background: linear-gradient(135deg, var(--gold), var(--gold-d)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue'; font-size: 18px; color: var(--ink); letter-spacing: 1.5px; line-height: 1.1; text-align: center; box-shadow: 0 12px 40px var(--gold-glow); }
+.cert-eyebrow { font-family: 'DM Mono'; font-size: 11px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 18px; }
+.cert-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 48px); font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 20px; }
+.cert-title em { font-style: italic; color: var(--gold); }
+.cert-recipient { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--gold); border-bottom: 1px solid var(--border); padding-bottom: 18px; margin: 28px auto; max-width: 480px; font-style: italic; }
+.cert-body { font-size: 15px; color: var(--off); max-width: 600px; margin: 0 auto 32px; line-height: 1.8; }
+.cert-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 32px; max-width: 720px; margin-left: auto; margin-right: auto; }
+.cert-meta-item { text-align: center; }
+.cert-meta-label { font-family: 'DM Mono'; font-size: 9px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; margin-bottom: 8px; }
+.cert-meta-val { font-family: 'DM Mono'; font-size: 13px; color: var(--gold); letter-spacing: 1px; line-height: 1.4; }
+.cert-actions { margin-top: 36px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.recipient-input-wrap { background: var(--ink); border: 1px solid var(--border); padding: 24px; margin: 0 auto 24px; max-width: 480px; text-align: left; }
+.recipient-input-wrap label { display: block; font-family: 'DM Mono'; font-size: 10px; letter-spacing: 2px; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; }
+.recipient-input-wrap input { width: 100%; background: var(--ink3); color: var(--white); border: 1px solid var(--border2); padding: 12px 14px; font-family: 'Cormorant Garamond', serif; font-size: 18px; outline: none; transition: border-color .2s; }
+.recipient-input-wrap input:focus { border-color: var(--gold); }
+
+/* FOOTER */
+.site-footer { max-width: 1200px; margin: 64px auto 0; padding: 48px 32px; border-top: 1px solid var(--border2); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; align-items: center; }
+.footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--white); }
+.footer-brand .s { font-family: 'DM Mono'; font-size: 11px; color: var(--muted); letter-spacing: 2px; margin-top: 4px; }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a { font-family: 'DM Mono'; font-size: 11px; letter-spacing: 1.5px; color: var(--muted); }
+.footer-links a:hover { color: var(--gold); }
+.footer-copy { font-family: 'DM Mono'; font-size: 10px; color: var(--muted); letter-spacing: 2px; }
+
+/* PRINT */
+@media print {
+  body { background: white; color: black; }
+  .site-header, .progress-panel, .modules-wrap, .final-section, .site-footer, .cert-actions, .recipient-input-wrap, .course-hero { display: none !important; }
+  .cert-section { padding: 0; margin: 0; }
+  .cert-card { border-color: #C9A84C; background: white !important; color: black !important; padding: 48px 36px; }
+  .cert-card::before { border-color: #C9A84C; }
+  .cert-eyebrow { color: #8A6A1A !important; }
+  .cert-title { color: #0A1628 !important; }
+  .cert-title em { color: #8A6A1A !important; }
+  .cert-recipient { color: #8A6A1A !important; }
+  .cert-body { color: #1C2E48 !important; }
+  .cert-meta-label { color: #555 !important; }
+  .cert-meta-val { color: #8A6A1A !important; }
+  .cert-seal { box-shadow: none; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 720px) {
+  .header-inner { padding: 14px 18px; }
+  .course-hero { padding: 40px 18px 24px; }
+  .progress-panel { grid-template-columns: 1fr; padding: 20px 18px; }
+  .modules-wrap { padding: 12px 14px 48px; }
+  .module-header { padding: 18px 16px; gap: 14px; }
+  .mh-num { font-size: 36px; width: 44px; }
+  .mh-title { font-size: 18px; }
+  .mh-right { gap: 8px; }
+  .mh-status { font-size: 9px; padding: 5px 9px; }
+  .detail-inner { padding: 18px 14px; }
+  .chapter-row { padding: 16px 14px; flex-direction: column; gap: 8px; }
+  .quiz-block { padding: 20px 16px; }
+  .final-section { padding: 28px 16px; margin: 12px 12px 32px; }
+  .cert-card { padding: 40px 18px; }
+  .cert-meta { grid-template-columns: 1fr; gap: 18px; }
+  .site-footer { padding: 32px 18px; flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="institute.html" class="brand">
+      <div class="brand-seal">CGI</div>
+      <div class="brand-text">The Capital <em>Gains</em> Institute</div>
+    </a>
+    <a href="institute.html" class="back-link">← Back to CGI Home</a>
+  </div>
+</header>
+
+<section class="course-hero">
+  <div class="eyebrow">The G.A.I.N.S. Course</div>
+  <h1 class="serif-xl">Global AI Integration<br>& <em>National Standards</em></h1>
+  <p class="body-lg">The G.A.I.N.S. certification track for business leaders, operators, and decision-makers, including preparation for the CertNexus Agentic AIBIZ (AGZ-110) exam. Six modules. Twenty-nine chapters. Module quizzes and a final examination. The CPA license of the AI era — verifiable, with a WIOA reimbursement pathway for eligible Florida employers (pending CGI’s ETPL approval).</p>
+  <div class="cert-tags">
+    <span class="tag tag-g">WIOA Grant Eligible</span>
+    <span class="tag tag-b">Includes CertNexus AGZ-110 Exam Prep</span>
+    <span class="tag tag-y">Florida ETPL Track</span>
+    <span class="tag tag-g">6–8 Hours · Self-Paced</span>
+  </div>
+</section>
+
+<section class="progress-panel">
+  <div>
+    <div class="progress-meta">Your Progress</div>
+    <div class="progress-text"><strong id="modsDoneCount">0</strong> of 6 modules complete · <strong id="overallPct">0%</strong></div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+  <button class="reset-btn" onclick="resetProgress()">Reset Progress</button>
+</section>
+
+<section class="modules-wrap">
+  <div id="modulesGrid"></div>
+</section>
+
+<section class="final-section">
+  <div class="eyebrow">Final Examination</div>
+  <h2 class="serif-lg" style="margin-bottom:14px;">The <em style="color:var(--gold);font-style:italic;">G.A.I.N.S. Certified</em> Examination</h2>
+  <p class="body-lg" style="margin-bottom:32px;">Twenty questions covering all six modules. Seventy percent passing score. Unlock by completing every module quiz.</p>
+  <div id="finalExamSlot">
+    <div class="final-lock">
+      <div class="lock-icon">&#128274;</div>
+      <div class="final-lock-text">Complete all 6 module quizzes to unlock the final exam.</div>
+    </div>
+  </div>
+</section>
+
+<section class="cert-section" id="certSection" style="display:none;">
+  <div class="recipient-input-wrap">
+    <label for="recipientName">Enter your full name as it should appear on the certificate</label>
+    <input type="text" id="recipientName" placeholder="Your full name" oninput="updateCertName()">
+  </div>
+  <div class="cert-card" id="certCard">
+    <div class="cert-seal">CGI<br>G.A.I.N.S.</div>
+    <div class="cert-eyebrow">The Capital Gains Institute · Tampa, Florida</div>
+    <div class="cert-title">G.A.I.N.S. <em>Certified</em><br>Practitioner</div>
+    <div class="cert-recipient" id="certRecipient">Your Name Here</div>
+    <p class="cert-body">In recognition of the successful completion of the Global AI Integration and National Standards certification examination — which includes preparation for the CertNexus AGZ-110 (Foundations of Agentic AI) exam — and demonstrated competence across all six modules of the G.A.I.N.S. curriculum.</p>
+    <div class="cert-meta">
+      <div class="cert-meta-item">
+        <div class="cert-meta-label">Credential ID</div>
+        <div class="cert-meta-val" id="certId">CGI-XXXX-XXXX</div>
+      </div>
+      <div class="cert-meta-item">
+        <div class="cert-meta-label">Date Issued</div>
+        <div class="cert-meta-val" id="certDate">—</div>
+      </div>
+      <div class="cert-meta-item">
+        <div class="cert-meta-label">Issued By</div>
+        <div class="cert-meta-val">Dr. Mike Majette<br>Founder &amp; Registrar</div>
+      </div>
+    </div>
+    <div class="cert-actions">
+      <button class="btn-primary" onclick="window.print()">Print / Save as PDF</button>
+      <a class="btn-ghost" href="mailto:grants@thecgi.org?subject=G.A.I.N.S.%20Certificate%20Issued&body=My%20certificate%20has%20been%20issued.%20Please%20log%20my%20completion%20and%20connect%20me%20to%20my%20grant%20representative.">Notify CGI for Logging</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-brand">
+    THE CAPITAL GAINS INSTITUTE
+    <div class="s">thecgi.org</div>
+  </div>
+  <div class="footer-links">
+    <a href="institute.html">Home</a>
+    <a href="grants.html">Grant Guide</a>
+    <a href="mailto:grants@thecgi.org">grants@thecgi.org</a>
+    <a href="tel:8134633401">(813) 463-3401</a>
+  </div>
+  <div class="footer-copy">© 2026 CGI · ALL RIGHTS RESERVED</div>
+</footer>
+
+<script>
+const COURSES = [
+  { tag:'Module 01 · Foundation', title:'AI in Everyday Life & Work', sub:'What AI actually is — and how it changes your daily professional life immediately.', chapters:[
+    { t:'Introduction to AI and Its Impact', b:'Modern AI capabilities, myth-busting, the future of work, and what the shift from rule-based to agentic AI actually means for your organization.' },
+    { t:'Exploring AI Tools and Technologies', b:'Text generation, image creation, coding assistance, and voice recognition — a hands-on survey of the tools available in 2025–2026 and how to evaluate which ones fit your workflow.' },
+    { t:'Practical Applications in the Workplace', b:'Real-world AI applications in business and service industries. Case studies, implementation strategies, and the 4-step framework for introducing AI to resistant teams.' }
+  ]},
+  { tag:'Module 02 · Business', title:'AI in Business & Capital Strategy', sub:'Build the AI roadmap, restructure operations, and create compounding competitive advantage.', chapters:[
+    { t:'AI Business Foundations', b:'How AI restructures business models, competitive moats, and capital allocation. The shift from linear scaling (headcount) to exponential scaling (token maxing).' },
+    { t:'Strategic AI Implementation', b:'The four-step AI-first framework: Learn → Wire → Automate → Scale. Building the Business Brain that makes your company queryable and legible to AI systems.' },
+    { t:'AI for Business Operations', b:'Closed-loop department design. Test harnesses and quality standards. How to build self-improving feedback loops into Sales, HR, Marketing, Operations, and Finance.' },
+    { t:'AI for Customer Experience', b:'AI-powered personalization, service delivery, and customer intelligence. How to build systems that improve every customer interaction automatically.' },
+    { t:'AI for Data-Driven Decision Making', b:'Business intelligence augmented by AI. Eliminating the cost of manual data reconciliation. Strategic decision frameworks built on live AI analysis.' },
+    { t:'Future-Proofing Business with AI', b:'Emerging agentic technologies, the new org chart (IC · DRI · AI Founder), and the state-by-state expansion model that scales the CGI franchise.' }
+  ]},
+  { tag:'Module 03 · Revenue', title:'AI in Sales & Revenue Acceleration', sub:'AI-powered prospecting, pipeline intelligence, deal velocity, and close rate optimization.', chapters:[
+    { t:'Sales Fundamentals and AI', b:'How AI reshapes traditional sales processes. The end of the follow-up gap. AI sequences that contact new leads within 90 seconds — 3x close rate on after-hours inquiries.' },
+    { t:'Popular AI Tools for Sales', b:'ChatGPT, Grok, Claude, Midjourney — a practitioner-grade survey of the most effective AI sales tools with specific use cases for each.' },
+    { t:'AI-Powered Customer Engagement', b:'Personalization at scale. Understanding customer needs before the first call. Delivering tailored proposals that reference the client’s actual situation.' },
+    { t:'Measuring AI Sales Performance', b:'Frameworks for tracking, analyzing, and optimizing AI-enhanced sales processes. The metrics that replace gut instinct with compounding data.' }
+  ]},
+  { tag:'Module 04 · Public Sector', title:'AI in Local Government', sub:'Transform public services, citizen engagement, and operational efficiency.', chapters:[
+    { t:'Foundations of AI in Government', b:'AI’s transformative potential in local government. Case studies from municipalities that reduced costs and improved service delivery through AI adoption.' },
+    { t:'AI Tools for Local Government', b:'Practical applications of ChatGPT, Claude, and Grok in government contexts — constituent services, documentation, policy analysis, and internal operations.' },
+    { t:'Data Privacy and Security in Government AI', b:'Handling sensitive government data, ensuring privacy compliance, and implementing proper security safeguards. The NIST AI RMF applied to public sector deployments.' },
+    { t:'AI for Government Efficiency', b:'Automation of repetitive administrative workflows. Cost reduction through AI. Service delivery improvements that require no additional headcount.' },
+    { t:'Future of AI in Local Government', b:'Emerging trends, long-term integration strategies, and how to position your government organization as a model for the county and state.' },
+    { t:'Future-Proofing Government with AI', b:'Ethical AI implementation, bias detection, transparency requirements, and strategies for staying ahead of both the technology and the regulation.' }
+  ]},
+  { tag:'Module 05 · People Operations', title:'AI for Human Resources', sub:'Talent acquisition, employee development, organizational analytics, and future-ready workforce design.', chapters:[
+    { t:'HR Fundamentals and AI', b:'How AI transforms traditional HR processes. The shift from reactive HR to predictive workforce management. Identifying skill gaps before they become operational problems.' },
+    { t:'AI Tools for Talent Acquisition', b:'AI-driven candidate sourcing, screening, and selection. Building more efficient hiring processes that reduce time-to-fill and improve quality of hire.' },
+    { t:'Employee Development with AI', b:'Personalized learning at scale. Performance management enhanced by AI. Data-driven employee development strategies that actually move the needle.' },
+    { t:'Organizational Analytics with AI', b:'Workforce insights from AI-powered analytics. Optimizing team structures. Making evidence-based HR decisions for better organizational outcomes.' },
+    { t:'Advanced HR Analytics', b:'Strategic workforce planning, culture measurement, diversity and inclusion insights, and executive decision support powered by AI analytics.' }
+  ]},
+  { tag:'Module 06 · Agentic Systems', title:'Foundations of Agentic AI — AGZ-110', sub:'CertNexus exam preparation. Business leaders determine where, whether, and how agents should exist.', chapters:[
+    { t:'Agentic AI Fundamentals', b:'The Brain-Memory-Tools framework. LLMs vs. agents. The Sense-Think-Act loop. How agentic systems differ from chatbots and why the distinction matters for your organization.' },
+    { t:'Determining Suitability', b:'The variability and judgment matrix. Agent-appropriate tasks vs. human-mandatory decisions. Business Process Analysis to reveal whether a process needs AI, automation, or a human.' },
+    { t:'Designing Agentic Solutions', b:'Agent modalities, one-shot vs. iterative patterns, single vs. multi-agent environments. RAG, fine-tuning, and how to choose the right architecture for your use case.' },
+    { t:'Managing Agentic Risks', b:'Confabulation, hallucination, training data limitations, vibe coding. The NIST AI Risk Management Framework. Human-in-the-Loop design and safe autonomy boundaries.' },
+    { t:'Adopting Agentic AI', b:'Resource planning for people, data, and infrastructure. Change management. Governance and the culture of responsible AI. Skill gap identification and upskilling strategy.' },
+    { t:'Executing Agentic Strategy', b:'Workflow prioritization. Dependency mapping. Build vs. buy decisions. Phased deployment. Communicating the agentic strategy to executives, technical teams, and frontline employees.' }
+  ]}
+];
+
+const QUIZZES = [
+  [
+    { q:'What is the most accurate distinction between rule-based AI and agentic AI?', opts:['Agentic AI is faster than rule-based AI.','Agentic AI can plan, execute, and remember across multiple steps, while rule-based AI follows fixed instructions.','Rule-based AI is more accurate than agentic AI.','There is no meaningful difference between them.'], correct:1 },
+    { q:'According to CGI doctrine, what percentage of AI’s available business leverage does the "use AI to answer questions faster" mental model capture?', opts:['Roughly 5%','About 50%','Over 80%','100% — that is the entire value of AI.'], correct:0 },
+    { q:'Which of these is the most effective first step when introducing AI to a resistant team?', opts:['Mandate adoption from the top down.','Replace half the team with AI immediately.','Identify one high-friction workflow and demonstrate a measurable win.','Wait until the technology matures before introducing it.'], correct:2 }
+  ],
+  [
+    { q:'What are the four steps of the AI-first framework taught in the G.A.I.N.S. curriculum?', opts:['Test → Deploy → Monitor → Optimize','Learn → Wire → Automate → Scale','Plan → Build → Sell → Repeat','Hire → Train → Deploy → Promote'], correct:1 },
+    { q:'What is the Business Brain, in the CGI methodology?', opts:['A C-suite AI chatbot.','A unified, AI-readable knowledge system that captures every process, rule, and decision pattern.','A type of CRM software.','The CEO’s personal AI assistant.'], correct:1 },
+    { q:'CGI argues that traditional headcount scaling is being replaced by what kind of scaling?', opts:['Geographic scaling','Linear marketing scaling','Exponential token-maxing scaling — where AI capability rather than people becomes the bottleneck','Manual replication scaling'], correct:2 }
+  ],
+  [
+    { q:'What is the documented impact of contacting new leads with an AI sequence within 90 seconds?', opts:['No measurable difference','Roughly 3x close rate on after-hours inquiries','A 10% drop in conversion','Improved morale only'], correct:1 },
+    { q:'Which is the most strategically valuable use of AI in sales?', opts:['Drafting cold emails faster','Replacing the sales team entirely','Personalization at scale — understanding the customer’s situation before the first call','Generating motivational posters'], correct:2 },
+    { q:'In the G.A.I.N.S. framework, what replaces gut instinct as the primary sales-decision input?', opts:['Compounding data from AI-tracked performance metrics','Senior leadership intuition','Customer requests only','Quarterly board reviews'], correct:0 }
+  ],
+  [
+    { q:'What is the NIST AI Risk Management Framework primarily used for in government deployments?', opts:['Marketing AI products to constituents','Identifying, assessing, and mitigating risks specific to AI systems','Replacing all government employees','Calculating tax revenue'], correct:1 },
+    { q:'Why is data privacy especially critical in government AI deployments?', opts:['Because it makes AI faster','Because government systems often handle sensitive constituent data subject to legal compliance requirements','Because it lowers AI licensing costs','Privacy is not a concern in government contexts'], correct:1 },
+    { q:'According to the curriculum, the biggest immediate AI win in local government is usually:', opts:['Replacing elected officials with AI','Automating repetitive administrative workflows that consume staff time without adding judgment','Predicting election outcomes','Designing new buildings'], correct:1 }
+  ],
+  [
+    { q:'The shift CGI describes in HR is from:', opts:['Predictive HR to reactive HR','Reactive HR to predictive workforce management','Manual hiring to no hiring','In-person interviews to fully automated decisions'], correct:1 },
+    { q:'AI-driven talent acquisition tools primarily improve which two metrics?', opts:['Time-to-fill and quality of hire','Office decor and break-room snacks','Tax filings and payroll accuracy','Stock price and dividends'], correct:0 },
+    { q:'What does "personalized learning at scale" mean in an AI-enhanced HR context?', opts:['Each employee receives identical training modules','Learning paths adapt to each individual’s role, skill gaps, and progress automatically','All training is replaced by video lectures','Only senior leaders receive training'], correct:1 }
+  ],
+  [
+    { q:'What does the Brain-Memory-Tools framework describe?', opts:['The three required hardware components of an AI server','The architectural elements of an agentic AI system: reasoning core, persistent context, and external action capabilities','The three types of HR roles in an AI company','A meditation practice'], correct:1 },
+    { q:'The Sense-Think-Act loop is the core operating pattern of:', opts:['Simple chatbots','Agentic AI systems','Database queries','Email autoresponders'], correct:1 },
+    { q:'Per AGZ-110, when is a task most suitable for an agentic AI vs. a human?', opts:['Always — agents should handle every task','Never — humans should handle every task','When the task has bounded variability and does not require human-mandatory judgment such as ethical, legal, or fiduciary decisions','Only on weekends'], correct:2 }
+  ]
+];
+
+const FINAL_EXAM = [
+  { q:'G.A.I.N.S. stands for:', opts:['Global AI Network Solutions','Global AI Integration and National Standards','Generic AI New Standards','Government AI National Service'], correct:1 },
+  { q:'The CertNexus exam this course is aligned to is:', opts:['AZ-900','AGZ-110','PMP','CISSP'], correct:1 },
+  { q:'Maximum Florida WIOA grant per company:', opts:['$5,000','$15,000','$25,000','$50,000'], correct:2 },
+  { q:'Maximum Florida WIOA grant per employee:', opts:['$1,000','$3,500','$7,500','$10,000'], correct:1 },
+  { q:'The CGI four-step AI-first framework is:', opts:['Hire-Train-Test-Ship','Plan-Do-Check-Act','Learn-Wire-Automate-Scale','Sense-Think-Act-Repeat'], correct:2 },
+  { q:'The "Business Brain" is best described as:', opts:['A C-suite AI advisor','A unified AI-readable knowledge system','A new CRM platform','An HR analytics dashboard'], correct:1 },
+  { q:'Agentic AI differs from a chatbot primarily by:', opts:['Being faster','Planning, executing, and remembering across multi-step tasks','Using more colorful UI','Working only on weekends'], correct:1 },
+  { q:'The Sense-Think-Act loop is the operating pattern of:', opts:['Search engines','Spreadsheets','Agentic AI systems','Image filters'], correct:2 },
+  { q:'Which of these is NOT a CertNexus risk category for AI?', opts:['Confabulation','Hallucination','Training data limitations','Excessive caffeine'], correct:3 },
+  { q:'Human-in-the-Loop design is used to:', opts:['Slow systems down for fun','Maintain oversight where judgment, ethics, or fiduciary duty are involved','Reduce AI accuracy','Eliminate all human involvement'], correct:1 },
+  { q:'AI sales sequences contacting leads within 90 seconds typically yield:', opts:['No improvement','Lower close rates','Roughly 3x close rate on after-hours inquiries','Customer complaints'], correct:2 },
+  { q:'The NIST AI Risk Management Framework is primarily used to:', opts:['Sell AI products','Identify, assess, and mitigate AI-specific risks','Compute taxes','Schedule meetings'], correct:1 },
+  { q:'Personalization at scale means:', opts:['Sending identical messages to everyone','Adapting outputs to each user’s situation, role, and history automatically','Manually customizing every email','Eliminating personalization entirely'], correct:1 },
+  { q:'The AGZ-110 standard is published by:', opts:['Anthropic','CertNexus','Microsoft','OpenAI'], correct:1 },
+  { q:'The shift CGI identifies in HR is:', opts:['Predictive to reactive','Reactive to predictive workforce management','Predictive to manual','Manual to manual'], correct:1 },
+  { q:'CGI argues that the dominant "AI as a faster search" mental model captures roughly:', opts:['5% of available leverage','40% of available leverage','75% of available leverage','100% of available leverage'], correct:0 },
+  { q:'A primary benefit of AI in local government is:', opts:['Replacing elected officials','Automating repetitive administrative workflows','Predicting elections','Designing buildings'], correct:1 },
+  { q:'The CGI expansion model is best described as:', opts:['Single-state lockdown','State-by-state expansion modeled after the CPA license','International only','Federal-only contracts'], correct:1 },
+  { q:'Build vs. buy decisions for agentic AI should consider:', opts:['Only cost','Cost, time-to-value, risk, and strategic differentiation','Only branding','Lunar phase'], correct:1 },
+  { q:'A passing score on this final examination is:', opts:['50%','60%','70%','100%'], correct:2 }
+];
+
+const STORAGE_KEY = 'cgi-gains-progress-v1';
+function loadState() {
+  try { const raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : { modules: {}, finalPassed: false, finalScore: null, recipientName: '', certId: null, certDate: null, finalSelections: {} }; }
+  catch (e) { return { modules: {}, finalPassed: false, finalScore: null, recipientName: '', certId: null, certDate: null, finalSelections: {} }; }
+}
+function saveState() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {} }
+let state = loadState();
+
+function renderModules() {
+  const grid = document.getElementById('modulesGrid');
+  grid.innerHTML = '';
+  COURSES.forEach((c, i) => {
+    const ms = state.modules[i] || { passed: false, attempts: 0, lastScore: null, selections: {} };
+    const isComplete = ms.passed;
+    const card = document.createElement('div');
+    card.className = 'module-card' + (isComplete ? ' complete' : '');
+    card.id = 'mc' + i;
+    card.innerHTML =
+      '<div class="module-header" onclick="toggleModule(' + i + ')">' +
+        '<div class="mh-num">0' + (i+1) + '</div>' +
+        '<div class="mh-meta">' +
+          '<div class="mh-tag">' + c.tag + '</div>' +
+          '<div class="mh-title">' + c.title + '</div>' +
+          '<div class="mh-sub">' + c.sub + '</div>' +
+        '</div>' +
+        '<div class="mh-right">' +
+          '<span class="mh-status' + (isComplete ? ' done' : '') + '">' + (isComplete ? '✓ Passed' : 'Not Started') + '</span>' +
+          '<span class="mh-arrow">▼</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="module-detail" id="md' + i + '">' +
+        '<div class="detail-inner">' +
+          c.chapters.map((ch, j) =>
+            '<div class="chapter-row">' +
+              '<div class="ch-num">0' + (j+1) + '</div>' +
+              '<div><div class="ch-title">' + ch.t + '</div><div class="ch-body">' + ch.b + '</div></div>' +
+            '</div>'
+          ).join('') +
+          '<div class="quiz-block">' +
+            '<div class="quiz-eyebrow">Module ' + (i+1) + ' Quiz · ' + QUIZZES[i].length + ' Questions · 70% to pass</div>' +
+            '<div class="quiz-title">Confirm your understanding</div>' +
+            '<div class="quiz-sub">Select one answer per question, then submit. Pass this quiz to mark the module complete and unlock the final exam.</div>' +
+            '<div id="quizBody-' + i + '">' +
+              QUIZZES[i].map((qq, k) =>
+                '<div class="quiz-q">' +
+                  '<div class="quiz-q-num">Question ' + (k+1) + ' of ' + QUIZZES[i].length + '</div>' +
+                  '<div class="quiz-q-text">' + qq.q + '</div>' +
+                  qq.opts.map((opt, oi) =>
+                    '<label class="quiz-opt" data-mod="' + i + '" data-q="' + k + '" data-opt="' + oi + '" onclick="selectOpt(' + i + ',' + k + ',' + oi + ')">' +
+                      '<span class="opt-marker">' + String.fromCharCode(65+oi) + '</span>' +
+                      '<span>' + opt + '</span>' +
+                    '</label>'
+                  ).join('') +
+                '</div>'
+              ).join('') +
+            '</div>' +
+            '<button class="btn-primary" onclick="submitQuiz(' + i + ')">Submit Quiz</button>' +
+            '<div class="quiz-result" id="quizResult-' + i + '"></div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    grid.appendChild(card);
+  });
+}
+
+function toggleModule(i) {
+  const card = document.getElementById('mc' + i);
+  const isOpen = card.classList.contains('open');
+  document.querySelectorAll('.module-card').forEach(c => c.classList.remove('open'));
+  if (!isOpen) card.classList.add('open');
+}
+
+function selectOpt(modIdx, qIdx, optIdx) {
+  const ms = state.modules[modIdx] || { passed: false, attempts: 0, lastScore: null, selections: {} };
+  ms.selections[qIdx] = optIdx;
+  state.modules[modIdx] = ms;
+  const opts = document.querySelectorAll('.quiz-opt[data-mod="' + modIdx + '"][data-q="' + qIdx + '"]');
+  opts.forEach((el, idx) => {
+    el.classList.remove('selected', 'correct', 'wrong');
+    if (idx === optIdx) el.classList.add('selected');
+  });
+}
+
+function submitQuiz(modIdx) {
+  const ms = state.modules[modIdx] || { passed: false, attempts: 0, lastScore: null, selections: {} };
+  const questions = QUIZZES[modIdx];
+  if (Object.keys(ms.selections).length < questions.length) {
+    const r = document.getElementById('quizResult-' + modIdx);
+    r.className = 'quiz-result show fail';
+    r.textContent = 'Please answer all questions before submitting.';
+    return;
+  }
+  let correctCount = 0;
+  questions.forEach((qq, k) => {
+    const selected = ms.selections[k];
+    const opts = document.querySelectorAll('.quiz-opt[data-mod="' + modIdx + '"][data-q="' + k + '"]');
+    opts.forEach((el, idx) => {
+      el.classList.remove('selected', 'correct', 'wrong');
+      if (idx === qq.correct) el.classList.add('correct');
+      else if (idx === selected) el.classList.add('wrong');
+    });
+    if (selected === qq.correct) correctCount++;
+  });
+  const score = Math.round((correctCount / questions.length) * 100);
+  ms.lastScore = score;
+  ms.attempts = (ms.attempts || 0) + 1;
+  ms.passed = score >= 70;
+  state.modules[modIdx] = ms;
+  saveState();
+  const r = document.getElementById('quizResult-' + modIdx);
+  r.classList.add('show');
+  if (ms.passed) {
+    r.className = 'quiz-result show pass';
+    r.textContent = 'Passed — ' + correctCount + ' of ' + questions.length + ' correct (' + score + '%). Module marked complete.';
+    document.getElementById('mc' + modIdx).classList.add('complete');
+    const status = document.querySelector('#mc' + modIdx + ' .mh-status');
+    status.className = 'mh-status done';
+    status.textContent = '✓ Passed';
+  } else {
+    r.className = 'quiz-result show fail';
+    r.textContent = correctCount + ' of ' + questions.length + ' correct (' + score + '%). Passing score is 70%. Review the chapters and try again.';
+  }
+  updateProgress();
+  renderFinalExam();
+}
+
+function updateProgress() {
+  const done = COURSES.filter((_, i) => (state.modules[i] || {}).passed).length;
+  const pct = Math.round((done / COURSES.length) * 100);
+  document.getElementById('modsDoneCount').textContent = done;
+  document.getElementById('overallPct').textContent = pct + '%';
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+function resetProgress() {
+  if (!confirm('Reset all course progress, including the final exam and certificate? This cannot be undone.')) return;
+  state = { modules: {}, finalPassed: false, finalScore: null, recipientName: '', certId: null, certDate: null, finalSelections: {} };
+  saveState();
+  renderModules();
+  updateProgress();
+  renderFinalExam();
+  document.getElementById('certSection').style.display = 'none';
+}
+
+function allModulesPassed() {
+  return COURSES.every((_, i) => (state.modules[i] || {}).passed);
+}
+
+function renderFinalExam() {
+  const slot = document.getElementById('finalExamSlot');
+  if (!allModulesPassed()) {
+    slot.innerHTML = '<div class="final-lock"><div class="lock-icon">&#128274;</div><div class="final-lock-text">Complete all 6 module quizzes to unlock the final exam.</div></div>';
+    document.getElementById('certSection').style.display = 'none';
+    return;
+  }
+  if (state.finalPassed) {
+    slot.innerHTML =
+      '<div class="quiz-result show pass" style="font-size:15px;padding:24px;">✓ Final exam passed — score: ' + state.finalScore + '%. Your G.A.I.N.S. certificate is issued below.</div>' +
+      '<button class="btn-ghost" onclick="retakeFinal()" style="margin-top:16px;">Retake Final Exam</button>';
+    renderCertificate();
+    return;
+  }
+  slot.innerHTML =
+    '<div class="quiz-block" style="border-color:var(--gold);">' +
+      '<div class="quiz-eyebrow">Final Examination · ' + FINAL_EXAM.length + ' Questions · 70% to pass</div>' +
+      '<div class="quiz-title">G.A.I.N.S. Certified Examination</div>' +
+      '<div class="quiz-sub">All six modules. One submission. Seventy percent passing score. Take your time — your certificate depends on it.</div>' +
+      '<div id="finalQuizBody">' +
+        FINAL_EXAM.map((qq, k) =>
+          '<div class="quiz-q">' +
+            '<div class="quiz-q-num">Question ' + (k+1) + ' of ' + FINAL_EXAM.length + '</div>' +
+            '<div class="quiz-q-text">' + qq.q + '</div>' +
+            qq.opts.map((opt, oi) =>
+              '<label class="quiz-opt" data-final="' + k + '" data-opt="' + oi + '" onclick="selectFinalOpt(' + k + ',' + oi + ')">' +
+                '<span class="opt-marker">' + String.fromCharCode(65+oi) + '</span>' +
+                '<span>' + opt + '</span>' +
+              '</label>'
+            ).join('') +
+          '</div>'
+        ).join('') +
+      '</div>' +
+      '<button class="btn-primary" onclick="submitFinal()">Submit Final Exam</button>' +
+      '<div class="quiz-result" id="finalResult"></div>' +
+    '</div>';
+  state.finalSelections = state.finalSelections || {};
+  // Restore prior selections visually
+  Object.keys(state.finalSelections).forEach(k => {
+    const optIdx = state.finalSelections[k];
+    const opts = document.querySelectorAll('.quiz-opt[data-final="' + k + '"]');
+    opts.forEach((el, idx) => { if (idx === optIdx) el.classList.add('selected'); });
+  });
+}
+
+function selectFinalOpt(qIdx, optIdx) {
+  state.finalSelections = state.finalSelections || {};
+  state.finalSelections[qIdx] = optIdx;
+  saveState();
+  const opts = document.querySelectorAll('.quiz-opt[data-final="' + qIdx + '"]');
+  opts.forEach((el, idx) => {
+    el.classList.remove('selected', 'correct', 'wrong');
+    if (idx === optIdx) el.classList.add('selected');
+  });
+}
+
+function submitFinal() {
+  const sel = state.finalSelections || {};
+  if (Object.keys(sel).length < FINAL_EXAM.length) {
+    const r = document.getElementById('finalResult');
+    r.className = 'quiz-result show fail';
+    r.textContent = 'Please answer all ' + FINAL_EXAM.length + ' questions before submitting.';
+    return;
+  }
+  let correctCount = 0;
+  FINAL_EXAM.forEach((qq, k) => {
+    const selected = sel[k];
+    const opts = document.querySelectorAll('.quiz-opt[data-final="' + k + '"]');
+    opts.forEach((el, idx) => {
+      el.classList.remove('selected', 'correct', 'wrong');
+      if (idx === qq.correct) el.classList.add('correct');
+      else if (idx === selected) el.classList.add('wrong');
+    });
+    if (selected === qq.correct) correctCount++;
+  });
+  const score = Math.round((correctCount / FINAL_EXAM.length) * 100);
+  state.finalScore = score;
+  state.finalPassed = score >= 70;
+  if (state.finalPassed) {
+    state.certId = generateCertId();
+    state.certDate = new Date().toISOString().slice(0,10);
+  }
+  saveState();
+  const r = document.getElementById('finalResult');
+  r.classList.add('show');
+  if (state.finalPassed) {
+    r.className = 'quiz-result show pass';
+    r.textContent = '✓ Passed — ' + correctCount + ' of ' + FINAL_EXAM.length + ' correct (' + score + '%). Certificate issued below.';
+    setTimeout(() => {
+      renderCertificate();
+      document.getElementById('certSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 600);
+  } else {
+    r.className = 'quiz-result show fail';
+    r.textContent = correctCount + ' of ' + FINAL_EXAM.length + ' correct (' + score + '%). Passing score is 70%. Review the modules and retake the exam.';
+  }
+}
+
+function retakeFinal() {
+  state.finalPassed = false;
+  state.finalScore = null;
+  state.finalSelections = {};
+  state.certId = null;
+  state.certDate = null;
+  saveState();
+  renderFinalExam();
+  document.getElementById('certSection').style.display = 'none';
+}
+
+function generateCertId() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  const seg = (n) => Array.from({length:n}, () => chars[Math.floor(Math.random()*chars.length)]).join('');
+  return 'CGI-' + seg(4) + '-' + seg(4);
+}
+
+function renderCertificate() {
+  document.getElementById('certSection').style.display = 'block';
+  document.getElementById('certId').textContent = state.certId || generateCertId();
+  document.getElementById('certDate').textContent = state.certDate ? formatDate(state.certDate) : formatDate(new Date().toISOString().slice(0,10));
+  const recipient = state.recipientName || '';
+  document.getElementById('recipientName').value = recipient;
+  document.getElementById('certRecipient').textContent = recipient || 'Your Name Here';
+}
+
+function formatDate(iso) {
+  const parts = iso.split('-');
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  return months[parseInt(parts[1],10)-1] + ' ' + parseInt(parts[2],10) + ', ' + parts[0];
+}
+
+function updateCertName() {
+  const name = document.getElementById('recipientName').value.trim();
+  state.recipientName = name;
+  saveState();
+  document.getElementById('certRecipient').textContent = name || 'Your Name Here';
+}
+
+renderModules();
+updateProgress();
+renderFinalExam();
+if (state.finalPassed) renderCertificate();
+</script>
+
+</body>
+</html>

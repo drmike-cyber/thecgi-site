@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Florida AI Workforce Grant Guide — Free Preview — CGI</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#06080F;--blue:#1F4E79;--blue-l:#D6E4F0;--blue-m:#2E75B6;
+  --gold:#C9A84C;--gold-d:#8A6A1A;--gold-l:#FBF5E6;
+  --teal:#00897B;--teal-l:#E8F5F3;
+  --green:#2E7D32;--green-l:#EBF5EC;
+  --white:#FAFAF8;--muted:#666;--border:#DDD;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--white);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:13px;line-height:1.65;-webkit-font-smoothing:antialiased}
+@media print{body{font-size:11px}@page{margin:.5in}}
+.page{max-width:860px;margin:0 auto;padding:40px 48px}
+.cover{background:var(--blue);color:white;padding:28px 32px;margin-bottom:0;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
+.cover-eye{font-family:'DM Mono';font-size:8px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.cover-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:white;line-height:1.05}
+.cover-title em{color:var(--gold);font-style:italic}
+.cover-sub{font-size:12px;color:rgba(255,255,255,0.75);margin-top:6px}
+.cover-logo{font-family:'DM Mono';font-size:9px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;line-height:1.9;text-align:right}
+.cover-logo strong{color:white;display:block;font-size:12px;letter-spacing:1px}
+.gold-band{background:var(--gold);padding:10px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.gb-text{font-family:'DM Mono';font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:700}
+.sec-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;margin-top:28px;padding-bottom:8px;border-bottom:2px solid var(--blue)}
+.sec-num{background:var(--blue);color:white;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Mono';font-size:9px;font-weight:700;flex-shrink:0}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--blue)}
+.sec-badge{margin-left:auto;padding:3px 10px;font-family:'DM Mono';font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;border-radius:2px;border:1px solid}
+.badge-fed{border-color:var(--blue);color:var(--blue);background:var(--blue-l)}
+.badge-fl{border-color:var(--teal);color:var(--teal);background:var(--teal-l)}
+.sub-h{font-family:'DM Sans';font-size:12px;font-weight:700;color:var(--blue);margin-top:16px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.sub-h::after{content:'';flex:1;height:1px;background:var(--border)}
+p{font-size:13px;color:var(--ink);line-height:1.7;margin-bottom:8px}
+p strong{color:var(--blue)}
+.data-table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:12px}
+.data-table th{background:var(--blue);color:white;padding:8px 12px;text-align:left;font-family:'DM Sans';font-size:11px;font-weight:600}
+.data-table td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6}
+.data-table tr:nth-child(even) td{background:var(--blue-l)}
+.td-label{font-weight:600;color:var(--blue);min-width:140px}
+.data-table .highlight td{background:var(--gold-l)!important;font-weight:600}
+.callout{padding:14px 16px;margin-bottom:14px;border-radius:2px;display:flex;gap:12px}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.callout-body{flex:1}
+.callout-title{font-family:'DM Sans';font-size:12px;font-weight:700;margin-bottom:4px}
+.callout-text{font-size:12px;line-height:1.7}
+.callout-text a{color:inherit;font-weight:600;text-decoration:underline}
+.c-blue{background:var(--blue-l);border:1px solid #B3CCE0;color:var(--blue)}
+.c-green{background:var(--green-l);border:1px solid #A5D6A7;color:var(--green)}
+.c-gold{background:var(--gold-l);border:1px solid #E8C96A;color:var(--gold-d)}
+.c-teal{background:var(--teal-l);border:1px solid #A5D6D0;color:var(--teal)}
+.math-box{background:var(--blue);color:white;padding:20px 24px;margin:16px 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.math-item{text-align:center}
+.math-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1}
+.math-label{font-family:'DM Mono';font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:4px}
+.math-note{font-size:10px;color:rgba(255,255,255,.6);margin-top:3px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+
+/* BLUR GATE */
+.blur-preview{position:relative;margin-top:28px}
+.blur-content{filter:blur(4px);pointer-events:none;user-select:none;opacity:0.6}
+.blur-overlay{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(250,250,248,0.85);z-index:10;padding:32px;text-align:center}
+.blur-icon{font-size:36px;margin-bottom:12px}
+.blur-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--blue);margin-bottom:8px}
+.blur-sub{font-size:13px;color:var(--muted);margin-bottom:20px;max-width:400px;line-height:1.7}
+.blur-sections{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:20px}
+.blur-tag{padding:4px 10px;background:var(--blue-l);border:1px solid #B3CCE0;color:var(--blue);font-family:'DM Mono';font-size:8px;letter-spacing:1.5px;text-transform:uppercase;border-radius:2px}
+.cta-box{background:var(--blue);padding:20px 28px;max-width:440px;width:100%}
+.cta-title{font-family:'DM Mono';font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.cta-main{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:white;margin-bottom:12px;line-height:1.2}
+.cta-form{display:flex;flex-direction:column;gap:8px}
+.cta-input{padding:10px 14px;font-family:'DM Sans';font-size:13px;border:none;background:rgba(255,255,255,0.1);color:white;width:100%;outline:none}
+.cta-input::placeholder{color:rgba(255,255,255,0.5)}
+.cta-btn{padding:12px 20px;background:var(--gold);color:var(--ink);font-family:'DM Sans';font-size:13px;font-weight:700;cursor:pointer;border:none;width:100%;letter-spacing:.5px;transition:background .2s}
+.cta-btn:hover{background:var(--gold-d);color:white}
+.cta-note{font-size:10px;color:rgba(255,255,255,.5);text-align:center;font-family:'DM Mono';letter-spacing:.5px}
+
+.disclaimer{background:#F5F5F5;border:1px solid var(--border);padding:12px 16px;margin-top:28px;font-size:11px;color:var(--muted);line-height:1.7}
+.footer{background:var(--blue);color:white;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:28px}
+.footer-brand{font-family:'DM Mono';font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.footer-brand strong{color:var(--gold)}
+.footer-contact{font-family:'DM Mono';font-size:8px;color:rgba(255,255,255,.7);text-align:right}
+.footer-contact strong{color:white}
+@media(max-width:700px){
+  .math-box,.two-col{grid-template-columns:1fr}
+  .page{padding:24px 20px}
+  .cover,.gold-band,.footer{padding-left:20px;padding-right:20px}
+}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-left">
+    <div class="cover-eye">● Free Preview · Florida AI Workforce Grant Guide</div>
+    <div class="cover-title">Your Company May Qualify<br>for <em>Up to $25,000</em></div>
+    <div class="cover-sub">Free preview — Sections 1 & 2 of 8. Get the complete guide at thecgi.org.</div>
+  </div>
+  <div class="cover-right">
+    <div class="cover-logo">
+      <strong>THE CAPITAL GAINS INSTITUTE</strong>
+      thecgi.org · grants@thecgi.org<br>
+      (813) 463-3401
+    </div>
+  </div>
+</div>
+<div class="gold-band">
+  <div class="gb-text">Free Preview — 2 of 8 Sections Shown · Full Guide Available at thecgi.org</div>
+  <div class="gb-text">Source: dol.gov · floridajobs.org · careersourcetampabay.com</div>
+</div>
+
+<div class="page">
+
+<div class="sec-header">
+  <div class="sec-num">1</div>
+  <div class="sec-title">What Is WIOA? — The Federal Law Behind the Funding</div>
+  <span class="sec-badge badge-fed">Federal Law</span>
+</div>
+
+<p>The <strong>Workforce Innovation and Opportunity Act (WIOA)</strong> is a federal law — Public Law 113-128 — that funds job training and workforce development programs across all 50 states. It has been the law of the land since 2014, administering billions of dollars annually. It is not a new program or temporary stimulus.</p>
+
+<div class="two-col">
+  <div class="callout c-blue">
+    <div class="callout-icon">📋</div>
+    <div class="callout-body">
+      <div class="callout-title">Federal Legislation</div>
+      <div class="callout-text">Public Law 113-128 · Signed July 22, 2014 · Administered by the U.S. Department of Labor Employment and Training Administration.<br><br><strong>Verify at:</strong> <a href="https://www.dol.gov/agencies/eta/wioa">dol.gov/agencies/eta/wioa</a></div>
+    </div>
+  </div>
+  <div class="callout c-blue">
+    <div class="callout-icon">💰</div>
+    <div class="callout-body">
+      <div class="callout-title">Two Funding Streams for You</div>
+      <div class="callout-text"><strong>Stream 1 — IWT:</strong> Your company pays for training, the state reimburses you up to $3,500 per employee.<br><br><strong>Stream 2 — ITA:</strong> Individual employees who qualify receive vouchers that pay the training provider directly — zero cost to you or your team.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-header">
+  <div class="sec-num">2</div>
+  <div class="sec-title">Stream 1 — Incumbent Worker Training (IWT) Grant</div>
+  <span class="sec-badge badge-fl">Florida Program</span>
+</div>
+
+<p>The <strong>Incumbent Worker Training (IWT) Program</strong> is administered by CareerSource Florida and funded under WIOA. It reimburses Florida businesses for the cost of upgrading their current employees' skills.</p>
+
+<div class="callout c-teal">
+  <div class="callout-icon">🏛️</div>
+  <div class="callout-body">
+    <div class="callout-title">Official Source — CareerSource Florida</div>
+    <div class="callout-text">The IWT program provides reimbursement grants to businesses that pay for pre-approved, direct, training-related costs. From 2023–2024, CareerSource Florida awarded $2.9 million in IWT grants to 69 businesses, benefiting over 2,700 full-time employees. Since inception, more than 3,100 Florida companies have utilized IWT grants.<br><br>
+    <strong>Official page:</strong> <a href="https://careersourceflorida.com/employers/incumbent-worker-training/">careersourceflorida.com/employers/incumbent-worker-training</a></div>
+  </div>
+</div>
+
+<div class="math-box">
+  <div class="math-item">
+    <div class="math-num">$3,500</div>
+    <div class="math-label">Per Employee</div>
+    <div class="math-note">Max reimbursement per enrolled employee</div>
+  </div>
+  <div class="math-item">
+    <div class="math-num">$25,000</div>
+    <div class="math-label">Per Company</div>
+    <div class="math-note">Max reimbursement per company per grant cycle</div>
+  </div>
+  <div class="math-item">
+    <div class="math-num">50–75%</div>
+    <div class="math-label">Reimbursement Rate</div>
+    <div class="math-note">Small business priority for 75% rate</div>
+  </div>
+</div>
+
+<div class="sub-h">Quick Grant Math for Your Team Size</div>
+<table class="data-table">
+  <thead><tr><th>Employees Enrolled</th><th>CGI Cert Cost (Online)</th><th>Estimated IWT Reimbursement</th><th>Estimated Net Cost</th></tr></thead>
+  <tbody>
+    <tr><td><strong>3 employees</strong></td><td>$177</td><td>Up to $10,500</td><td style="color:#2E7D32;font-weight:600">$0 — grant exceeds cost</td></tr>
+    <tr><td><strong>5 employees</strong></td><td>$295</td><td>Up to $17,500</td><td style="color:#2E7D32;font-weight:600">$0 — grant exceeds cost</td></tr>
+    <tr><td><strong>7 employees</strong></td><td>$413</td><td>Up to $24,500</td><td style="color:#2E7D32;font-weight:600">$0 — grant exceeds cost</td></tr>
+    <tr class="highlight"><td><strong>8+ employees</strong></td><td>$472+</td><td><strong>$25,000 (maximum)</strong></td><td style="color:#2E7D32;font-weight:600"><strong>$0 or net positive</strong></td></tr>
+  </tbody>
+</table>
+
+<!-- BLUR GATE -->
+<div class="blur-preview">
+  <div class="blur-content">
+    <div class="sec-header">
+      <div class="sec-num">3</div>
+      <div class="sec-title">Stream 2 — Individual Training Accounts (ITA)</div>
+    </div>
+    <p>In addition to the employer reimbursement pathway, individual employees CareerSource determines eligible may qualify for WIOA Individual Training Account vouchers, which pay the training provider directly and may reduce or eliminate out-of-pocket cost. Eligibility is determined by CareerSource and is not guaranteed. CareerSource Tampa Bay administers ITA vouchers for residents of Hillsborough and Pinellas Counties. The official eligibility requirements page lists all qualifying criteria including residency age citizenship and income thresholds.</p>
+    <div class="sec-header">
+      <div class="sec-num">4</div>
+      <div class="sec-title">The ETPL Approval Process</div>
+    </div>
+    <p>The Eligible Training Provider List is the official state approved list of training institutions authorized to receive WIOA funding. All institutions must be licensed by the Florida Commission for Independent Education before applying. CGI's application is filed and under review. The three-step process takes providers from CIE licensure through state ETPL registration to local CareerSource approval.</p>
+    <div class="sec-header">
+      <div class="sec-num">5</div>
+      <div class="sec-title">Complete Grant Math Table</div>
+    </div>
+    <p>Team sizes from 3 to 25 employees with exact cost versus reimbursement calculations for both online and live cohort delivery formats including estimated net cost after grant reimbursement and comparison to the WIOA maximum cap of twenty-five thousand dollars per company.</p>
+    <div class="sec-header">
+      <div class="sec-num">6</div>
+      <div class="sec-title">12 Official Government Sources</div>
+    </div>
+    <p>Every government link you need to verify everything independently including federal DOL links Florida Department of Commerce links CareerSource Florida links CareerSource Tampa Bay links Florida Commission for Independent Education contact information and the Employ Florida ETPL portal.</p>
+  </div>
+
+  <div class="blur-overlay">
+    <div class="blur-icon">🔒</div>
+    <div class="blur-title">6 More Sections in the Complete Guide</div>
+    <div class="blur-sub">Get the full 8-section guide — free — including all government links, the complete grant math table, the ETPL approval process, and exactly how CGI navigates every step for you.</div>
+    <div class="blur-sections">
+      <span class="blur-tag">Section 3 — ITA Vouchers</span>
+      <span class="blur-tag">Section 4 — ETPL Process</span>
+      <span class="blur-tag">Section 5 — Full Grant Math</span>
+      <span class="blur-tag">Section 6 — 12 Gov Links</span>
+      <span class="blur-tag">Section 7 — CGI Services</span>
+      <span class="blur-tag">Section 8 — Next Steps</span>
+    </div>
+    <div class="cta-box">
+      <div class="cta-title">Get the Complete Guide — Free</div>
+      <div class="cta-main">Enter your email and we send it instantly</div>
+      <div class="cta-form">
+        <input class="cta-input" type="email" id="emailInput" placeholder="Your email address" />
+        <button class="cta-btn" onclick="sendRequest()">Send Me the Complete Guide →</button>
+        <div class="cta-note">No spam. No obligation. Just the guide.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> All information sourced from official U.S. Department of Labor, Florida Department of Commerce, CareerSource Florida, and CareerSource Tampa Bay publications as of May 2026. Grant eligibility and reimbursement amounts are determined exclusively by the administering government agency — not by CGI. CGI is not a government agency and is not affiliated with any government entity listed herein. Always verify current program requirements directly with the administering agency.
+</div>
+
+</div>
+<div class="footer">
+  <div class="footer-brand"><strong>THE CAPITAL GAINS INSTITUTE</strong> · My Jet LLC DBA · thecgi.org</div>
+  <div class="footer-contact"><strong>(813) 463-3401</strong> · grants@thecgi.org · Free Preview Edition · May 2026</div>
+</div>
+
+<script>
+function sendRequest() {
+  const email = document.getElementById('emailInput').value;
+  if (!email || !email.includes('@')) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+  const subject = encodeURIComponent('Grant Guide Request — Complete 8-Section Guide');
+  const body = encodeURIComponent(
+    'Please send me the complete Florida AI Workforce Grant Guide (all 8 sections).\n\n' +
+    'My email: ' + email + '\n\n' +
+    'I found this on thecgi.org'
+  );
+  window.location.href = 'mailto:grants@thecgi.org?subject=' + subject + '&body=' + body;
+}
+document.getElementById('emailInput').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') sendRequest();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,2675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Capital Gains Institute | C.G.I. — AI Workforce Transformation</title>
+<meta name="description" content="The Capital Gains Institute — America's premier AI workforce training and certification platform. Grant-funded, with CertNexus AGZ-110 exam preparation; state ETPL application in progress.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&family=DM+Mono:wght@400;500&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --ink:        #06080F;
+  --ink2:       #0C1120;
+  --ink3:       #111827;
+  --navy:       #0A1628;
+  --slate:      #1C2E48;
+  --gold:       #C9A84C;
+  --gold-l:     #E8C96A;
+  --gold-d:     #8A6A1A;
+  --gold-soft:  rgba(201,168,76,0.14);
+  --gold-glow:  rgba(201,168,76,0.22);
+  --teal:       #00D4B8;
+  --teal-soft:  rgba(0,212,184,0.10);
+  --green:      #4ade80;
+  --green-soft: rgba(74,222,128,0.12);
+  --red:        #f87171;
+  --white:      #F5F2EC;
+  --off:        #E8E2D6;
+  --muted:      #8A94A6;
+  --dim:        rgba(255,255,255,0.07);
+  --dim2:       rgba(255,255,255,0.04);
+  --border:     rgba(201,168,76,0.18);
+  --border2:    rgba(255,255,255,0.09);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden; /* gate mode */
+}
+body.unlocked { overflow: auto; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+a { color: inherit; text-decoration: none; }
+
+/* ═══════════════ GATE ═══════════════ */
+#gate {
+  position: fixed; inset: 0; z-index: 9000;
+  background: var(--ink);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 24px;
+  transition: opacity .55s ease, transform .55s ease;
+}
+#gate.exit { opacity: 0; transform: translateY(-20px); pointer-events: none; }
+
+.gate-seal {
+  position: absolute; top: 28px; left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.seal-label {
+  font-family: 'Bebas Neue'; font-size: 11px;
+  letter-spacing: 6px; color: rgba(201,168,76,0.5);
+}
+
+.gate-eagle {
+  position: absolute; top: 20px; left: 32px;
+  width: 52px; height: 52px;
+  opacity: 0.7;
+}
+
+.pulse-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green); box-shadow: 0 0 8px var(--green);
+  animation: blink 2.4s ease-in-out infinite;
+  display: inline-block; margin-right: 8px;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.1} }
+
+.gate-card {
+  width: 100%; max-width: 420px;
+  background: var(--ink2);
+  border: 1px solid var(--border);
+  padding: 52px 44px 44px;
+  position: relative;
+  animation: riseIn .7s cubic-bezier(.22,1,.36,1) .1s both;
+}
+@keyframes riseIn { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
+
+/* corner ornaments */
+.gate-card::before { content:''; position:absolute; top:10px; left:10px; width:16px; height:16px; border-top:1px solid rgba(201,168,76,.35); border-left:1px solid rgba(201,168,76,.35); }
+.gate-card::after  { content:''; position:absolute; top:10px; right:10px; width:16px; height:16px; border-top:1px solid rgba(201,168,76,.35); border-right:1px solid rgba(201,168,76,.35); }
+.gate-bl { position:absolute; bottom:10px; left:10px; width:16px; height:16px; border-bottom:1px solid rgba(201,168,76,.35); border-left:1px solid rgba(201,168,76,.35); }
+.gate-br { position:absolute; bottom:10px; right:10px; width:16px; height:16px; border-bottom:1px solid rgba(201,168,76,.35); border-right:1px solid rgba(201,168,76,.35); }
+
+.gate-eyebrow {
+  font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+  color: rgba(201,168,76,.55); font-family: 'DM Mono'; text-align: center;
+  margin-bottom: 16px;
+}
+.gate-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 5vw, 40px); font-weight: 700;
+  text-align: center; line-height: 1.05;
+  margin-bottom: 6px; color: var(--white);
+}
+.gate-sub {
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: rgba(201,168,76,.55); text-align: center;
+  margin-bottom: 32px; font-family: 'DM Mono';
+  line-height: 1.7;
+}
+.gate-rule { height: 1px; background: var(--border); margin-bottom: 28px; }
+
+.gate-error {
+  font-size: 13px; color: var(--red); text-align: center;
+  margin-bottom: 12px; min-height: 18px; font-family: 'DM Mono';
+}
+
+.gate-field { margin-bottom: 14px; }
+.gate-input {
+  width: 100%; background: var(--ink3);
+  border: 1px solid var(--border2);
+  padding: 13px 16px;
+  color: var(--white); font-family: 'DM Sans'; font-size: 15px;
+  outline: none; transition: border-color .25s;
+}
+.gate-input:focus { border-color: var(--gold); }
+.gate-input::placeholder { color: var(--muted); }
+
+.btn-enter {
+  width: 100%; margin-top: 8px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-d));
+  color: var(--ink); padding: 15px;
+  font-family: 'DM Sans'; font-size: 14px; font-weight: 800;
+  letter-spacing: 2px; text-transform: uppercase;
+  transition: all .3s;
+  box-shadow: 0 8px 32px rgba(201,168,76,.25);
+}
+.btn-enter:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(201,168,76,.35); }
+
+.gate-badges {
+  display: flex; flex-direction: column; gap: 8px;
+  margin-top: 24px;
+}
+.gate-badge-row {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; color: rgba(255,255,255,.45);
+}
+.gdot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); box-shadow: 0 0 5px var(--green); flex-shrink: 0; }
+.gate-badge-row strong { color: rgba(255,255,255,.75); }
+
+.gate-demo {
+  margin-top: 20px; text-align: center;
+  font-size: 11px; color: var(--muted); letter-spacing: 1px;
+}
+.gate-demo a { color: var(--gold); cursor: pointer; }
+
+.gate-enroll {
+  margin: -2px 0 16px; text-align: center;
+  font-size: 12px; color: var(--gold); letter-spacing: .3px;
+}
+.gate-enroll a { color: var(--gold); text-decoration: underline; cursor: pointer; }
+
+/* ═══════════════ PLATFORM SHELL ═══════════════ */
+#platform { display: none; }
+body.unlocked #platform { display: block; }
+
+/* ── TOP NAV ── */
+.top-nav {
+  position: sticky; top: 0; z-index: 500;
+  background: rgba(6,8,15,0.92);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  height: 64px;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 14px;
+}
+.nav-brand .eagle-sm { width: 36px; height: 36px; opacity: .8; }
+.nav-brand-text .top { font-family: 'Bebas Neue'; font-size: 18px; letter-spacing: 3px; color: var(--gold); display: block; line-height: 1; }
+.nav-brand-text .sub { font-size: 9px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; font-family: 'DM Mono'; }
+
+.nav-tabs {
+  display: flex; gap: 4px;
+}
+.nav-tab {
+  padding: 7px 18px; font-size: 12px; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--muted); border-radius: 2px;
+  transition: all .25s; position: relative;
+}
+.nav-tab:hover { color: var(--white); }
+.nav-tab.active { color: var(--gold); }
+.nav-tab.active::after {
+  content: ''; position: absolute; bottom: -1px; left: 0; right: 0;
+  height: 2px; background: var(--gold);
+}
+
+.nav-right { display: flex; align-items: center; gap: 16px; }
+.nav-user {
+  font-size: 12px; color: var(--muted); font-family: 'DM Mono';
+  letter-spacing: 1px;
+}
+.btn-logout {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--muted); padding: 6px 14px;
+  border: 1px solid var(--border2); transition: all .25s;
+}
+.btn-logout:hover { border-color: var(--border); color: var(--white); }
+
+/* mobile nav */
+.burger { display: none; flex-direction: column; gap: 5px; padding: 8px; }
+.burger span { display: block; width: 22px; height: 1.5px; background: var(--muted); }
+
+/* ── STATUS BAR ── */
+.status-bar {
+  background: rgba(0,212,184,0.06);
+  border-bottom: 1px solid rgba(0,212,184,0.15);
+  padding: 9px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 11px; font-family: 'DM Mono'; letter-spacing: 1.5px;
+  flex-wrap: wrap; gap: 8px;
+}
+.sb-left { display: flex; align-items: center; gap: 20px; color: rgba(0,212,184,.7); }
+.sb-item { display: flex; align-items: center; gap: 7px; }
+.sb-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); box-shadow: 0 0 5px var(--green); }
+.sb-right { color: var(--muted); }
+
+/* ── PAGES ── */
+.page { display: none; }
+.page.active { display: block; animation: pgIn .4s ease both; }
+@keyframes pgIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 64px 40px; }
+.container-sm { max-width: 800px; margin: 0 auto; padding: 64px 40px; }
+
+/* ── TYPOGRAPHY ── */
+.eyebrow {
+  font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--teal); font-family: 'DM Mono'; font-weight: 500;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.eyebrow::before { content: ''; display: block; width: 18px; height: 1px; background: var(--teal); }
+
+h1.serif-xl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 5.5vw, 72px); font-weight: 700;
+  line-height: 1.0; color: var(--white); margin-bottom: 16px;
+}
+h1.serif-xl em { color: var(--gold); font-style: italic; display: block; }
+
+h2.serif-lg {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 4vw, 48px); font-weight: 600;
+  line-height: 1.1; color: var(--white); margin-bottom: 16px;
+}
+h2.serif-lg span { color: var(--gold); font-style: italic; }
+
+h3.serif-md {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; font-weight: 600; color: var(--white);
+}
+
+.body-lg { font-size: 17px; color: var(--muted); line-height: 1.85; font-weight: 300; }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-d));
+  color: var(--ink); padding: 14px 32px;
+  font-family: 'DM Sans'; font-size: 13px; font-weight: 800;
+  letter-spacing: 2px; text-transform: uppercase;
+  transition: all .3s; border-radius: 2px;
+  box-shadow: 0 6px 24px rgba(201,168,76,.25);
+  display: inline-block;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(201,168,76,.4); }
+
+.btn-secondary {
+  background: transparent; color: var(--white);
+  padding: 14px 32px; border: 1px solid var(--border);
+  font-family: 'DM Sans'; font-size: 13px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  transition: all .3s; border-radius: 2px; display: inline-block;
+}
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+.btn-teal {
+  background: rgba(0,212,184,.12); color: var(--teal);
+  border: 1px solid rgba(0,212,184,.3);
+  padding: 12px 28px;
+  font-family: 'DM Sans'; font-size: 13px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  transition: all .3s; border-radius: 2px; display: inline-block;
+}
+.btn-teal:hover { background: rgba(0,212,184,.2); }
+
+/* ═══════════════ HOME PAGE ═══════════════ */
+.hero-band {
+  min-height: 92vh;
+  display: grid; grid-template-columns: 1fr 420px;
+  align-items: center; gap: 60px;
+  padding: 80px 40px 60px;
+  max-width: 1200px; margin: 0 auto;
+  position: relative;
+}
+
+.hero-grid-bg {
+  position: fixed; inset: 0; z-index: -1;
+  background-image:
+    linear-gradient(rgba(201,168,76,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  animation: gridDrift 30s linear infinite;
+}
+@keyframes gridDrift { from{background-position:0 0} to{background-position:64px 64px} }
+
+.hero-left { animation: fadeUp .9s ease both; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:none} }
+
+.hero-mono {
+  font-family: 'DM Mono'; font-size: 10px; letter-spacing: 4px;
+  color: var(--teal); text-transform: uppercase; margin-bottom: 20px;
+}
+
+.hero-desc {
+  font-size: 18px; color: var(--off); line-height: 1.85;
+  font-weight: 300; max-width: 560px; margin-bottom: 40px;
+}
+
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+
+.hero-stats {
+  display: flex; gap: 0;
+  border: 1px solid var(--border);
+}
+.hstat {
+  flex: 1; padding: 18px 20px;
+  border-right: 1px solid var(--border);
+  background: var(--ink2);
+}
+.hstat:last-child { border-right: none; }
+.hstat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 700; color: var(--gold); line-height: 1;
+}
+.hstat-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-top: 4px; font-family: 'DM Mono'; }
+
+/* hero photo */
+.hero-right { animation: fadeUp .9s .2s ease both; position: relative; }
+.hero-photo-frame {
+  position: relative;
+}
+.hero-photo-frame::before {
+  content: ''; position: absolute;
+  top: -14px; left: -14px; right: 14px; bottom: 14px;
+  border: 1px solid rgba(201,168,76,.25);
+}
+.hero-photo-frame img {
+  width: 100%; border-radius: 2px;
+  filter: saturate(.85) brightness(.92);
+  display: block;
+}
+.hero-photo-frame::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, var(--ink) 0%, transparent 40%);
+}
+.photo-caption {
+  position: absolute; bottom: 20px; left: 20px; z-index: 2;
+}
+.photo-caption .name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 700; color: var(--white); line-height: 1;
+}
+.photo-caption .ptitle {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-top: 4px; font-family: 'DM Mono';
+}
+.certified-badge {
+  position: absolute; top: -16px; right: -16px; z-index: 3;
+  background: var(--gold); color: var(--ink);
+  padding: 10px 16px;
+  font-size: 10px; font-weight: 800; letter-spacing: 2px;
+  text-transform: uppercase; font-family: 'DM Mono';
+}
+
+/* quick cards */
+.quick-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 48px; }
+.quick-card {
+  background: var(--ink2); border: 1px solid var(--border);
+  padding: 28px 24px; cursor: pointer;
+  transition: all .3s;
+  position: relative; overflow: hidden;
+}
+.quick-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(201,168,76,.04), transparent);
+  opacity: 0; transition: opacity .3s;
+}
+.quick-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+.quick-card:hover::before { opacity: 1; }
+.qc-icon { font-size: 26px; margin-bottom: 14px; }
+.qc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 600; color: var(--white);
+  margin-bottom: 8px;
+}
+.qc-sub { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.qc-arrow { font-size: 18px; color: var(--gold); margin-top: 14px; }
+
+/* ═══════════════ DOCTRINE ═══════════════ */
+.doctrine-chapters { display: flex; flex-direction: column; gap: 2px; margin-bottom: 48px; }
+.d-chapter {
+  background: var(--ink2); border: 1px solid var(--border);
+  padding: 32px 36px; transition: border-color .25s;
+  display: flex; gap: 28px; align-items: flex-start;
+}
+.d-chapter:hover { border-color: rgba(201,168,76,.4); }
+.d-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px; font-weight: 700;
+  color: rgba(201,168,76,.15); line-height: 1; flex-shrink: 0; width: 52px;
+}
+.d-chapter h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 600; color: var(--gold);
+  margin-bottom: 10px;
+}
+.d-chapter p { font-size: 15px; color: var(--muted); line-height: 1.8; }
+
+/* ═══════════════ COURSES ═══════════════ */
+.courses-intro { max-width: 640px; margin-bottom: 48px; }
+
+.course-track {
+  display: flex; flex-direction: column; gap: 2px;
+  margin-bottom: 48px;
+}
+.course-card {
+  background: var(--ink2); border: 1px solid var(--border);
+  overflow: hidden; transition: border-color .25s; cursor: pointer;
+}
+.course-card:hover { border-color: rgba(201,168,76,.4); }
+.course-card.open { border-color: var(--gold); }
+
+.course-header {
+  display: flex; align-items: center; gap: 20px; padding: 24px 28px;
+}
+.cc-num {
+  font-family: 'Bebas Neue'; font-size: 42px;
+  color: rgba(201,168,76,.12); line-height: 1; flex-shrink: 0; width: 50px;
+}
+.cc-meta { flex: 1; }
+.cc-tag {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--teal); font-family: 'DM Mono'; margin-bottom: 6px;
+}
+.cc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 600; color: var(--white);
+}
+.cc-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.cc-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+.cc-badge {
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 2px; font-weight: 700; font-family: 'DM Mono';
+}
+.badge-inter { background: rgba(201,168,76,.1); border: 1px solid var(--border); color: var(--gold); }
+.badge-found { background: var(--teal-soft); border: 1px solid rgba(0,212,184,.25); color: var(--teal); }
+.cc-arrow { color: var(--gold); font-size: 14px; transition: transform .3s; }
+.course-card.open .cc-arrow { transform: rotate(180deg); }
+
+.course-detail {
+  max-height: 0; overflow: hidden;
+  transition: max-height .45s cubic-bezier(.4,0,.2,1);
+  border-top: 0 solid var(--border);
+}
+.course-card.open .course-detail {
+  max-height: 1200px;
+  border-top: 1px solid var(--border);
+}
+.course-detail-inner { padding: 28px; display: flex; flex-direction: column; gap: 2px; }
+
+.chapter-row {
+  display: flex; gap: 20px;
+  background: var(--ink3); padding: 20px 24px;
+  border: 1px solid var(--border2); transition: border-color .25s;
+}
+.chapter-row:hover { border-color: rgba(201,168,76,.2); }
+.ch-num {
+  font-family: 'DM Mono'; font-size: 12px; color: var(--gold);
+  flex-shrink: 0; margin-top: 2px;
+}
+.ch-title {
+  font-size: 14px; font-weight: 600; color: var(--off);
+  margin-bottom: 6px;
+}
+.ch-body { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+.btn-enroll-course {
+  align-self: flex-start; margin-top: 12px;
+  background: rgba(201,168,76,.1); color: var(--gold);
+  border: 1px solid var(--border);
+  padding: 12px 24px; font-family: 'DM Sans';
+  font-size: 12px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; transition: all .25s;
+}
+.btn-enroll-course:hover { background: rgba(201,168,76,.18); border-color: var(--gold); }
+
+/* agentic course card (CertNexus) */
+.agentic-card {
+  background: linear-gradient(135deg, var(--ink2), rgba(0,212,184,.03));
+  border: 1px solid rgba(0,212,184,.3);
+  padding: 32px 36px; margin-top: 32px;
+}
+.agentic-card-header {
+  display: flex; align-items: center; gap: 20px; margin-bottom: 20px;
+}
+.agentic-seal {
+  width: 64px; height: 64px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-d));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue'; font-size: 14px;
+  letter-spacing: 2px; color: var(--ink); flex-shrink: 0;
+  text-align: center; line-height: 1.2;
+}
+.lesson-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 20px; }
+.lesson-item {
+  background: var(--ink3); border: 1px solid var(--border2);
+  padding: 16px; transition: border-color .25s;
+}
+.lesson-item:hover { border-color: rgba(0,212,184,.25); }
+.l-num { font-family: 'DM Mono'; font-size: 10px; color: var(--teal); margin-bottom: 6px; }
+.l-title { font-size: 13px; font-weight: 600; color: var(--off); margin-bottom: 4px; }
+.l-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+/* ═══════════════ AUDIT ═══════════════ */
+.audit-wrap { max-width: 700px; margin: 0 auto; }
+
+.progress-bar-wrap { margin-bottom: 32px; }
+.prog-meta {
+  display: flex; justify-content: space-between;
+  font-family: 'DM Mono'; font-size: 11px; color: var(--muted);
+  margin-bottom: 10px; letter-spacing: 1px;
+}
+.prog-track {
+  height: 3px; background: var(--ink3);
+  position: relative; overflow: hidden;
+}
+.prog-fill {
+  height: 100%; background: var(--gold);
+  transition: width .4s ease;
+  box-shadow: 0 0 8px rgba(201,168,76,.5);
+}
+
+.q-badge {
+  display: inline-block; padding: 4px 14px;
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; font-family: 'DM Mono';
+  border-radius: 2px; margin-bottom: 20px;
+}
+.q-badge.op { background: rgba(201,168,76,.1); border: 1px solid var(--border); color: var(--gold); }
+.q-badge.know { background: var(--teal-soft); border: 1px solid rgba(0,212,184,.25); color: var(--teal); }
+
+.q-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px,3vw,28px); font-weight: 600;
+  color: var(--white); line-height: 1.3; margin-bottom: 32px;
+}
+
+.yn-row { display: flex; gap: 12px; margin-bottom: 20px; }
+.btn-yn {
+  flex: 1; padding: 16px;
+  background: var(--ink2); border: 1px solid var(--border2);
+  font-family: 'DM Sans'; font-size: 14px; font-weight: 600;
+  color: var(--muted); transition: all .25s;
+}
+.btn-yn:hover { border-color: var(--gold); color: var(--white); }
+.btn-yn.yes-s { background: var(--green-soft); border-color: rgba(74,222,128,.4); color: var(--green); }
+.btn-yn.no-s  { background: rgba(248,113,113,.1); border-color: rgba(248,113,113,.35); color: var(--red); }
+
+.mcq-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.btn-mcq {
+  width: 100%; padding: 15px 18px; text-align: left;
+  background: var(--ink2); border: 1px solid var(--border2);
+  font-family: 'DM Sans'; font-size: 14px; color: var(--off);
+  transition: all .25s;
+}
+.btn-mcq:hover:not(:disabled) { border-color: var(--gold); }
+.btn-mcq.correct { background: var(--green-soft); border-color: rgba(74,222,128,.4); color: var(--green); }
+.btn-mcq.wrong   { background: rgba(248,113,113,.1); border-color: rgba(248,113,113,.3); color: var(--red); }
+
+.fb-box {
+  padding: 16px 18px;
+  font-size: 14px; line-height: 1.7; border-radius: 2px;
+  margin-bottom: 20px; display: none;
+}
+.fb-box.show { display: block; }
+.fb-box.correct { background: var(--green-soft); border: 1px solid rgba(74,222,128,.25); color: rgba(74,222,128,.9); }
+.fb-box.wrong { background: rgba(248,113,113,.08); border: 1px solid rgba(248,113,113,.2); color: rgba(248,113,113,.85); }
+
+.audit-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+.btn-back-q {
+  font-family: 'DM Mono'; font-size: 12px; letter-spacing: 1px;
+  color: var(--muted); padding: 10px 0; transition: color .25s;
+}
+.btn-back-q:hover { color: var(--white); }
+.btn-nxt {
+  background: var(--ink3); border: 1px solid var(--border2);
+  color: var(--muted); padding: 12px 28px;
+  font-family: 'DM Sans'; font-size: 13px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; transition: all .3s;
+}
+.btn-nxt.on {
+  background: linear-gradient(135deg, var(--gold), var(--gold-d));
+  border-color: var(--gold); color: var(--ink);
+}
+
+/* results */
+.results-card {
+  background: var(--ink2); border: 1px solid var(--border);
+  padding: 48px; text-align: center;
+}
+.score-ring {
+  width: 100px; height: 100px; border-radius: 50%;
+  border: 2px solid var(--gold);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  margin: 0 auto 24px;
+  box-shadow: 0 0 40px rgba(201,168,76,.2);
+}
+.score-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px; font-weight: 700; color: var(--gold); line-height: 1;
+}
+.score-of { font-family: 'DM Mono'; font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+.cost-strip {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--ink3); border: 1px solid var(--border2);
+  padding: 20px 24px; margin: 24px 0;
+}
+.cost-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px; font-weight: 700; color: var(--red);
+}
+.grant-amt {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 700; color: var(--green);
+}
+.cost-note { font-size: 11px; color: var(--muted); margin-top: 3px; font-family: 'DM Mono'; }
+.grant-lbl { font-size: 11px; color: var(--muted); margin-top: 3px; text-align: right; font-family: 'DM Mono'; }
+
+.leak-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; text-align: left; }
+.leak-row { display: flex; gap: 14px; align-items: flex-start; padding: 14px 16px; background: var(--ink3); border: 1px solid var(--border2); }
+.l-icon { font-size: 14px; margin-top: 1px; flex-shrink: 0; }
+.l-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.l-fix { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ═══════════════ CERTIFICATION ═══════════════ */
+.cert-layout { display: grid; grid-template-columns: 340px 1fr; gap: 56px; align-items: start; }
+
+.cert-badge {
+  background: var(--ink2); border: 1px solid var(--gold);
+  padding: 48px 36px; text-align: center;
+  position: relative; overflow: hidden;
+  box-shadow: 0 0 60px rgba(201,168,76,.1);
+}
+.cert-badge::before {
+  content: ''; position: absolute; top: -60px; left: -60px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(201,168,76,.08), transparent 70%);
+}
+.cb-seal {
+  width: 80px; height: 80px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-d));
+  border-radius: 50%; margin: 0 auto 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px; box-shadow: 0 0 40px rgba(201,168,76,.3);
+}
+.cb-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 700; color: var(--white);
+  line-height: 1.2; margin-bottom: 6px;
+}
+.cb-inst { font-family: 'DM Mono'; font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+.cb-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px; font-weight: 700; color: var(--white); margin-bottom: 4px;
+}
+.cb-note { font-size: 12px; color: var(--muted); margin-bottom: 24px; }
+
+.cert-bullets { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.cert-bullets li {
+  display: flex; gap: 12px; font-size: 15px; color: var(--muted); line-height: 1.6;
+  padding-bottom: 14px; border-bottom: 1px solid var(--border2);
+}
+.cert-bullets li:last-child { border-bottom: none; }
+.cert-bullets li .check {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: rgba(0,212,184,.08); border: 1px solid rgba(0,212,184,.25);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--teal); font-size: 11px; flex-shrink: 0; margin-top: 1px;
+}
+
+.steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin: 36px 0; }
+.step-card {
+  background: var(--ink2); border: 1px solid var(--border);
+  padding: 24px 20px; transition: border-color .25s;
+}
+.step-card:hover { border-color: var(--gold); }
+.s-num {
+  font-family: 'Bebas Neue'; font-size: 40px; color: rgba(201,168,76,.15);
+  line-height: 1; margin-bottom: 12px;
+}
+.s-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+.s-text { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* ═══════════════ GRANTS ═══════════════ */
+.grant-hero {
+  background: linear-gradient(135deg, rgba(74,222,128,.04), rgba(201,168,76,.04));
+  border: 1px solid rgba(74,222,128,.15);
+  padding: 32px 36px; margin-bottom: 36px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;
+}
+.grant-hero-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px; font-weight: 700; color: var(--green); line-height: 1;
+}
+.grant-hero-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+.g-table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+.g-table th {
+  text-align: left; padding: 11px 16px;
+  font-family: 'DM Mono'; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--muted); border-bottom: 1px solid var(--border2);
+}
+.g-table td {
+  padding: 14px 16px; font-size: 14px; color: var(--off);
+  border-bottom: 1px solid var(--dim); vertical-align: middle;
+}
+.g-table tr:hover td { background: var(--dim2); }
+
+.tag { padding: 3px 10px; border-radius: 2px; font-size: 10px; font-weight: 700; letter-spacing: 1px; font-family: 'DM Mono'; }
+.tag-g { background: var(--green-soft); border: 1px solid rgba(74,222,128,.3); color: var(--green); }
+.tag-y { background: rgba(250,204,21,.1); border: 1px solid rgba(250,204,21,.25); color: #facc15; }
+.tag-b { background: var(--teal-soft); border: 1px solid rgba(0,212,184,.2); color: var(--teal); }
+
+.registrar-block {
+  background: var(--ink2); border: 1px solid var(--border2);
+  padding: 24px 28px; margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+}
+.process-box {
+  background: var(--ink2); border: 1px solid var(--border);
+  padding: 28px 32px; margin-bottom: 28px;
+}
+.proc-step {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 12px 0; border-bottom: 1px solid var(--dim);
+}
+.proc-step:last-child { border-bottom: none; }
+.proc-n {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(201,168,76,.12); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Mono'; font-size: 12px; color: var(--gold);
+  flex-shrink: 0;
+}
+.proc-t { font-size: 14px; color: var(--off); line-height: 1.65; }
+.proc-t strong { color: var(--white); }
+
+/* ETPL state tracker */
+.etpl-status {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 32px;
+}
+.etpl-card {
+  background: var(--ink2); border: 1px solid var(--border2); padding: 20px;
+  transition: border-color .25s;
+}
+.etpl-card.approved { border-color: rgba(74,222,128,.3); }
+.etpl-card.pending  { border-color: rgba(250,204,21,.25); }
+.etpl-state { font-family: 'Bebas Neue'; font-size: 20px; letter-spacing: 2px; color: var(--white); margin-bottom: 6px; }
+.etpl-prog { font-size: 11px; color: var(--muted); margin-bottom: 10px; font-family: 'DM Mono'; }
+.etpl-status-tag { font-size: 10px; }
+
+/* ═══════════════ FRACTIONAL CAIO ═══════════════ */
+.caio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 40px; }
+.caio-card {
+  background: var(--ink2); border: 1px solid var(--border);
+  padding: 32px 28px; transition: all .3s;
+}
+.caio-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+.caio-icon { font-size: 28px; margin-bottom: 16px; }
+.caio-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 10px;
+}
+.caio-desc { font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+.pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 36px; }
+.pricing-card {
+  background: var(--ink2); border: 1px solid var(--border);
+  padding: 36px 28px; text-align: center; transition: all .3s;
+}
+.pricing-card:hover { border-color: var(--gold); }
+.pricing-card.featured {
+  background: linear-gradient(135deg, var(--ink2), rgba(201,168,76,.04));
+  border-color: var(--gold);
+}
+.pricing-card.featured::before {
+  content: 'MOST POPULAR';
+  display: block; margin-bottom: 16px;
+  font-family: 'DM Mono'; font-size: 9px; letter-spacing: 3px;
+  color: var(--gold);
+}
+.pc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 8px;
+}
+.pc-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px; font-weight: 700; color: var(--gold); line-height: 1;
+  margin-bottom: 4px;
+}
+.pc-period { font-size: 12px; color: var(--muted); margin-bottom: 20px; font-family: 'DM Mono'; }
+.pc-features { list-style: none; font-size: 13px; color: var(--muted); line-height: 2; text-align: left; }
+.pc-features li::before { content: '→ '; color: var(--gold); }
+
+/* ═══════════════ ABOUT ═══════════════ */
+.about-grid { display: grid; grid-template-columns: 380px 1fr; gap: 64px; align-items: start; }
+.about-photo { position: relative; }
+.about-photo img { width: 100%; filter: saturate(.85); border-radius: 2px; }
+.about-photo::before {
+  content: ''; position: absolute;
+  top: -12px; left: -12px; right: 12px; bottom: 12px;
+  border: 1px solid rgba(201,168,76,.25);
+}
+.credential-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.cred-badge {
+  background: rgba(201,168,76,.08); border: 1px solid var(--border);
+  color: var(--gold); font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; padding: 5px 12px; text-transform: uppercase;
+  font-family: 'DM Mono';
+}
+
+.founder-story p {
+  font-size: 16px; color: var(--off); line-height: 1.9;
+  font-weight: 300; margin-bottom: 18px;
+}
+.founder-story p strong { color: var(--gold); font-weight: 600; }
+
+.contact-strip {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--border);
+}
+.contact-item .label { font-family: 'DM Mono'; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.contact-item .val { font-size: 16px; color: var(--gold); }
+
+/* ═══════════════ BOTTOM BAND ═══════════════ */
+.footer {
+  padding: 28px 40px;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px; margin-top: 80px;
+}
+.footer-brand .n { font-family: 'Bebas Neue'; font-size: 16px; letter-spacing: 3px; color: var(--gold); }
+.footer-brand .s { font-size: 9px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; font-family: 'DM Mono'; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; font-family: 'DM Mono'; transition: color .25s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-copy { font-size: 11px; color: var(--muted); font-family: 'DM Mono'; }
+
+/* ═══════════════ MOBILE ═══════════════ */
+@media(max-width:900px){
+  .top-nav { padding: 0 20px; }
+  .nav-tabs { display: none; }
+  .burger { display: flex; }
+  .nav-brand-text .sub { display: none; }
+  .nav-brand-text .top { font-size: 15px; letter-spacing: 2px; }
+  .nav-brand .eagle-sm { width: 28px; height: 28px; }
+  .status-bar { display: none; }
+  .hero-band { grid-template-columns: 1fr; padding: 60px 20px; min-height: auto; }
+  .hero-right { display: none; }
+  .quick-grid { grid-template-columns: 1fr; }
+  .cert-layout { grid-template-columns: 1fr; }
+  .caio-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: repeat(2,1fr); }
+  .about-grid { grid-template-columns: 1fr; }
+  .etpl-status { grid-template-columns: repeat(2,1fr); }
+  .lesson-grid { grid-template-columns: 1fr; }
+  .container, .container-sm { padding: 48px 20px; }
+  .footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+}
+
+.mobile-menu {
+  display: none; position: fixed;
+  top: 64px; left: 0; right: 0; z-index: 499;
+  background: var(--ink); border-bottom: 1px solid var(--border);
+  padding: 16px 20px; flex-direction: column; gap: 4px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu .nav-tab { padding: 12px 16px; text-align: left; }
+
+@keyframes tickerRun { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.faq-item { background:var(--ink2);border:1px solid var(--border);overflow:hidden;transition:border-color .25s; }
+.faq-item:hover { border-color:rgba(201,168,76,.4); }
+.faq-q { display:flex;justify-content:space-between;align-items:center;padding:22px 28px;cursor:pointer;gap:20px; }
+.faq-q-text { font-size:16px;font-weight:600;color:var(--white); }
+.faq-icon { color:var(--gold);font-size:18px;transition:transform .3s;flex-shrink:0; }
+.faq-item.open .faq-icon { transform:rotate(45deg); }
+.faq-a { max-height:0;overflow:hidden;transition:max-height .4s ease;border-top:0 solid var(--border); }
+.faq-item.open .faq-a { max-height:400px;border-top:1px solid var(--border); }
+.faq-a-inner { padding:20px 28px;font-size:15px;color:var(--muted);line-height:1.8; }
+.faq-a-inner strong { color:var(--off); }
+.tick-company { display:inline-flex;align-items:center;gap:10px;padding:0 40px;font-family:DM Mono;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35); }
+.tick-company .tick-dot { width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.5; }
+.testimonial-card { background:var(--ink2);border:1px solid var(--border);padding:28px;transition:border-color .3s; }
+.testimonial-card:hover { border-color:rgba(201,168,76,.4); }
+.tc-stars { color:var(--gold);letter-spacing:3px;font-size:13px;margin-bottom:14px; }
+.tc-quote { font-family:Cormorant Garamond,serif;font-size:18px;font-style:italic;color:var(--off);line-height:1.65;margin-bottom:18px; }
+.tc-name { font-size:14px;font-weight:700;color:var(--white); }
+.tc-company { font-size:12px;color:var(--teal);font-family:DM Mono;letter-spacing:1px;margin-top:2px; }
+
+/* ═══════════════ THE BRAIN ═══════════════ */
+.brain-hero { text-align: center; max-width: 860px; margin: 0 auto 8px; }
+.brain-hero .body-lg { max-width: 700px; margin: 0 auto 38px; }
+.brain-divider { height: 1px; background: var(--border); margin: 8px 0; }
+
+.brain-what { max-width: 760px; }
+.brain-what p { font-size: 17px; color: var(--off); line-height: 1.9; font-weight: 300; margin-bottom: 22px; }
+.brain-what p strong { color: var(--gold); font-weight: 600; }
+
+.brain-who { max-width: 760px; }
+.brain-who p { font-size: 18px; color: var(--off); line-height: 1.9; font-weight: 300; }
+
+.brain-pillars { display: grid; grid-template-columns: 1fr; gap: 2px; margin-top: 44px; }
+.brain-pillar { background: var(--ink2); border: 1px solid var(--border); padding: 34px 32px; transition: border-color .25s, transform .25s; }
+.brain-pillar:hover { border-color: rgba(201,168,76,.45); transform: translateY(-3px); }
+.brain-pillar h3 { font-family: 'Cormorant Garamond', serif; font-size: 25px; font-weight: 600; color: var(--gold); line-height: 1.1; }
+.brain-pillar .role { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: var(--teal); margin: 6px 0 16px; }
+.brain-pillar p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+.brain-learn { display: grid; grid-template-columns: 1fr; gap: 2px; margin-top: 44px; }
+.brain-card { background: var(--ink2); border: 1px solid var(--border); padding: 32px 30px; transition: border-color .25s; }
+.brain-card:hover { border-color: rgba(201,168,76,.45); }
+.brain-card .knum { font-family: 'DM Mono'; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+.brain-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600; color: var(--white); margin-bottom: 12px; }
+.brain-card p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+.brain-timeline { display: grid; grid-template-columns: 1fr; gap: 2px; margin-top: 44px; }
+.brain-stage { background: var(--ink2); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 28px 24px; }
+.brain-stage .month { font-family: 'Bebas Neue'; font-size: 22px; letter-spacing: 2px; color: var(--gold); line-height: 1; }
+.brain-stage .stage-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: var(--teal); margin: 6px 0 12px; }
+.brain-stage p { font-size: 13px; color: var(--muted); line-height: 1.75; }
+
+.brain-trust { display: grid; grid-template-columns: 1fr; gap: 2px; margin-top: 44px; }
+.brain-point { background: var(--ink2); border: 1px solid var(--border); padding: 32px 30px; display: flex; gap: 22px; align-items: flex-start; }
+.brain-point .pnum { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 700; color: rgba(201,168,76,.25); line-height: 1; flex-shrink: 0; width: 50px; }
+.brain-point h3 { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+.brain-point p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+.brain-cta { background: var(--ink2); border: 1px solid var(--border); padding: 56px 40px; text-align: center; margin-top: 12px; }
+.brain-cta .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+
+@media (min-width: 640px) {
+  .brain-pillars { grid-template-columns: repeat(2, 1fr); }
+  .brain-learn   { grid-template-columns: repeat(3, 1fr); }
+  .brain-trust   { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1024px) {
+  .brain-pillars  { grid-template-columns: repeat(4, 1fr); }
+  .brain-timeline { grid-template-columns: repeat(5, 1fr); }
+}
+
+@media print {
+  .brain-cta .actions { display: none !important; }
+  a[href]::after { content: "" !important; }
+}
+
+</style>
+</head>
+<body class="unlocked">
+
+<!-- ╔══════════════════════════════════════════╗
+     ║              PLATFORM SHELL              ║
+     ╚══════════════════════════════════════════╝ -->
+<div id="platform">
+
+  <!-- GRID BACKGROUND -->
+  <div class="hero-grid-bg"></div>
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <div class="nav-brand">
+      <img class="eagle-sm" src="eagle.PNG" alt="CGI" onerror="this.style.display='none'">
+      <div class="nav-brand-text">
+        <span class="top">THE CAPITAL GAINS INSTITUTE</span>
+        <span class="sub">AI Workforce Transformation · thecgi.org</span>
+      </div>
+    </div>
+
+    <div class="nav-tabs" id="navTabs">
+      <button class="nav-tab active" onclick="navTo('home',this)">Home</button>
+      <button class="nav-tab" onclick="navTo('doctrine',this)">Doctrine</button>
+      <button class="nav-tab" onclick="navTo('courses',this)">Courses</button>
+      <button class="nav-tab" onclick="navTo('audit',this)">AI Audit</button>
+      <button class="nav-tab" onclick="navTo('cert',this)">Certification</button>
+      <button class="nav-tab" onclick="navTo('grants',this)">Grants & ETPL</button>
+      <button class="nav-tab" onclick="navTo('membership',this)">Membership Engine</button>
+      <button class="nav-tab" onclick="navTo('caio',this)">Fractional CAIO</button>
+      <a class="nav-tab" href="brain.html">The Brain</a>
+      <button class="nav-tab" onclick="navTo('about',this)">About Dr. Majette</button>
+      <button class="nav-tab" onclick="navTo('faq',this)">FAQ</button>
+      <button class="nav-tab" onclick="navTo('proof',this)">Results</button>
+    </div>
+
+    <div class="nav-right">
+      <button class="burger" onclick="toggleBurger()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mMenu">
+    <button class="nav-tab" onclick="navTo('home',null);toggleBurger()">Home</button>
+    <button class="nav-tab" onclick="navTo('doctrine',null);toggleBurger()">Doctrine</button>
+    <button class="nav-tab" onclick="navTo('courses',null);toggleBurger()">Courses</button>
+    <button class="nav-tab" onclick="navTo('audit',null);toggleBurger()">AI Audit</button>
+    <button class="nav-tab" onclick="navTo('cert',null);toggleBurger()">Certification</button>
+    <button class="nav-tab" onclick="navTo('grants',null);toggleBurger()">Grants & ETPL</button>
+    <button class="nav-tab" onclick="navTo('membership',null);toggleBurger()">Membership Engine</button>
+    <button class="nav-tab" onclick="navTo('caio',null);toggleBurger()">Fractional CAIO</button>
+    <a class="nav-tab" href="brain.html" style="display:block;">The Brain</a>
+    <button class="nav-tab" onclick="navTo('about',null);toggleBurger()">About Dr. Majette</button>
+    <button class="nav-tab" onclick="navTo('faq',null);toggleBurger()">FAQ</button>
+    <button class="nav-tab" onclick="navTo('proof',null);toggleBurger()">Results</button>
+  </div>
+
+  <!-- STATUS BAR -->
+  <div class="status-bar">
+    <div class="sb-left">
+      <div class="sb-item"><div class="sb-dot"></div>ETPL Application: In Progress — State Portal Active</div>
+      <div class="sb-item"><div class="sb-dot"></div>CIE License: Provisional Application Window Open</div>
+      <div class="sb-item"><div class="sb-dot"></div>CareerSource Tampa Bay: Window Opens July 2026</div>
+    </div>
+    <div class="sb-right">grants@thecgi.org · (813) 463-3401</div>
+  </div>
+
+  <!-- ══════════════ PAGE: HOME ══════════════ -->
+  <div class="page active" id="page-home">
+    <div class="hero-band">
+      <div class="hero-left">
+        <div class="hero-mono"><span class="pulse-dot"></span>Live Platform · Florida State Accreditation Track</div>
+
+        <h1 class="serif-xl">
+          The AI Operating System<br>
+          <em>for American Business.</em>
+        </h1>
+
+        <div class="hero-slogan" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,2.6vw,30px);color:var(--gold);line-height:1.3;margin-bottom:20px;">The Brains Behind Your Capital Gains.</div>
+
+        <p class="hero-desc">
+          The Capital Gains Institute is America's premier AI workforce transformation platform — delivering G.A.I.N.S. certification with CertNexus AGZ-110 exam preparation, a WIOA grant reimbursement pathway, and fractional Chief AI Officer services to companies ready to lead the AI era.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="startAudit()">Take the Free AI Audit</button>
+          <button class="btn-secondary" onclick="navTo('courses',null)">Explore Courses</button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hstat">
+            <div class="hstat-num">$25K</div>
+            <div class="hstat-label">Max Per Company</div>
+          </div>
+          <div class="hstat">
+            <div class="hstat-num">$3,500</div>
+            <div class="hstat-label">Per Employee</div>
+          </div>
+          <div class="hstat">
+            <div class="hstat-num">$59</div>
+            <div class="hstat-label">Certification</div>
+          </div>
+          <div class="hstat">
+            <div class="hstat-num">24hr</div>
+            <div class="hstat-label">Reimbursement</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-photo-frame">
+          <div class="certified-badge">CGI Certified</div>
+          <img src="registrar.png" alt="Dr. Mike Majette" onerror="this.style.display='none'">
+          <div class="photo-caption">
+            <div class="name">Dr. Mike Majette</div>
+            <div class="ptitle">Founder & Registrar · CGI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick cards -->
+    <div class="container" style="padding-top:0;">
+      <div class="quick-grid">
+        <div class="quick-card" onclick="navTo('doctrine',null)">
+          <div class="qc-icon">📜</div>
+          <div class="qc-title">The CGI Doctrine</div>
+          <div class="qc-sub">Our foundational position on AI, capital, and the duty to transform American business.</div>
+          <div class="qc-arrow">→</div>
+        </div>
+        <div class="quick-card" onclick="navTo('courses',null)">
+          <div class="qc-icon">🎓</div>
+          <div class="qc-title">AGZ-110 Curriculum</div>
+          <div class="qc-sub">6-module G.A.I.N.S. certification track including CertNexus AGZ-110 exam prep. Online, in-person, and enterprise delivery.</div>
+          <div class="qc-arrow">→</div>
+        </div>
+        <div class="quick-card" onclick="startAudit()">
+          <div class="qc-icon">⚡</div>
+          <div class="qc-title">Free AI Audit</div>
+          <div class="qc-sub">7-question diagnostic revealing your company's AI readiness and active revenue leaks.</div>
+          <div class="qc-arrow">→</div>
+        </div>
+        <div class="quick-card" onclick="navTo('grants',null)">
+          <div class="qc-icon">🏛️</div>
+          <div class="qc-title">Grants & ETPL</div>
+          <div class="qc-sub">Florida WIOA funding, CareerSource Tampa Bay, and the state ETPL registration pathway.</div>
+          <div class="qc-arrow">→</div>
+        </div>
+        <div class="quick-card" onclick="navTo('caio',null)">
+          <div class="qc-icon">🤖</div>
+          <div class="qc-title">Fractional CAIO</div>
+          <div class="qc-sub">Become the AI operating system for your client companies. Monthly retainer model, $8K–$20K.</div>
+          <div class="qc-arrow">→</div>
+        </div>
+        <div class="quick-card" onclick="navTo('cert',null)">
+          <div class="qc-icon">🏅</div>
+          <div class="qc-title">Get Certified</div>
+          <div class="qc-sub">The G.A.I.N.S. credential — $59, verifiable, with a WIOA reimbursement pathway for eligible FL employers. The CPA license of the AI era.</div>
+          <div class="qc-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- ═════════ GRANT RESOURCES & GOVERNMENT GUIDES ═════════ -->
+      <div style="margin-top:64px;margin-bottom:24px;">
+        <div class="eyebrow" style="margin-bottom:14px;">Member Resources</div>
+        <h2 class="serif-lg" style="margin-bottom:8px;">Grant Resources &amp; <span>Government Guides</span></h2>
+        <p style="font-size:14px;color:var(--muted);font-family:'DM Sans';max-width:680px;margin-bottom:28px;">Official government sourcing. Verified WIOA program details. Built for Florida employers preparing a grant claim.</p>
+      </div>
+
+      <div class="grant-resource-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px;margin-bottom:64px;">
+        <!-- Florida AI Workforce Grant Guide -->
+        <div style="background:linear-gradient(135deg,var(--ink2),var(--ink3));border:1px solid var(--gold);padding:32px 28px;position:relative;overflow:hidden;display:flex;flex-direction:column;">
+          <div style="position:absolute;top:-70px;right:-70px;width:220px;height:220px;background:radial-gradient(circle,rgba(201,168,76,.10),transparent 70%);pointer-events:none;"></div>
+          <div style="font-family:'DM Mono';font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;">
+            <span style="display:block;width:18px;height:1px;background:var(--gold);"></span>Government Sourced
+          </div>
+          <div style="font-size:42px;line-height:1;margin-bottom:18px;">📋</div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--white);margin-bottom:14px;line-height:1.25;">Florida AI Workforce Grant Guide</h3>
+          <p style="font-size:14px;color:var(--off);line-height:1.75;margin-bottom:24px;flex:1;">Complete 8-section reference guide with all official government sources, WIOA program details, IWT grant math for your company size, and every CareerSource Tampa Bay link you need. Sourced directly from DOL, FloridaJobs.org, and CareerSource.</p>
+          <a href="grants.html" target="_blank" rel="noopener"
+            download="grants.html"
+            style="background:linear-gradient(135deg,var(--gold),var(--gold-d));color:var(--ink);text-decoration:none;padding:14px 22px;font-family:'DM Sans';font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-align:center;display:block;transition:transform .2s,box-shadow .2s;"
+            onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 8px 24px rgba(201,168,76,.25)';"
+            onmouseout="this.style.transform='';this.style.boxShadow='';">Download Grant Guide &rarr;</a>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-brand"><div class="n">THE CAPITAL GAINS INSTITUTE</div><div class="s">thecgi.org</div></div>
+        <div class="footer-links">
+          <a href="mailto:grants@thecgi.org">grants@thecgi.org</a>
+          <a href="tel:8134633401">(813) 463-3401</a>
+          <a href="mailto:etpl@careersourcetb.com">CareerSource Tampa Bay</a>
+        </div>
+        <div class="footer-copy">© 2026 Capital Gains Institute · All Rights Reserved</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ PAGE: DOCTRINE ══════════════ -->
+  <div class="page" id="page-doctrine">
+    <div class="container">
+      <div class="eyebrow">The CGI Position</div>
+      <h1 class="serif-xl">The Capital Gains <em>Doctrine</em></h1>
+      <p class="body-lg" style="max-width:600px;margin-bottom:52px;">
+        Our foundational belief system on artificial intelligence, capital, American business, and the responsibility of every leader in this era to transform or be transformed.
+      </p>
+
+      <div class="doctrine-chapters">
+        <div class="d-chapter">
+          <div class="d-num">I.</div>
+          <div>
+            <h3>AI Is the Operating System, Not a Tool</h3>
+            <p>The dominant mental model — "use AI to answer questions faster" — captures less than five percent of the available leverage. True transformation requires restructuring how every decision, every process, and every department operates. The Capital Gains Institute teaches companies to run on AI as infrastructure, not as a feature they occasionally turn on.</p>
+          </div>
+        </div>
+        <div class="d-chapter">
+          <div class="d-num">II.</div>
+          <div>
+            <h3>Capital Intelligence Is the New Financial Literacy</h3>
+            <p>Just as a CPA credential signals financial competence, the G.A.I.N.S. certification signals AI operational competence. Every business owner, every professional, every employee deserves access to the knowledge that was once reserved for the elite. The CGI certification is that credential — $59, with a pathway to WIOA reimbursement for eligible Florida employers, pending CGI’s ETPL approval.</p>
+          </div>
+        </div>
+        <div class="d-chapter">
+          <div class="d-num">III.</div>
+          <div>
+            <h3>Chatbots Are the Floor, Not the Ceiling</h3>
+            <p>AI agents that plan, execute, remember across time, and escalate to humans only when genuine judgment is required — that is the standard. The CGI curriculum teaches operators to build and deploy at that level. The G.A.I.N.S. curriculum includes preparation for the CertNexus Agentic AIBIZ (AGZ-110) exam. We provide the instruction, the certification, and the ongoing fractional CAIO support to make it permanent.</p>
+          </div>
+        </div>
+        <div class="d-chapter">
+          <div class="d-num">IV.</div>
+          <div>
+            <h3>The Business Brain Is the Missing Layer</h3>
+            <p>Critical business knowledge is scattered across people's heads, email threads, Slack messages, and random spreadsheets. AI cannot operate on fragmented knowledge. The CGI transformation methodology begins with building the Business Brain — structuring every process, every pricing rule, every client interaction into a unified, AI-readable knowledge system that compounds over time.</p>
+          </div>
+        </div>
+        <div class="d-chapter">
+          <div class="d-num">V.</div>
+          <div>
+            <h3>Grant Funding Is the Moral Imperative</h3>
+            <p>Florida’s WIOA and ETPL programs may reimburse eligible employers up to $3,500 per employee and $25,000 per company for approved workforce training. CGI’s mission is to help eligible Florida employers navigate that pathway — pending CGI’s ETPL approval. Reimbursement eligibility, amounts, and timelines are determined by CareerSource and require pre-approval.</p>
+          </div>
+        </div>
+        <div class="d-chapter">
+          <div class="d-num">VI.</div>
+          <div>
+            <h3>State by State. One Standard.</h3>
+            <p>The Capital Gains Institute is built to scale. Florida is the first deployment. The model — free diagnostic, certified training, state grant connection, fractional CAIO retention — is fully reproducible in every state with an ETPL-equivalent program. Our state-by-state expansion strategy positions CGI as the national standard for AI workforce certification, the same way the CPA designation is recognized in every state.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <button class="btn-primary" onclick="navTo('courses',null)">Explore the Curriculum →</button>
+        <button class="btn-secondary" onclick="startAudit()">Take the Free AI Audit</button>
+      </div>
+
+      <div class="footer">
+        <div class="footer-brand"><div class="n">THE CAPITAL GAINS INSTITUTE</div><div class="s">thecgi.org</div></div>
+        <div class="footer-copy">© 2026 Capital Gains Institute</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ PAGE: COURSES ══════════════ -->
+  <div class="page" id="page-courses">
+    <div class="container">
+      <div class="eyebrow">The CGI Curriculum</div>
+      <h1 class="serif-xl">AGZ-110 <em>Certification Track</em></h1>
+      <p class="body-lg" style="max-width:600px;margin-bottom:16px;">
+        A practitioner-grade G.A.I.N.S. curriculum that includes preparation for the CertNexus Agentic AIBIZ (AGZ-110) exam. Available online (self-paced), live instructor-led, and enterprise cohort delivery. Every module produces a measurable business outcome.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;">
+        <span class="tag tag-g" style="padding:7px 16px;font-size:11px;">WIOA Grant Eligible</span>
+        <span class="tag tag-b" style="padding:7px 16px;font-size:11px;">Includes CertNexus AGZ-110 Exam Prep</span>
+        <span class="tag tag-y" style="padding:7px 16px;font-size:11px;">Florida ETPL Track</span>
+        <span class="tag tag-g" style="padding:7px 16px;font-size:11px;">In-Person & Online</span>
+      </div>
+
+      <!-- Launch the standalone course platform -->
+      <div style="background:linear-gradient(135deg,var(--ink2),var(--ink3));border:1px solid var(--gold);padding:32px 28px;margin-bottom:40px;position:relative;overflow:hidden;display:flex;align-items:center;gap:28px;flex-wrap:wrap;justify-content:space-between;">
+        <div style="position:absolute;top:-70px;right:-70px;width:220px;height:220px;background:radial-gradient(circle,rgba(201,168,76,.12),transparent 70%);pointer-events:none;"></div>
+        <div style="flex:1;min-width:260px;">
+          <div style="font-family:'DM Mono';font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;">Launch the Course Platform</div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--white);margin-bottom:8px;line-height:1.2;">Take the G.A.I.N.S. Certification Course Now</h3>
+          <p style="font-size:14px;color:var(--off);line-height:1.7;max-width:560px;">All 6 modules. 29 chapters. Embedded quizzes. Final exam. Issued certificate with a unique Credential ID — self-paced, progress saved on your device.</p>
+        </div>
+        <a href="course.html" style="background:linear-gradient(135deg,var(--gold),var(--gold-d));color:var(--ink);text-decoration:none;padding:16px 28px;font-family:'DM Sans';font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;transition:transform .2s,box-shadow .2s;"
+          onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 8px 24px rgba(201,168,76,.25)';"
+          onmouseout="this.style.transform='';this.style.boxShadow='';">Enter the Course →</a>
+      </div>
+
+      <div class="course-track" id="courseGrid"></div>
+
+      <!-- CertNexus Agentic AI Course -->
+      <div class="agentic-card">
+        <div class="agentic-card-header">
+          <div class="agentic-seal">AGZ<br>110</div>
+          <div>
+            <div style="font-family:'DM Mono';font-size:10px;letter-spacing:3px;color:var(--teal);margin-bottom:8px;">AUTHORIZED CERTNEXUS AGZ-110 INSTRUCTOR-LED EXAM PREP</div>
+            <h3 class="serif-md">Foundations of Agentic AI — Student Edition</h3>
+            <p style="font-size:14px;color:var(--muted);margin-top:6px;">Exam AGZ-110 · Course Edition 1.0 · Business Leaders & Decision Makers</p>
+          </div>
+        </div>
+        <p style="font-size:15px;color:var(--off);line-height:1.8;margin-bottom:24px;">
+          This course teaches business leaders how to <strong style="color:var(--white)">determine whether, where, and how</strong> AI agents should exist in their organization. Six lessons covering agentic fundamentals, suitability analysis, solution design, risk management, adoption strategy, and execution planning.
+        </p>
+        <div class="lesson-grid">
+          <div class="lesson-item">
+            <div class="l-num">LESSON 1</div>
+            <div class="l-title">Agentic AI Fundamentals</div>
+            <div class="l-desc">The Brain-Memory-Tools framework. LLMs vs. agents. The Sense-Think-Act loop. Core architecture.</div>
+          </div>
+          <div class="lesson-item">
+            <div class="l-num">LESSON 2</div>
+            <div class="l-title">Determining Suitability</div>
+            <div class="l-desc">Variability & judgment matrix. Agent-appropriate vs. human-mandatory tasks. BPA methodology.</div>
+          </div>
+          <div class="lesson-item">
+            <div class="l-num">LESSON 3</div>
+            <div class="l-title">Designing Solutions</div>
+            <div class="l-desc">Agent modalities. One-shot vs. iterative patterns. Single vs. multi-agent. RAG & fine-tuning.</div>
+          </div>
+          <div class="lesson-item">
+            <div class="l-num">LESSON 4</div>
+            <div class="l-title">Managing Risks</div>
+            <div class="l-desc">Confabulation, hallucination, vibe coding. NIST AI RMF. Human-in-the-Loop design. Guardrails.</div>
+          </div>
+          <div class="lesson-item">
+            <div class="l-num">LESSON 5</div>
+            <div class="l-title">Adopting Agentic AI</div>
+            <div class="l-desc">Resource planning (people, data, infrastructure). Model selection. Change management. Governance.</div>
+          </div>
+          <div class="lesson-item">
+            <div class="l-num">LESSON 6</div>
+            <div class="l-title">Execution Strategy</div>
+            <div class="l-desc">Workflow prioritization. Dependency mapping. Build vs. buy. Phased deployment. Stakeholder comms.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;margin-top:28px;flex-wrap:wrap;">
+          <button class="btn-primary" onclick="claimGrant()">Enroll & Get Certified →</button>
+          <button class="btn-teal" onclick="navTo('grants',null)">Check Grant Eligibility</button>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;">
+        <button class="btn-primary" onclick="navTo('cert',null)">View Certification & Pricing →</button>
+        <button class="btn-secondary" onclick="navTo('grants',null)">Grant Funding Options</button>
+      </div>
+
+      <div class="footer">
+        <div class="footer-brand"><div class="n">THE CAPITAL GAINS INSTITUTE</div><div class="s">thecgi.org</div></div>
+        <div class="footer-copy">© 2026 Capital Gains Institute</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ PAGE: AUDIT ══════════════ -->
+  <div class="page" id="page-audit">
+    <div class="container-sm">
+      <div class="eyebrow">AI Readiness Diagnostic</div>
+      <h2 class="serif-lg" style="margin-bottom:8px;">The <span>Free AI Profit Audit</span></h2>
+      <p class="body-lg" style="margin-bottom:40px;">7 questions. 4 minutes. Reveals your company's active revenue leaks and AI readiness score — and qualifies your seat for state grant funding.</p>
+
+      <div class="audit-wrap">
+        <!-- QUESTIONS -->
+        <div id="auditQ">
+          <div class="progress-bar-wrap">
+            <div class="prog-meta">
+              <span id="aLabel">Question 1 of 7</span>
+              <span id="aPct">0%</span>
+            </div>
+            <div class="prog-track"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+          </div>
+          <div class="q-badge op" id="qBadge">Operational</div>
+          <div class="q-text" id="qText"></div>
+          <div class="yn-row" id="ynRow">
+            <button class="btn-yn" id="yesBtn" onclick="pickYN('yes')">Yes — That's Us</button>
+            <button class="btn-yn" id="noBtn" onclick="pickYN('no')">No — We're Clean</button>
+          </div>
+          <div class="mcq-list" id="mcqList" style="display:none"></div>
+          <div class="fb-box" id="fbBox"></div>
+          <div class="audit-nav">
+            <button class="btn-back-q" onclick="auditBack()">← Back</button>
+            <button class="btn-nxt" id="nxtBtn" onclick="auditAdvance()">Next →</button>
+          </div>
+        </div>
+
+        <!-- RESULTS -->
+        <div id="auditR" style="display:none">
+          <div class="results-card">
+            <div class="eyebrow" style="justify-content:center;margin-bottom:20px;">Audit Complete</div>
+            <div class="score-ring">
+              <div class="score-big" id="rNum">0</div>
+              <div class="score-of">OF 5</div>
+            </div>
+            <h2 class="serif-lg" id="rHead" style="text-align:center;margin-bottom:8px;font-size:28px;"></h2>
+            <p id="rSub" style="font-size:14px;color:var(--muted);text-align:center;margin-bottom:24px;"></p>
+
+            <div class="cost-strip">
+              <div>
+                <div style="font-family:'DM Mono';font-size:9px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:4px;">Est. Annual Revenue Leak</div>
+                <div class="cost-num" id="rCost">$0</div>
+                <div class="cost-note">Based on national SMB productivity benchmarks</div>
+              </div>
+              <div>
+                <div class="grant-amt">$3,500</div>
+                <div class="grant-lbl">Potential WIOA reimbursement / employee*</div>
+              </div>
+            </div>
+
+            <div class="leak-list" id="rLeaks"></div>
+
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <button class="btn-primary" style="width:100%;text-align:center;" onclick="claimGrant()">Claim Your Grant Seat →</button>
+              <button class="btn-secondary" style="width:100%;text-align:center;" onclick="claimGrant()">Get G.A.I.N.S. Certified — $59</button>
+              <button class="btn-secondary" style="width:100%;text-align:center;" onclick="retakeAudit()">Retake Audit</button>
+            </div>
+
+            <div style="margin-top:20px;padding:14px;background:var(--ink3);border:1px solid var(--border2);text-align:center;">
+              <div style="font-family:'DM Mono';font-size:10px;letter-spacing:2px;color:var(--muted);margin-bottom:6px;">OFFICIAL GRANT SUBMISSION</div>
+              <a href="mailto:grants@thecgi.org?subject=Grant Seat Qualification Request" style="color:var(--gold);font-size:15px;font-weight:700;">grants@thecgi.org</a>
+              <div style="margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px;">
+                <div class="pulse-dot" style="width:5px;height:5px;"></div>
+                <div style="font-family:'DM Mono';font-size:10px;color:rgba(74,222,128,.7);letter-spacing:1px;">Reimbursement timelines set by CareerSource</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-brand"><div class="n">THE CAPITAL GAINS INSTITUTE</div><div class="s">thecgi.org</div></div>
+        <div class="footer-copy">© 2026 Capital Gains Institute</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ PAGE: CERTIFICATION ══════════════ -->
+  <div class="page" id="page-cert">
+    <div class="container">
+      <div class="eyebrow">Credential</div>
+      <h1 class="serif-xl">G.A.I.N.S. <em>Certification</em></h1>
+      <p class="body-lg" style="max-width:600px;margin-bottom:52px;">The Global AI Integration and National Standards — the CPA license of the AI era. Issued upon completion of the full G.A.I.N.S. curriculum. Verifiable, with a WIOA reimbursement pathway for eligible Florida employers — pending CGI’s ETPL approval.</p>
+
+      <div class="cert-layout" style="margin-bottom:56px;">
+        <div class="cert-badge">
+          <div class="cb-seal">🏅</div>
+          <div class="cb-name">Certified G.A.I.N.S.<br>Practitioner</div>
+          <div class="cb-inst">The Capital Gains Institute</div>
+          <div class="cb-price">$59</div>
+          <div class="cb-note">One-time · WIOA reimbursement may be available for eligible FL employers</div>
+          <button class="btn-primary" style="width:100%;text-align:center;" onclick="claimGrant()">Enroll & Claim Grant →</button>
+          <button class="btn-secondary" style="width:100%;text-align:center;margin-top:12px;" onclick="joinAlumni()">Join G.A.I.N.S. Alumni — $5/month →</button>
+          <div style="margin-top:16px;font-family:'DM Mono';font-size:10px;color:var(--muted);letter-spacing:1px;text-align:center;">G.A.I.N.S. Alumni Membership: $5/month optional</div>
+        </div>
+        <div>
+          <h3 class="serif-md" style="margin-bottom:24px;">What's Included</h3>
+          <ul class="cert-bullets">
+            <li><div class="check">✓</div><div>6-module AGZ-110 curriculum with module assessments and final exam</div></li>
+            <li><div class="check">✓</div><div>Verifiable G.A.I.N.S. Digital Credential — shareable on LinkedIn and with employers</div></li>
+            <li><div class="check">✓</div><div>Direct connection to your assigned state WIOA / ETPL grant representative</div></li>
+            <li><div class="check">✓</div><div>Guided WIOA reimbursement claim support — timelines set by CareerSource</div></li>
+            <li><div class="check">✓</div><div>Preparation materials for the CertNexus Agentic AIBIZ (AGZ-110) exam included</div></li>
+            <li><div class="check">✓</div><div>C.G.I. Alumni Network access ($5/month, fully optional)</div></li>
+            <li><div class="check">✓</div><div>Lifetime access to module updates as the AGZ-110 standard evolves</div></li>
+            <li><div class="check">✓</div><div>Eligible for enterprise cohort delivery at $1,250–$3,500/seat (sliding scale by company size); WIOA may reimburse eligible FL employers up to $3,500/employee</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="eyebrow" style="margin-bottom:20px;">The Reimbursement Process</div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="s-num">01</div>
+          <div class="s-title">Free AI Audit</div>
+          <div class="s-text">Complete the 7-question Profit Leak Audit. Documents your use case for grant eligibility and ETPL qualification.</div>
+        </div>
+        <div class="step-card">
+          <div class="s-num">02</div>
+          <div class="s-title">Complete Certification</div>
+          <div class="s-text">Finish all 6 AGZ-110 modules and pass the final assessment. Digital G.A.I.N.S. credential issued immediately.</div>
+        </div>
+        <div class="step-card">
+          <div class="s-num">03</div>
+          <div class="s-title">Grant Connection</div>
+          <div class="s-text">CGI connects you directly to your assigned CareerSource / WIOA representative for the reimbursement claim.</div>
+        </div>
+        <div class="step-card">
+          <div class="s-num">04</div>
+          <div class="s-title">Reimbursement Claim</div>
+          <div class="s-text">You pay the certification fee. We guide your WIOA reimbursement claim. Reimbursement timelines are set by CareerSource and require pre-approval.</div>
+        </div>
+      </div>
+
+      <div style="background:var(--ink2);border:1px solid rgba(74,222,128,.2);padding:24px 28px;margin-bottom:36px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+          <div class="pulse-dot"></div>
+          <div style="font-family:'DM Mono';font-size:10px;letter-spacing:3px;color:var(--green);text-transform:uppercase;">WIOA / ETPL Enterprise Rate</div>
+        </div>
+        <p style="font-size:15px;color:var(--off);line-height:1.75;">For companies enrolling entire teams: <strong style="color:var(--white)">$1,250–$3,500 per seat</strong> (sliding scale by company size) for live instructor-led cohort delivery. Eligible Florida employers may qualify for WIOA reimbursement of up to <strong style="color:var(--green)">$3,500 per employee</strong>, <strong style="color:var(--green)">$25,000 per company maximum</strong> — pending CGI’s ETPL approval. Reimbursement timelines are set by CareerSource and require pre-approval.</p>
+      </div>
+
+      <button class="btn-primary" onclick="startAudit()">Start the Audit to Qualify →</button>
+
+      <div class="footer">
+        <div class="footer-brand"><div class="n">THE CAPITAL GAINS INSTITUTE</div><div class="s">thecgi.org</div></div>
+        <div class="footer-copy">© 2026 Capital Gains Institute</div>
+      </div>
+    </div>
+  </div>
+
+    <!-- ══════════════ PAGE: MEMBERSHIP ENGINE ══════════════ -->
+  <div class="page" id="page-membership">
+    <style>
+      #page-membership .pricing-grid { grid-template-columns: repeat(4, 1fr); }
+      @media (max-width: 1024px){ #page-membership .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 640px){ #page-membership .pricing-grid { grid-template-columns: 1fr; } }
+      #page-membership .keep-box { background: var(--ink2); border: 1px solid rgba(74,222,128,.2); border-left: 3px solid var(--green); padding: 24px 28px; margin: 8px 0 40px; }
+      #page-membership .keep-box .k-row { font-size: 15px; color: var(--off); line-height: 1.9; }
+      #page-membership .keep-box .k-row strong { color: var(--white); }
+      #page-membership .me-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 12px; }
+      #page-membership .tier-note { font-family: 'DM Mono'; font-size: 11px; letter-spacing: 1px; color: var(--muted); margin: -14px 0 44px; }
+    </style>
+    <div class="container">
+      <div class="eyebrow">Recurring Revenue Engine</div>
+      <h1 class="serif-xl">Membership <em>Engine</em></h1>
+      <p class="body-lg" style="max-width:640px;margin-bottom:48px;">Turn the email list you already own into predictable monthly recurring revenue. We build and run the entire membership system — sign-up, billing, member rewards, and retention — on top of your existing checkout. You keep the majority of every dollar, and you pay nothing upfront.</p>
+
+      <div class="eyebrow" style="margin-bottom:20px;">How It Works</div>
+      <div class="steps-grid" style="margin-bottom:56px;">
+        <div class="step-card">
+          <div class="s-num">01</div>
+          <div class="s-title">We build your membership</div>
+          <div class="s-text">You pick a few simple monthly tiers. We build the sign-up page and connect it to your existing checkout. Nothing for you to install or code.</div>
+        </div>
+        <div class="step-card">
+          <div class="s-num">02</div>
+          <div class="s-title">You invite your list</div>
+          <div class="s-text">Email the people who already know you with a founding-member offer. Each payment is split automatically — your share lands the same day.</div>
+        </div>
+        <div class="step-card">
+          <div class="s-num">03</div>
+          <div class="s-title">Members rewarded monthly</div>
+          <div class="s-text">Every month a member is billed, they automatically receive a store credit to use with you — so it feels like a deal, not a bill.</div>
+        </div>
+        <div class="step-card">
+          <div class="s-num">04</div>
+          <div class="s-title">We keep them coming back</div>
+          <div class="s-text">We run the welcome, the monthly reminders, and win-back offers for quiet members. You watch it all from one simple dashboard.</div>
+        </div>
+      </div>
+
+      <div class="eyebrow" style="margin-bottom:20px;">Example Member Tiers</div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pc-name">Starter</div>
+          <div class="pc-price">$4.99</div>
+          <div class="pc-period">PER MONTH</div>
+          <ul class="pc-features">
+            <li>$2 monthly store credit</li>
+            <li>Members-only pricing</li>
+            <li>Monthly perks email</li>
+            <li>Cancel anytime</li>
+          </ul>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pc-name">Core</div>
+          <div class="pc-price">$9.99</div>
+          <div class="pc-period">PER MONTH</div>
+          <ul class="pc-features">
+            <li>$5 monthly store credit</li>
+            <li>Members-only pricing</li>
+            <li>Priority offers &amp; early drops</li>
+            <li>Birthday reward</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <div class="pc-name">Plus</div>
+          <div class="pc-price">$14.99</div>
+          <div class="pc-period">PER MONTH</div>
+          <ul class="pc-features">
+            <li>$8 monthly store credit</li>
+            <li>Everything in Core</li>
+            <li>Early access to new products</li>
+            <li>VIP member events</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <div class="pc-name">Signature</div>
+          <div class="pc-price">$19.99</div>
+          <div class="pc-period">PER MONTH</div>
+          <ul class="pc-features">
+            <li>$12 monthly store credit</li>
+            <li>Everything in Plus</li>
+            <li>Concierge perks</li>
+            <li>Top-tier member status</li>
+          </ul>
+        </div>
+      </div>
+      <p class="tier-note">Example tiers — we tailor the names, prices, and rewards to your business.</p>
+
+      <div class="eyebrow" style="margin-bottom:20px;">What It Costs You — And What You Keep</div>
+      <div class="keep-box">
+        <div class="k-row"><strong>To build it:</strong> $0 upfront. We build and connect everything for you.</div>
+        <div class="k-row"><strong>What you keep:</strong> 60–70% of every membership payment. Our share is built into the price — you never write us a check, and we only earn when you do.</div>
+        <div class="k-row"><strong>Your time:</strong> A few minutes to approve the offer and email your list. We run the rest.</div>
+      </div>
+
+      <div class="me-cta">
+        <a class="btn-primary" href="mailto:grants@thecgi.org?subject=Membership%20Engine%20—%20Free%20Revenue%20Projection" style="text-decoration:none;">Get Your Free Membership Revenue Projection →</a>
+        <a class="btn-secondary" href="tel:+18134633401" style="text-decoration:none;">Call (813) 463-3401</a>
+      </div>
+      <p style="font-size:13px;color:var(--muted);max-width:620px;line-height:1.7;">Members opt in, can cancel in one click, and every offer is honest — built to stay compliant with TCPA and CAN-SPAM from day one.</p>
+
+      <div class="footer">
+        <div class="footer-brand"><div class="n">THE CAPITAL GAINS INSTITUTE</div><div class="s">thecgi.org</div></div>
+        <div class="footer-copy">© 2026 Capital Gains Institute</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════ PAGE: GRANTS & ETPL ══════════════ -->
+  <div class="page" id="page-grants">
+    <div class="container">
+      <div class="eyebrow">State Funding & Accreditation</div>
+      <h1 class="serif-xl">Grants & <em>ETPL Registry</em></h1>
+      <p class="body-lg" style="max-width:640px;margin-bottom:48px;">Florida WIOA funding, the statewide Eligible Training Provider List, and the CareerSource Tampa Bay local ETPL — the funding infrastructure CGI helps eligible Florida employers navigate to pursue WIOA reimbursement for training — pending CGI’s ETPL approval.</p>
+
+      <!-- Grant hero -->
+      <div class="grant-hero">
+        <div>
+          <div style="font-family:'DM Mono';font-size:10px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;">Maximum Florida WIOA Grant</div>
+          <div class="grant-hero-amount">$25,000</div>
+          <div class="grant-hero-sub">Per qualifying company · up to $3,500 per employee · WIOA Incumbent Worker Training (eligibility applies)</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'DM Mono';font-size:10px;letter-spacing:2px;color:var(--muted);margin-bottom:6px;">APPLICATION WINDOW</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--gold);">July – September 2026</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:4px;">CareerSource Tampa Bay local ETPL</div>
+        </div>
+      </div>
+
+      <!-- Grant table -->
+      <table class="g-table" style="margin-bottom:8px;">
+        <thead><tr><th>Program</th><th>Amount</th><th>Eligibility</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Florida WIOA — Incumbent Worker Training</td><td style="color:var(--green);font-weight:700;">Up to $3,500/seat</td><td>FL-based employers, existing employees</td><td><span class="tag tag-y">Pending CGI ETPL Approval</span></td></tr>
+          <tr><td>Florida WIOA — Company Maximum</td><td style="color:var(--green);font-weight:700;">Up to $25,000</td><td>FL-based companies, WIOA qualified</td><td><span class="tag tag-y">Pending CGI ETPL Approval</span></td></tr>
+          <tr><td>CareerSource Tampa Bay — Local ETPL</td><td style="color:var(--gold);font-weight:700;">Tuition + materials</td><td>CSTB region, state ETPL approved first</td><td><span class="tag tag-y">Window: July 2026</span></td></tr>
+          <tr><td>State ETPL — Employ Florida Portal</td><td>Program-specific</td><td>CIE licensed institutions</td><td><span class="tag tag-y">Application In Progress</span></td></tr>
+          <tr><td>USDOL Workforce Innovation Fund</td><td>Varies by cohort</td><td>Registered training providers</td><td><span class="tag tag-b">Qualifying</span></td></tr>
+          <tr><td>SBA Emerging Technology Initiative</td><td>Up to $5,000</td><td>Small businesses, &lt;500 FTE</td><td><span class="tag tag-b">Review</span></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:11px;color:var(--muted);margin-bottom:40px;font-family:'DM Mono';">Eligibility subject to employer qualification and current program funding. Contact grants@thecgi.org for verification.</p>
+
+      <!-- Grant Guide Email Opt-In -->
+      <div style="background:linear-gradient(135deg,var(--ink2),var(--ink3));border:1px solid var(--gold);padding:36px 32px;margin-bottom:40px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-80px;right:-80px;width:240px;height:240px;background:radial-gradient(circle,rgba(201,168,76,.12),transparent 70%);pointer-events:none;"></div>
+        <div style="font-family:'DM Mono';font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;">
+          <span style="display:block;width:18px;height:1px;background:var(--gold);"></span>Free Download
+        </div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--white);margin-bottom:12px;line-height:1.2;">Download the Free Florida AI Workforce Grant Guide</h2>
+        <p style="font-size:15px;color:var(--off);line-height:1.7;margin-bottom:24px;max-width:680px;">8 sections. Every government source verified. The complete WIOA grant breakdown for Florida businesses including the grant math for your specific team size. Free.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;max-width:640px;">
+          <input type="email" id="grantGuideEmail" placeholder="Your email address" autocomplete="email"
+            style="flex:1;min-width:240px;background:var(--ink3);border:1px solid var(--border2);color:var(--white);padding:14px 16px;font-family:'DM Sans';font-size:14px;outline:none;transition:border-color .2s;"
+            onkeydown="if(event.key==='Enter')sendGrantGuide()"
+            onfocus="this.style.borderColor='var(--gold)'"
+            onblur="this.style.borderColor='var(--border2)'">
+          <button onclick="sendGrantGuide()"
+            style="background:linear-gradient(135deg,var(--gold),var(--gold-d));color:var(--ink);border:none;padding:14px 26px;font-family:'DM Sans';font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:transform .2s,box-shadow .2s;white-space:nowrap;"
+            onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 8px 24px rgba(201,168,76,.25)';"
+            onmouseout="this.style.transform='';this.style.boxShadow='';">Send Me the Guide &rarr;</button>
+        </div>
+        <div id="grantGuideMsg" style="font-family:'DM Mono';font-size:11px;color:var(--gold);margin-top:12px;min-height:14px;letter-spacing:.5px;"></div>
+      </div>
+
+      <!-- Two Ways CGI Training Gets Funded -->
+      <div class="eyebrow" style="margin-bottom:20px;">Funding Pathways</div>
+      <h2 class="serif-lg" style="margin-bottom:32px;">Two Ways CGI Training <span>Gets Funded</span></h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px;" class="funding-grid">
+        <div style="background:var(--ink2);border:1px solid var(--border);padding:36px 32px;transition:all .3s;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-60px;right:-60px;width:180px;height:180px;background:radial-gradient(circle,rgba(201,168,76,.08),transparent 70%);pointer-events:none;"></div>
+          <div style="font-family:'DM Mono';font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;">
+            <span style="display:block;width:18px;height:1px;background:var(--gold);"></span>For Employers
+          </div>
+          <div style="font-size:36px;line-height:1;margin-bottom:18px;">&#127970;</div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--white);margin-bottom:14px;line-height:1.2;">Incumbent Worker Training (IWT)</h3>
+          <p style="font-size:15px;color:var(--off);line-height:1.8;margin-bottom:24px;">Your company enrolls your team in G.A.I.N.S. Certification. You pay CGI directly. Eligible Florida employers may qualify for WIOA reimbursement of up to <strong style="color:var(--gold);">$3,500 per employee</strong> and <strong style="color:var(--gold);">$25,000 per company maximum</strong> — pending CGI’s ETPL approval. CGI guides every step of your WIOA reimbursement claim. Reimbursement timelines are set by CareerSource and require pre-approval.</p>
+          <a href="mailto:grants@thecgi.org" class="btn-primary" style="display:block;width:100%;text-align:center;text-decoration:none;">Start Your Company Claim &rarr;</a>
+        </div>
+        <div style="background:var(--ink2);border:1px solid var(--border);padding:36px 32px;transition:all .3s;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-60px;right:-60px;width:180px;height:180px;background:radial-gradient(circle,rgba(201,168,76,.08),transparent 70%);pointer-events:none;"></div>
+          <div style="font-family:'DM Mono';font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;">
+            <span style="display:block;width:18px;height:1px;background:var(--gold);"></span>For Individuals
+          </div>
+          <div style="font-size:36px;line-height:1;margin-bottom:18px;">&#128100;</div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--white);margin-bottom:14px;line-height:1.2;">Individual Training Account (ITA)</h3>
+          <p style="font-size:15px;color:var(--off);line-height:1.8;margin-bottom:24px;">If you qualify for WIOA workforce funding through CareerSource Tampa Bay, your G.A.I.N.S. certification may be <strong style="color:var(--gold);">eligible for WIOA funding, subject to CareerSource approval</strong>. We help you check eligibility and connect you to your CareerSource representative.</p>
+          <a href="mailto:grants@thecgi.org" class="btn-primary" style="display:block;width:100%;text-align:center;text-decoration:none;">Check My Eligibility &rarr;</a>
+        </div>
+      </div>
+      <style>
+        @media(max-width:900px){
+          .funding-grid { grid-template-columns: 1fr !important; }
+        }
+      </style>
+
+      <!-- ETPL Status Tracker -->
+      <div class="eyebrow" style="margin-bottom:20px;">CGI ETPL Accreditation Status</div>
+      <div class="etpl-status">
+        <div class="etpl-card pending">
+          <div class="etpl-state">FLORIDA CIE</div>
+          <div class="etpl-prog">Commission for Independent Education · Provisional License</div>
+          <span class="tag tag-y etpl-status-tag">Application In Progress</span>
+          <div style="font-size:12px;color:var(--muted);margin-top:10px;font-family:'DM Mono';">Submit: cieinfo@fldoe.org</div>
+        </div>
+        <div class="etpl-card pending">
+          <div class="etpl-state">STATE ETPL</div>
+          <div class="etpl-prog">Employ Florida Portal · Statewide Provider Registry</div>
+          <span class="tag tag-y etpl-status-tag">Submitting Programs</span>
+          <div style="font-size:12px;color:var(--muted);margin-top:10px;font-family:'DM Mono';">etpl@commerce.fl.gov</div>
+        </div>
+        <div class="etpl-card pending">
+          <div class="etpl-card-inner">
+          <div class="etpl-state">CAREERSOURCE TB</div>
+          <div class="etpl-prog">Local ETPL — CareerSource Tampa Bay</div>
+          <span class="tag tag-y etpl-status-tag">Window Opens July 2026</span>
+          </div>
+        </div>
+        <div class="etpl-card pending">
+          <div class="etpl-state">EXPANSION</div>
+          <div class="etpl-prog">State-by-State Replication · National ETPL Track</div>
+          <span class="tag tag-b etpl-status-tag">Planning Phase</span>
+          <div style="font-size:12px;color:var(--muted);margin-top:10px;font-family:'DM Mono';">enterprise@thecgi.org</div>
+        </div>
+      </div>
+
+      <!-- Registrar Contact -->
+      <div class="registrar-block">
+        <div>
+          <div style="font-family:'DM Mono';font-size:9px;letter-spacing:4px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;">C.G.I. Registrar — Direct Line</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:22px;color:var(--white);margin-bottom:3px;">Dr. Michael Majette</div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:8px;">Founder & Registrar, The Capital Gains Institute</div>
+          <a href="tel:8134633401" style="font-family:'DM Mono';font-size:13px;letter-spacing:2px;color:var(--gold);">(813) 463-3401</a>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'DM Mono';font-size:9px;letter-spacing:3px;color:var(--muted);margin-bottom:6px;">GRANT SUBMISSION INBOX</div>
+          <a href="mailto:grants@thecgi.org?subject=Grant Seat Qualification Request" style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--gold);">grants@thecgi.org</a>
+        </div>
+      </div>
+
+      <!-- Reimbursement process -->
+      <div class="process-box">
+        <div class="eyebrow" style="margin-bottom:20px;">How Reimbursement Works</div>
+        <div class="proc-step"><div class="proc-n">1</div><div class="proc-t"><strong>Free AI Audit</strong> — Complete the 7-question Profit Leak Audit to document your use case</div></div>
+        <div class="proc-step"><div class="proc-n">2</div><div class="proc-t"><strong>G.A.I.N.S. Accreditation</strong> — Complete all AGZ-110 modules and receive your digital credential</div></div>
+        <div class="proc-step"><div class="proc-n">3</div><div class="proc-t"><strong>Grant Connection</strong> — CGI connects you to your assigned CareerSource / WIOA state representative</div></div>
+        <div class="proc-step"><div class="proc-n">4</div><div class="proc-t"><strong>You Pay First</strong> — Certification fee ($59 individual · $1,250–$3,500/seat enterprise sliding scale) charged at enrollment</div></div>
+        <div class="proc-step"><div class="proc-n">5</div><div class="proc-t"><strong>CGI Guides the Claim</strong> — We walk you through every document and submission step</div></div>
+        <div class="proc-step"><div class="proc-n">6</div><div class="proc-t"><strong>Reimbursement Claim</strong> — Reimbursement is issued by CareerSource on their timeline following an approved claim</div></div>
+      </div>
+
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <button class="btn-primary" onclick="startAudit()">Start Your Audit to Qualify →</button>
+        <a href="https://www.employflorida.com" target="_blank" class="btn-secondary">Employ Florida Portal ↗</a>
+        <a href="https://www.fldoe.org/policy/cie/new-institution-application.stml" target="_blank" class="btn-secondary">CIE Application ↗</a>
+      </div>
+
+      <div class="footer">
+        <div class="footer-brand"><div class="n">THE CAPITAL GAINS INSTITUTE</div><div class="s">thecgi.org</div></div>
+        <div class="footer-copy">© 2026 Capital Gains Institute</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ PAGE: FRACTIONAL CAIO ══════════════ -->
+  <div class="page" id="page-caio">
+    <div class="container">
+      <div class="eyebrow">The Retention Model</div>
+      <h1 class="serif-xl">Fractional Chief <em>AI Officer</em></h1>
+      <p class="body-lg" style="max-width:640px;margin-bottom:52px;">
+        After certification comes transformation. CGI deploys as the embedded AI operating system for your client companies — serving as their Fractional CAIO until they're ready to hire or promote from within. Monthly retainer. State scalable. Reproducible model.
+      </p>
+
+      <div class="caio-grid">
+        <div class="caio-card">
+          <div class="caio-icon">🧠</div>
+          <div class="caio-title">Build the Business Brain</div>
+          <div class="caio-desc">Structure all company knowledge — pricing logic, processes, client history, SOPs — into a unified AI-readable system. The company becomes queryable. AI stops guessing and starts knowing.</div>
+        </div>
+        <div class="caio-card">
+          <div class="caio-icon">⚙️</div>
+          <div class="caio-title">Deploy Closed-Loop Departments</div>
+          <div class="caio-desc">Install AI agents across Sales, HR, Marketing, Operations, and Finance. Each department runs as a closed loop — capturing data, improving automatically, and escalating to humans only when judgment is required.</div>
+        </div>
+        <div class="caio-card">
+          <div class="caio-icon">📊</div>
+          <div class="caio-title">Monthly Executive Cadence</div>
+          <div class="caio-desc">Weekly 1 — Executive KPI review. Weekly 2 — Department activation. Weekly 3 — Implementation sprint. Weekly 4 — Full team training and reporting. Every month builds on the last.</div>
+        </div>
+        <div class="caio-card">
+          <div class="caio-icon">🗺️</div>
+          <div class="caio-title">90-Day Deployment Arc</div>
+          <div class="caio-desc">Weeks 1–2: Audit & Architecture. Weeks 3–6: Build & Test. Weeks 7–12: Deploy, Measure, Iterate. At day 90 the company has a team that operates with AI as permanent infrastructure.</div>
+        </div>
+        <div class="caio-card">
+          <div class="caio-icon">📈</div>
+          <div class="caio-title">Token Maxing Economics</div>
+          <div class="caio-desc">One CGI-enabled operator produces what used to require a team of 10. Revenue per person doubles. Headcount stays flat. The companies that figure this out first get a compounding advantage that widens every day.</div>
+        </div>
+        <div class="caio-card">
+          <div class="caio-icon">🏛️</div>
+          <div class="caio-title">Grant-Funded Onboarding</div>
+          <div class="caio-desc">Eligible Florida employers may pursue WIOA reimbursement toward the initial certification and training investment (pending CGI’s ETPL approval). A CGI CAIO retainer typically begins after the certification phase. Reimbursement eligibility and timelines are determined by CareerSource.</div>
+        </div>
+      </div>
+
+      <!-- Pricing -->
+      <div class="eyebrow" style="margin-bottom:24px;">Engagement Tiers</div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pc-name">CGI Leadership System</div>
+          <div class="pc-price">$8K</div>
+          <div class="pc-period">/month · 6-month minimum</div>
+          <ul class="pc-features">
+            <li>Monthly executive AI strategy cadence</li>
+            <li>Business Brain architecture</li>
+            <li>90-day roadmap</li>
+            <li>Team training (1 session/month)</li>
+            <li>Grant reimbursement guidance</li>
+          </ul>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pc-name">CGI Transformation</div>
+          <div class="pc-price">$15K</div>
+          <div class="pc-period">/month · 6-month minimum</div>
+          <ul class="pc-features">
+            <li>Everything in Leadership System</li>
+            <li>Closed-loop department builds</li>
+            <li>AI agent deployment</li>
+            <li>Full team training program</li>
+            <li>Weekly implementation sprints</li>
+            <li>CAIO presence 2 days/month</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <div class="pc-name">Full Enterprise</div>
+          <div class="pc-price">$20K</div>
+          <div class="pc-period">/month · 12-month minimum</div>
+          <ul class="pc-features">
+            <li>Everything in Transformation</li>
+            <li>Multi-department activation</li>
+            <li>Embedded CAIO presence</li>
+            <li>Company-wide AI rollout</li>
+            <li>Internal CAIO candidate training</li>
+            <li>State-grant application management</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background:var(--ink2);border:1px solid var(--border);padding:28px 32px;margin-bottom:36px;">
+        <div class="eyebrow" style="margin-bottom:14px;">The State-by-State Scalable Model</div>
+        <p style="font-size:15px;color:var(--off);line-height:1.8;margin-bottom:16px;">
+          The CGI Fractional CAIO model is designed to replicate state by state. Florida is Version 1.0. Every state with a WIOA-equivalent workforce grant program becomes a new deployment. Each regional operator receives the full CGI system: the curriculum, the ETPL application process, the grant connection infrastructure, and the Fractional CAIO playbook.
+        </p>
+        <p style="font-size:14px;color:var(--muted);line-height:1.75;">
+          This is how CGI becomes the national standard — the same way the CPA credential is recognized in every state. One standard. State-by-state deployment. Exponential reach.
+        </p>
+      </div>
+
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="mailto:enterprise@thecgi.org?subject=Fractional CAIO Inquiry" class="btn-primary">Inquire About Fractional CAIO →</a>
+        <button class="btn-secondary" onclick="navTo('grants',null)">View Grant Funding</button>
+      </div>
+
+      <div class="footer">
+        <div class="footer-brand"><div class="n">THE CAPITAL GAINS INSTITUTE</div><div class="s">thecgi.org</div></div>
+        <div class="footer-copy">© 2026 Capital Gains Institute</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ PAGE: ABOUT ══════════════ -->
+  <div class="page" id="page-about">
+    <div class="container">
+      <div class="eyebrow">The Founder</div>
+      <div class="about-grid">
+        <div class="about-photo">
+          <img src="founder.jpg" alt="Dr. Mike Majette" onerror="this.src='registrar.png'">
+          <div class="credential-badges">
+            <span class="cred-badge">Doctor of Business</span>
+            <span class="cred-badge">AI Strategist</span>
+            <span class="cred-badge">Founder & Registrar</span>
+            <span class="cred-badge">Workforce Innovation</span>
+            <span class="cred-badge">Fractional CAIO</span>
+          </div>
+        </div>
+
+        <div class="founder-story">
+          <h1 class="serif-xl" style="font-size:clamp(32px,4vw,52px);margin-bottom:20px;">
+            Dr. Mike <em>Majette</em>
+          </h1>
+
+          <p>Dr. Mike Majette has spent more than two decades in private practice and business ownership. But The Capital Gains Institute was never built to be about him — it was built to be about you.</p>
+
+          <p><strong>My approach to building The Capital Gains Institute and the CGI Brain is to help your business become the best opportunity for growth — by ensuring you can harness the power of all your years of hard work and effort.</strong></p>
+
+          <p>AI is not the goal — it is the tool. The strategy comes first and the technology follows. Everything CGI builds exists to turn what you already know into a durable, compounding advantage that you own.</p>
+
+          <div class="contact-strip">
+            <div class="contact-item">
+              <div class="label">Direct Line</div>
+              <div class="val">(813) 463-3401</div>
+            </div>
+            <div class="contact-item">
+              <div class="label">Grant Inquiries</div>
+              <div class="val">grants@thecgi.org</div>
+            </div>
+            <div class="contact-item">
+              <div class="label">Enterprise</div>
+              <div class="val">enterprise@thecgi.org</div>
+            </div>
+            <div class="contact-item">
+              <div class="label">Website</div>
+              <div class="val">thecgi.org</div>
+            </div>
+          </div>
+
+          <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;">
+            <button class="btn-primary" onclick="startAudit()">Take the Free AI Audit</button>
+            <button class="btn-secondary" onclick="navTo('caio',null)">View Fractional CAIO Services</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-brand"><div class="n">THE CAPITAL GAINS INSTITUTE</div><div class="s">Tampa, FL · thecgi.org</div></div>
+        <div class="footer-links">
+          <a href="mailto:grants@thecgi.org">grants@thecgi.org</a>
+          <a href="tel:8134633401">(813) 463-3401</a>
+        </div>
+        <div class="footer-copy">© 2026 Capital Gains Institute · Dr. Mike Majette, Founder</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FAQ PAGE -->
+  <div class="page" id="page-faq">
+    <div class="container">
+      <div class="eyebrow">Everything You Need to Know</div>
+      <h1 class="serif-xl">Frequently Asked <em>Questions</em></h1>
+      <p class="body-lg" style="max-width:600px;margin-bottom:52px;">Straight answers to every question business owners, HR directors, and executives ask before getting started with CGI.</p>
+      <div id="faqList" style="display:flex;flex-direction:column;gap:2px;margin-bottom:56px;"></div>
+      <div style="background:var(--ink2);border:1px solid var(--border);padding:32px;text-align:center;">
+        <div class="eyebrow" style="justify-content:center;margin-bottom:12px;">Still Have Questions?</div>
+        <p style="font-size:16px;color:var(--muted);margin-bottom:24px;">Call Dr. Majette directly. No gatekeepers. No sales team.</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <a href="tel:8134633401" class="btn-primary" style="text-decoration:none;">Call (813) 463-3401</a>
+          <a href="mailto:grants@thecgi.org" class="btn-secondary" style="text-decoration:none;">Email Dr. Majette</a>
+        </div>
+      </div>
+      <div class="footer"><div class="footer-brand"><div class="n">THE CAPITAL GAINS INSTITUTE</div><div class="s">thecgi.org</div></div><div class="footer-copy">© 2026 Capital Gains Institute</div></div>
+    </div>
+  </div>
+
+  <!-- RESULTS PAGE -->
+  <div class="page" id="page-proof">
+    <div class="container">
+      <div class="eyebrow">Client Results</div>
+      <h1 class="serif-xl">Built in Public. <em>Verifiable Facts.</em></h1>
+      <p class="body-lg" style="max-width:600px;margin-bottom:16px;">The Capital Gains Institute publishes only what can be verified today: a live platform, a deployed 6-module certification, an authorized CertNexus AGZ-110 instructor credential, and a Florida CIE license application in progress. Documented client outcomes will be added here as our founding cohort completes the 5-metric outcomes report.</p>
+      <!-- testimonials + company ticker removed for compliance (see REMOVED-CONTENT-ARCHIVE.md) -->
+      <div class="eyebrow" style="margin-bottom:24px;">Verified Platform Status</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-bottom:40px;" class="funding-grid">
+        <div style="background:var(--ink2);padding:32px;text-align:center;"><div style="font-family:Cormorant Garamond,serif;font-size:44px;font-weight:700;color:var(--gold);line-height:1;">LIVE</div><div style="font-family:DM Mono;font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:6px;">Platform on Cloudflare</div></div>
+        <div style="background:var(--ink2);padding:32px;text-align:center;"><div style="font-family:Cormorant Garamond,serif;font-size:44px;font-weight:700;color:var(--gold);line-height:1;">6</div><div style="font-family:DM Mono;font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:6px;">Module Certification Deployed</div></div>
+        <div style="background:var(--ink2);padding:32px;text-align:center;"><div style="font-family:Cormorant Garamond,serif;font-size:44px;font-weight:700;color:var(--gold);line-height:1;">AGZ-110</div><div style="font-family:DM Mono;font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:6px;">Authorized CertNexus Instructor</div></div>
+        <div style="background:var(--ink2);padding:32px;text-align:center;"><div style="font-family:Cormorant Garamond,serif;font-size:44px;font-weight:700;color:var(--gold);line-height:1;">CIE</div><div style="font-family:DM Mono;font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:6px;">Florida License Application In Progress</div></div>
+      </div>
+      <div style="background:var(--ink2);border:1px solid rgba(201,168,76,.3);padding:28px 32px;margin-bottom:40px;">
+        <div style="font-family:'DM Mono';font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;">Founding Cohort — Now Forming</div>
+        <h3 class="serif-md" style="margin-bottom:12px;">Become a Charter Company</h3>
+        <p style="font-size:15px;color:var(--off);line-height:1.8;">CGI is enrolling a founding cohort of companies at charter pricing. In exchange, charter members agree to document their AI-adoption outcomes (a short 5-metric report) and — if they choose — provide a consented testimonial we can verify and attribute. This is how we build a real, evidence-based track record: outcomes first, claims second. Charter pricing is limited to the founding cohort.</p>
+      </div>
+      <div style="text-align:center;"><button class="btn-primary" onclick="startAudit()">Take the Free AI Audit</button></div>
+      <div class="footer"><div class="footer-brand"><div class="n">THE CAPITAL GAINS INSTITUTE</div><div class="s">thecgi.org</div></div><div class="footer-copy">© 2026 Capital Gains Institute</div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════ PAGE: THE BRAIN ══════════════ -->
+  <div class="page" id="page-brain">
+    <div class="container">
+      <!-- Hero -->
+      <div class="brain-hero">
+        <div class="eyebrow" style="justify-content:center;">Introducing the CGI Business Brain</div>
+        <h1 class="serif-xl">Your company's institutional intelligence — <em>given the power to think.</em></h1>
+        <p class="body-lg">A private AI advisor trained specifically on your business — your operations, your pricing, your decisions, your history — that gets smarter every single month for as long as your company exists.</p>
+        <a class="btn-primary" href="mailto:grants@thecgi.org?subject=CGI%20Brain%20Inquiry">Request a Conversation</a>
+      </div>
+
+      <div class="brain-divider" style="margin:56px 0;"></div>
+
+      <!-- What it is -->
+      <div class="eyebrow">What It Is</div>
+      <h2 class="serif-lg">Not a chatbot. <span>Not a tool.</span></h2>
+      <div class="brain-what" style="margin-top:24px;">
+        <p>The Brain is, first, a <strong>private knowledge vault</strong> about your company — a secured repository of how your business actually runs: your SOPs, your pricing logic, your client history, your financials, and the decisions you've made and why. It is yours alone, walled off from every other company.</p>
+        <p>On top of that vault sits a <strong>reasoning engine</strong> that draws only from what it knows about you. It thinks through problems the way a seasoned advisor would — weighing trade-offs and surfacing risk — but always grounded in your facts, never generic internet guesswork.</p>
+        <p>And around all of it runs an <strong>action network of agents</strong> that handle specific functions on your behalf — responding to inbound leads, drafting documents and proposals, preparing reports — each one working from the same vault, so everything it produces sounds like your company.</p>
+      </div>
+
+      <div class="brain-divider" style="margin:56px 0;"></div>
+
+      <!-- Who it's for -->
+      <div class="eyebrow">Who It's For</div>
+      <h2 class="serif-lg">Built for <span>serious operators.</span></h2>
+      <div class="brain-who" style="margin-top:24px;">
+        <p>The CGI Brain is built for any and every business — but the sweet spot is companies doing between $10M and $100M in annual recurring revenue. Founder-led, family-owned, or closely held businesses across the U.S. and growing, where decision fatigue is real and institutional knowledge lives mostly in the founder's head. Companies larger than that simply layer in more tools, so the Brain keeps delivering the greatest possible ROI at any scale.</p>
+      </div>
+
+      <div class="brain-divider" style="margin:56px 0;"></div>
+
+      <!-- Four pillars -->
+      <div class="eyebrow">How It Works</div>
+      <h2 class="serif-lg">Four pillars. <span>One mind.</span></h2>
+      <div class="brain-pillars">
+        <div class="brain-pillar">
+          <h3>The Reasoning Engine</h3>
+          <div class="role">The mind that thinks.</div>
+          <p>Built on frontier AI, it reasons through problems the way a seasoned advisor would. It weighs trade-offs, surfaces risks, and works through second-order consequences — always grounded in your company's actual facts, never generic internet knowledge.</p>
+        </div>
+        <div class="brain-pillar">
+          <h3>The Knowledge Vault</h3>
+          <div class="role">The memory that never forgets.</div>
+          <p>A private, secured repository of everything that makes your company yours: SOPs, pricing, client history, financials, and the decisions behind them. It is walled off from every other company, and it compounds with every file you add.</p>
+        </div>
+        <div class="brain-pillar">
+          <h3>The Conversation Layer</h3>
+          <div class="role">The way you talk to it.</div>
+          <p>Ask a question in plain English and get an answer in seconds — by chat or by voice, on your phone or at your desk. No dashboards to learn, no queries to write. It speaks the language of the operator, not the engineer.</p>
+        </div>
+        <div class="brain-pillar">
+          <h3>The Action Network</h3>
+          <div class="role">The hands that do the work.</div>
+          <p>A set of specialized agents that don't just advise — they execute. Responding to inbound leads, drafting documents and proposals, preparing reports and follow-ups. Each agent works from the same vault, so everything sounds like your company.</p>
+        </div>
+      </div>
+
+      <div class="brain-divider" style="margin:56px 0;"></div>
+
+      <!-- How it learns -->
+      <div class="eyebrow">How It Learns</div>
+      <h2 class="serif-lg">Three sources. All transparent. <span>All controlled by you.</span></h2>
+      <div class="brain-learn">
+        <div class="brain-card">
+          <div class="knum">01 · The Intake</div>
+          <h3>A two-hour foundational conversation</h3>
+          <p>We sit down and capture how your business actually runs — the knowledge that normally lives only in your head — and load it into the vault as the Brain's starting memory.</p>
+        </div>
+        <div class="brain-card">
+          <div class="knum">02 · The Monthly Review</div>
+          <h3>A scheduled call to update its files</h3>
+          <p>Once a month we update the Brain with what changed: new pricing, new hires, new wins, new lessons. Every review makes it measurably sharper.</p>
+        </div>
+        <div class="brain-card">
+          <div class="knum">03 · Whatever You Add</div>
+          <h3>Any document, anytime</h3>
+          <p>Drop in a contract, an email thread, a spreadsheet, a recording — whenever you like. The moment it enters the vault, the Brain can reason from it.</p>
+        </div>
+      </div>
+
+      <div class="brain-divider" style="margin:56px 0;"></div>
+
+      <!-- Compounding growth -->
+      <div class="eyebrow">Compounding Growth</div>
+      <h2 class="serif-lg">It starts as a baby. <span>It becomes an institutional asset.</span></h2>
+      <div class="brain-timeline">
+        <div class="brain-stage">
+          <div class="month">Month 1</div>
+          <div class="stage-name">Infant</div>
+          <p>Knows the essentials from your intake. Answers basic questions about your business and begins learning your voice.</p>
+        </div>
+        <div class="brain-stage">
+          <div class="month">Month 3</div>
+          <div class="stage-name">Toddler</div>
+          <p>Connections forming. It remembers past conversations, spots patterns across your files, and needs less context each time.</p>
+        </div>
+        <div class="brain-stage">
+          <div class="month">Month 6</div>
+          <div class="stage-name">Sharp junior partner</div>
+          <p>Anticipates the follow-up question. Drafts that sound like you. Catches inconsistencies you would have missed.</p>
+        </div>
+        <div class="brain-stage">
+          <div class="month">Month 12</div>
+          <div class="stage-name">Trusted advisor</div>
+          <p>Deep institutional memory. It reasons about trade-offs with full knowledge of your history and the decisions behind it.</p>
+        </div>
+        <div class="brain-stage">
+          <div class="month">Month 24</div>
+          <div class="stage-name">Institutional asset</div>
+          <p>The most complete record of how your company thinks — a compounding asset that outlasts any single employee and raises the value of the business itself.</p>
+        </div>
+      </div>
+
+      <div class="brain-divider" style="margin:56px 0;"></div>
+
+      <!-- Trust layer -->
+      <div class="eyebrow">The Trust Layer</div>
+      <h2 class="serif-lg">Why it will <span>not lie to you.</span></h2>
+      <div class="brain-trust">
+        <div class="brain-point">
+          <div class="pnum">1</div>
+          <div>
+            <h3>It only speaks from your files.</h3>
+            <p>The Brain answers from your vault, not the open internet. If it doesn't know, it tells you — it does not invent.</p>
+          </div>
+        </div>
+        <div class="brain-point">
+          <div class="pnum">2</div>
+          <div>
+            <h3>Every answer is traceable.</h3>
+            <p>Ask where an answer came from and it shows you the source document. No black boxes, no guessing.</p>
+          </div>
+        </div>
+        <div class="brain-point">
+          <div class="pnum">3</div>
+          <div>
+            <h3>You are always the decision maker.</h3>
+            <p>The Brain advises, drafts, and recommends. The judgment — and the final call — always stays with you.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final CTA -->
+      <div class="brain-cta" style="margin-top:56px;">
+        <div class="eyebrow" style="justify-content:center;">Let's Talk</div>
+        <h2 class="serif-lg">Ready for <span>a conversation?</span></h2>
+        <p class="body-lg" style="max-width:520px;margin:0 auto;">No pitch. No catch. A conversation between two operators.</p>
+        <div class="actions">
+          <a class="btn-primary" href="mailto:grants@thecgi.org?subject=CGI%20Brain%20Inquiry">Request a Conversation</a>
+          <a class="btn-secondary" href="tel:8134633401">Call (813) 463-3401</a>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-brand"><div class="n">THE CAPITAL GAINS INSTITUTE</div><div class="s">Tampa, FL · thecgi.org</div></div>
+        <div class="footer-links">
+          <a href="mailto:grants@thecgi.org">grants@thecgi.org</a>
+          <a href="tel:8134633401">(813) 463-3401</a>
+        </div>
+        <div class="footer-copy">© 2026 Capital Gains Institute · Dr. Mike Majette, Founder</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /platform -->
+
+<script>
+/* ═══════════════════════════════════════════
+   COURSES DATA — AGZ-110 Standard
+═══════════════════════════════════════════ */
+const COURSES = [
+  {
+    tag: 'Module 01 · Foundation',
+    title: 'AI in Everyday Life & Work',
+    sub: 'What AI actually is — and how it changes your daily professional life immediately.',
+    badge: 'Beginner', badgeClass: 'badge-found',
+    chapters: [
+      { t:'Introduction to AI and Its Impact', b:'Modern AI capabilities, myth-busting, the future of work, and what the shift from rule-based to agentic AI actually means for your organization.' },
+      { t:'Exploring AI Tools and Technologies', b:'Text generation, image creation, coding assistance, and voice recognition — a hands-on survey of the tools available in 2025–2026 and how to evaluate which ones fit your workflow.' },
+      { t:'Practical Applications in the Workplace', b:'Real-world AI applications in business and service industries. Case studies, implementation strategies, and the 4-step framework for introducing AI to resistant teams.' }
+    ]
+  },
+  {
+    tag: 'Module 02 · Business',
+    title: 'AI in Business & Capital Strategy',
+    sub: 'Build the AI roadmap, restructure operations, and create compounding competitive advantage.',
+    badge: 'Intermediate', badgeClass: 'badge-inter',
+    chapters: [
+      { t:'AI Business Foundations', b:'How AI restructures business models, competitive moats, and capital allocation. The shift from linear scaling (headcount) to exponential scaling (token maxing).' },
+      { t:'Strategic AI Implementation', b:'The four-step AI-first framework: Learn → Wire → Automate → Scale. Building the Business Brain that makes your company queryable and legible to AI systems.' },
+      { t:'AI for Business Operations', b:'Closed-loop department design. Test harnesses and quality standards. How to build self-improving feedback loops into Sales, HR, Marketing, Operations, and Finance.' },
+      { t:'AI for Customer Experience', b:'AI-powered personalization, service delivery, and customer intelligence. How to build systems that improve every customer interaction automatically.' },
+      { t:'AI for Data-Driven Decision Making', b:'Business intelligence augmented by AI. Eliminating the cost of manual data reconciliation. Strategic decision frameworks built on live AI analysis.' },
+      { t:'Future-Proofing Business with AI', b:'Emerging agentic technologies, the new org chart (IC · DRI · AI Founder), and the state-by-state expansion model that scales the CGI franchise.' }
+    ]
+  },
+  {
+    tag: 'Module 03 · Revenue',
+    title: 'AI in Sales & Revenue Acceleration',
+    sub: 'AI-powered prospecting, pipeline intelligence, deal velocity, and close rate optimization.',
+    badge: 'Intermediate', badgeClass: 'badge-inter',
+    chapters: [
+      { t:'Sales Fundamentals and AI', b:'How AI reshapes traditional sales processes. The end of the follow-up gap. AI sequences that contact new leads within 90 seconds — 3x close rate on after-hours inquiries.' },
+      { t:'Popular AI Tools for Sales', b:'ChatGPT, Grok, Claude, Midjourney — a practitioner-grade survey of the most effective AI sales tools with specific use cases for each.' },
+      { t:'AI-Powered Customer Engagement', b:'Personalization at scale. Understanding customer needs before the first call. Delivering tailored proposals that reference the client\'s actual situation.' },
+      { t:'Measuring AI Sales Performance', b:'Frameworks for tracking, analyzing, and optimizing AI-enhanced sales processes. The metrics that replace gut instinct with compounding data.' }
+    ]
+  },
+  {
+    tag: 'Module 04 · Public Sector',
+    title: 'AI in Local Government',
+    sub: 'Transform public services, citizen engagement, and operational efficiency.',
+    badge: 'Intermediate', badgeClass: 'badge-inter',
+    chapters: [
+      { t:'Foundations of AI in Government', b:'AI\'s transformative potential in local government. Case studies from municipalities that reduced costs and improved service delivery through AI adoption.' },
+      { t:'AI Tools for Local Government', b:'Practical applications of ChatGPT, Claude, and Grok in government contexts — constituent services, documentation, policy analysis, and internal operations.' },
+      { t:'Data Privacy and Security in Government AI', b:'Handling sensitive government data, ensuring privacy compliance, and implementing proper security safeguards. The NIST AI RMF applied to public sector deployments.' },
+      { t:'AI for Government Efficiency', b:'Automation of repetitive administrative workflows. Cost reduction through AI. Service delivery improvements that require no additional headcount.' },
+      { t:'Future of AI in Local Government', b:'Emerging trends, long-term integration strategies, and how to position your government organization as a model for the county and state.' },
+      { t:'Future-Proofing Government with AI', b:'Ethical AI implementation, bias detection, transparency requirements, and strategies for staying ahead of both the technology and the regulation.' }
+    ]
+  },
+  {
+    tag: 'Module 05 · People Operations',
+    title: 'AI for Human Resources',
+    sub: 'Talent acquisition, employee development, organizational analytics, and future-ready workforce design.',
+    badge: 'Intermediate', badgeClass: 'badge-inter',
+    chapters: [
+      { t:'HR Fundamentals and AI', b:'How AI transforms traditional HR processes. The shift from reactive HR to predictive workforce management. Identifying skill gaps before they become operational problems.' },
+      { t:'AI Tools for Talent Acquisition', b:'AI-driven candidate sourcing, screening, and selection. Building more efficient hiring processes that reduce time-to-fill and improve quality of hire.' },
+      { t:'Employee Development with AI', b:'Personalized learning at scale. Performance management enhanced by AI. Data-driven employee development strategies that actually move the needle.' },
+      { t:'Organizational Analytics with AI', b:'Workforce insights from AI-powered analytics. Optimizing team structures. Making evidence-based HR decisions for better organizational outcomes.' },
+      { t:'Advanced HR Analytics', b:'Strategic workforce planning, culture measurement, diversity and inclusion insights, and executive decision support powered by AI analytics.' }
+    ]
+  },
+  {
+    tag: 'Module 06 · Agentic Systems',
+    title: 'Foundations of Agentic AI — AGZ-110',
+    sub: 'CertNexus exam preparation. Business leaders determine where, whether, and how agents should exist.',
+    badge: 'Advanced', badgeClass: 'badge-inter',
+    chapters: [
+      { t:'Agentic AI Fundamentals', b:'The Brain-Memory-Tools framework. LLMs vs. agents. The Sense-Think-Act loop. How agentic systems differ from chatbots and why the distinction matters for your organization.' },
+      { t:'Determining Suitability', b:'The variability and judgment matrix. Agent-appropriate tasks vs. human-mandatory decisions. Business Process Analysis to reveal whether a process needs AI, automation, or a human.' },
+      { t:'Designing Agentic Solutions', b:'Agent modalities, one-shot vs. iterative patterns, single vs. multi-agent environments. RAG, fine-tuning, and how to choose the right architecture for your use case.' },
+      { t:'Managing Agentic Risks', b:'Confabulation, hallucination, training data limitations, vibe coding. The NIST AI Risk Management Framework. Human-in-the-Loop design and safe autonomy boundaries.' },
+      { t:'Adopting Agentic AI', b:'Resource planning for people, data, and infrastructure. Change management. Governance and the culture of responsible AI. Skill gap identification and upskilling strategy.' },
+      { t:'Executing Agentic Strategy', b:'Workflow prioritization. Dependency mapping. Build vs. buy decisions. Phased deployment. Communicating the agentic strategy to executives, technical teams, and frontline employees.' }
+    ]
+  }
+];
+
+/* Build course cards */
+(function buildCourses(){
+  const grid = document.getElementById('courseGrid');
+  COURSES.forEach((c, i) => {
+    const el = document.createElement('div');
+    el.className = 'course-card';
+    el.id = `cc${i}`;
+    el.innerHTML = `
+      <div class="course-header" onclick="toggleCourse(${i})">
+        <div class="cc-num">0${i+1}</div>
+        <div class="cc-meta">
+          <div class="cc-tag">${c.tag}</div>
+          <div class="cc-title">${c.title}</div>
+          <div class="cc-sub">${c.sub}</div>
+        </div>
+        <div class="cc-right">
+          <span class="cc-badge ${c.badgeClass}">${c.badge}</span>
+          <span class="cc-arrow">▼</span>
+        </div>
+      </div>
+      <div class="course-detail" id="cd${i}">
+        <div class="course-detail-inner">
+          ${c.chapters.map((ch,j) => `
+            <div class="chapter-row">
+              <div class="ch-num">0${j+1}</div>
+              <div>
+                <div class="ch-title">${ch.t}</div>
+                <div class="ch-body">${ch.b}</div>
+              </div>
+            </div>`).join('')}
+          <button class="btn-enroll-course" onclick="claimGrant()">Enroll in This Module →</button>
+        </div>
+      </div>`;
+    grid.appendChild(el);
+  });
+})();
+
+function toggleCourse(i) {
+  const card = document.getElementById(`cc${i}`);
+  const detail = document.getElementById(`cd${i}`);
+  const isOpen = card.classList.contains('open');
+  // close all
+  COURSES.forEach((_, j) => {
+    document.getElementById(`cc${j}`).classList.remove('open');
+    document.getElementById(`cd${j}`).classList.remove('open');
+  });
+  if (!isOpen) {
+    card.classList.add('open');
+    detail.classList.add('open');
+  }
+}
+
+/* ═══════════════════════════════════════════
+   AUTH
+═══════════════════════════════════════════ */
+/* CREDS array removed (Phase 0.3) */
+
+function handleLogin() {
+  const email = document.getElementById('gEmail').value.trim();
+  const btn   = document.getElementById('enterBtn');
+  const err   = document.getElementById('gateError');
+  err.textContent = '';
+  if (!email) { err.textContent = 'Please enter your email address to continue.'; return; }
+  btn.textContent = 'Verifying...'; btn.style.pointerEvents = 'none';
+  setTimeout(() => {
+    enterPlatform(email.toLowerCase());
+  }, 600);
+}
+
+function demoLogin() {
+  document.getElementById('gEmail').value = 'grants@thecgi.org';
+  handleLogin();
+}
+
+function enterPlatform(email) {
+  document.getElementById('navUser').textContent = email;
+  document.getElementById('gate').classList.add('exit');
+  document.body.classList.add('unlocked');
+  setTimeout(() => {
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('platform').style.display = 'block';
+  }, 580);
+}
+
+function logout() {
+  document.getElementById('gate').style.display = 'flex';
+  document.getElementById('gate').classList.remove('exit');
+  document.getElementById('gate').style.opacity = '1';
+  document.getElementById('gate').style.transform = 'none';
+  document.getElementById('platform').style.display = 'none';
+  document.body.classList.remove('unlocked');
+  document.getElementById('gEmail').value = '';
+  document.getElementById('gateError').textContent = '';
+}
+
+/* ═══════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════ */
+function navTo(key, btn) {
+  var page = document.getElementById('page-' + key);
+  if (!page) return;
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+  page.classList.add('active');
+  if (btn) {
+    btn.classList.add('active');
+  } else {
+    document.querySelectorAll('.nav-tab').forEach(function(b){
+      var oc = b.getAttribute('onclick') || '';
+      if (oc.indexOf("navTo('" + key + "'") !== -1) b.classList.add('active');
+    });
+  }
+  window.scrollTo(0, 0);
+}
+
+function toggleBurger() {
+  document.getElementById('mMenu').classList.toggle('open');
+}
+
+/* deep-link support: e.g. index.html#brain, index.html#courses */
+function routeFromHash() {
+  var key = (location.hash || '').replace('#', '');
+  if (key && document.getElementById('page-' + key)) navTo(key, null);
+}
+window.addEventListener('DOMContentLoaded', routeFromHash);
+window.addEventListener('hashchange', routeFromHash);
+
+/* ═══════════════════════════════════════════
+   AUDIT ENGINE
+═══════════════════════════════════════════ */
+const Qs = [
+  { type:'op', tag:'Labor Tax', text:'Do your highest-paid team members spend 90+ minutes per day on robotic, repeatable tasks?',
+    leak:'Labor Tax', fix:'AI workflow automation reclaims 8–12 hours per week per employee — redirected to revenue-generating work.' },
+  { type:'op', tag:'Lead Latency', text:'Does it take 10+ minutes to engage new inquiries when they arrive after hours or on weekends?',
+    leak:'Lead Latency', fix:'AI sequences contact new leads within 90 seconds — producing a 3× close rate on after-hours inquiries.' },
+  { type:'know', tag:'Knowledge Check', text:'What is the primary purpose of Prompt Engineering?',
+    opts:[
+      { t:'Writing code to train AI models', correct:false },
+      { t:'The bridge between human intent and machine execution', correct:true },
+      { t:'A database management technique', correct:false }
+    ],
+    ok:'Correct. Prompt engineering is the discipline of translating human intent into precise, reliable machine execution — the foundational skill of agentic system design.',
+    no:'Not quite. Prompt engineering is the bridge between human intent and machine execution — the art of instructing AI systems with precision and consistency.'
+  },
+  { type:'op', tag:'Data Fragmentation', text:'Does your team rely on scattered tools — separate CRMs, inboxes, spreadsheets — that don\'t automatically share context?',
+    leak:'Data Fragmentation', fix:'Unified AI memory layers aggregate context across tools, eliminating the cost of manual data reconciliation across departments.' },
+  { type:'op', tag:'Pipeline Gap', text:'Do leads or clients fall through the cracks when your team is at capacity or after the first call?',
+    leak:'The Pipeline Gap', fix:'AI nurture sequences keep every lead warm for 90+ days with zero manual effort — no lead ever goes cold again.' },
+  { type:'know', tag:'Knowledge Check', text:'What defines an AI Agent (as distinct from a chatbot)?',
+    opts:[
+      { t:'A chatbot that answers FAQs from a knowledge base', correct:false },
+      { t:'A language model fine-tuned on company-specific data', correct:false },
+      { t:'An autonomous system that pursues goals using tools', correct:true }
+    ],
+    ok:'Correct. An AI Agent perceives its environment, reasons about goals, selects tools to act, and adapts — without requiring a human to direct each step.',
+    no:'Not quite. An AI Agent is defined by autonomy and goal-pursuit — it perceives, reasons, acts, and adapts using tools toward defined outcomes, without constant human direction.'
+  },
+  { type:'op', tag:'Founder Dependency', text:'Would your business stall significantly if you or your key operator stepped away completely for 30 days?',
+    leak:'Founder Dependency', fix:'A Sovereign Operating System creates a business that runs on AI infrastructure — not on the continuous presence of any individual.' }
+];
+
+let cur = 0, ans = new Array(7).fill(null), kDone = new Array(7).fill(false);
+
+function startAudit() {
+  cur = 0; ans = new Array(7).fill(null); kDone = new Array(7).fill(false);
+  document.getElementById('auditQ').style.display = '';
+  document.getElementById('auditR').style.display = 'none';
+  renderQ();
+  navTo('audit', null);
+  document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+}
+
+function retakeAudit() { startAudit(); }
+
+function renderQ() {
+  const q = Qs[cur];
+  const pct = Math.round((cur / 7) * 100);
+  document.getElementById('aLabel').textContent = `Question ${cur+1} of 7`;
+  document.getElementById('aPct').textContent = pct + '%';
+  document.getElementById('progFill').style.width = pct + '%';
+
+  const badge = document.getElementById('qBadge');
+  badge.className = `q-badge ${q.type === 'op' ? 'op' : 'know'}`;
+  badge.textContent = q.type === 'op' ? `Operational · ${q.tag}` : `Knowledge Check · ${q.tag}`;
+
+  document.getElementById('qText').textContent = q.text;
+
+  const fb = document.getElementById('fbBox');
+  fb.className = 'fb-box'; fb.textContent = '';
+
+  const ynRow = document.getElementById('ynRow');
+  const mcqList = document.getElementById('mcqList');
+
+  if (q.type === 'op') {
+    ynRow.style.display = '';
+    mcqList.style.display = 'none';
+    document.getElementById('yesBtn').className = 'btn-yn' + (ans[cur]==='yes' ? ' yes-s' : '');
+    document.getElementById('noBtn').className  = 'btn-yn' + (ans[cur]==='no'  ? ' no-s'  : '');
+  } else {
+    ynRow.style.display = 'none';
+    mcqList.style.display = 'flex';
+    mcqList.innerHTML = '';
+    q.opts.forEach((o, i) => {
+      const b = document.createElement('button');
+      b.className = 'btn-mcq';
+      b.textContent = o.t;
+      if (kDone[cur]) {
+        b.disabled = true;
+        if (o.correct) b.classList.add('correct');
+        else if (ans[cur] === i) b.classList.add('wrong');
+        const isRight = ans[cur] !== null && q.opts[ans[cur]].correct;
+        fb.textContent = isRight ? q.ok : q.no;
+        fb.className = `fb-box show ${isRight ? 'correct' : 'wrong'}`;
+      } else {
+        b.onclick = () => pickMCQ(i);
+      }
+      mcqList.appendChild(b);
+    });
+  }
+
+  const nb = document.getElementById('nxtBtn');
+  nb.textContent = cur === 6 ? 'See My Results →' : 'Next →';
+  nb.className = 'btn-nxt' + (ans[cur] !== null ? ' on' : '');
+}
+
+function pickYN(v) {
+  ans[cur] = v;
+  document.getElementById('yesBtn').className = 'btn-yn' + (v==='yes' ? ' yes-s' : '');
+  document.getElementById('noBtn').className  = 'btn-yn' + (v==='no'  ? ' no-s'  : '');
+  document.getElementById('nxtBtn').className = 'btn-nxt on';
+}
+
+function pickMCQ(i) {
+  const q = Qs[cur];
+  ans[cur] = i; kDone[cur] = true;
+  const correct = q.opts[i].correct;
+  document.querySelectorAll('#mcqList .btn-mcq').forEach((b, j) => {
+    b.disabled = true;
+    if (q.opts[j].correct) b.classList.add('correct');
+    else if (j === i && !correct) b.classList.add('wrong');
+  });
+  const fb = document.getElementById('fbBox');
+  fb.textContent = correct ? q.ok : q.no;
+  fb.className = `fb-box show ${correct ? 'correct' : 'wrong'}`;
+  document.getElementById('nxtBtn').className = 'btn-nxt on';
+}
+
+function auditAdvance() {
+  if (ans[cur] === null) return;
+  if (cur < 6) { cur++; renderQ(); }
+  else showResults();
+}
+
+function auditBack() {
+  if (cur > 0) { cur--; renderQ(); }
+  else navTo('home', null);
+}
+
+function showResults() {
+  const opIdx = Qs.map((q,i) => q.type==='op' ? i : -1).filter(i => i >= 0);
+  const leaks = opIdx.filter(i => ans[i] === 'yes').length;
+  const cost = leaks * 47500;
+  const heads = ['Your Systems Are Tight','One Leak Identified','Two Leaks Identified','Three Leaks Detected','Significant Exposure','Critical Exposure'];
+  const subs  = [
+    'No critical operational gaps found. Well-positioned for AI augmentation — the CGI certification solidifies that position.',
+    'One revenue leak identified. A targeted AI intervention can address it within 30 days. Eligible Florida employers may qualify for WIOA reimbursement toward the cost (pending CGI’s ETPL approval).',
+    'Two leaks draining your pipeline. A G.A.I.N.S. implementation targets both — and eligible Florida employers may qualify for WIOA reimbursement of up to $3,500 per employee (pending CGI’s ETPL approval).',
+    'Significant drag across three vectors. Eligible Florida employers may qualify for WIOA reimbursement of up to $25,000 toward implementation (pending CGI’s ETPL approval).',
+    'Four pressure points active. A G.A.I.N.S. implementation targets all four. The WIOA reimbursement pathway may offset much of the cost for eligible Florida employers (pending CGI’s ETPL approval).',
+    'All five operational leaks live. This is exactly what the CGI operating system is built to address. WIOA reimbursement may be available to eligible Florida employers (pending CGI’s ETPL approval).'
+  ];
+  document.getElementById('rNum').textContent = leaks;
+  document.getElementById('rHead').textContent = heads[leaks] || `${leaks} Leaks Detected`;
+  document.getElementById('rSub').textContent  = subs[leaks]  || '';
+  document.getElementById('rCost').textContent = leaks === 0 ? '$0' : '$' + cost.toLocaleString() + '+';
+
+  const list = document.getElementById('rLeaks');
+  list.innerHTML = '';
+  opIdx.forEach(qi => {
+    const q = Qs[qi], flagged = ans[qi] === 'yes';
+    const d = document.createElement('div');
+    d.className = `leak-row ${flagged ? 'flag' : 'clean'}`;
+    d.innerHTML = `
+      <div class="l-icon" style="color:${flagged?'#f87171':'#4ade80'}">${flagged?'▲':'✓'}</div>
+      <div>
+        <div class="l-name" style="color:${flagged?'#fca5a5':'#86efac'}">${q.leak}</div>
+        <div class="l-fix">${flagged ? q.fix : 'No leak detected in this area.'}</div>
+      </div>`;
+    list.appendChild(d);
+  });
+
+  document.getElementById('auditQ').style.display = 'none';
+  document.getElementById('auditR').style.display  = '';
+  window.scrollTo(0, 0);
+}
+
+function claimGrant() {
+  window.open('https://square.link/u/LCWB6GgU', '_blank');
+}
+
+function joinAlumni() {
+  window.open('https://square.link/u/GztrpxX5', '_blank');
+}
+
+function sendGrantGuide() {
+  const emailInput = document.getElementById('grantGuideEmail');
+  const msg = document.getElementById('grantGuideMsg');
+  const email = (emailInput.value || '').trim();
+  if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+    msg.textContent = 'Please enter a valid email address.';
+    msg.style.color = 'var(--red)';
+    emailInput.focus();
+    return;
+  }
+  const subject = encodeURIComponent('Grant Guide Request');
+  const body = encodeURIComponent(
+    'Please send me the complete Florida AI Workforce Grant Guide.\n\n' +
+    'My email: ' + email + '\n' +
+    'Company: '
+  );
+  window.location.href = 'mailto:grants@thecgi.org?subject=' + subject + '&body=' + body;
+  msg.textContent = 'Opening your email app — send the message to complete your request.';
+  msg.style.color = 'var(--gold)';
+}
+
+/* ═══════════════════════════════════════════
+   FAQ DATA
+═══════════════════════════════════════════ */
+const FAQS = [
+  {
+    q: "Do I have to pay for the training upfront?",
+    a: "The G.A.I.N.S. certification is $59 for individuals and $1,250–$3,500 per seat (sliding scale by company size) for live cohort training. Eligible Florida employers may qualify for WIOA reimbursement of up to $3,500 per employee and $25,000 per company maximum through Incumbent Worker Training — pending CGI’s ETPL approval. CGI guides every step of the WIOA reimbursement claim. Reimbursement eligibility, amounts, and timelines are determined by CareerSource and require pre-approval."
+  },
+  {
+    q: "What exactly is the G.A.I.N.S. certification?",
+    a: "G.A.I.N.S. stands for Global AI Integration and National Standards — CGI’s practitioner-grade AI credential, which includes preparation for the third-party CertNexus Agentic AIBIZ (AGZ-110) exam. It covers agentic AI fundamentals, business process suitability, solution design, risk management, organizational adoption, and execution strategy. It is designed for business leaders and decision-makers — not developers. Upon completion you receive a verifiable digital credential shareable on LinkedIn and with employers."
+  },
+  {
+    q: "What is the Florida WIOA grant and does my company qualify?",
+    a: "<strong>WIOA stands for the Workforce Innovation and Opportunity Act</strong> — a federally funded program administered by the State of Florida that reimburses employers for qualifying workforce training costs. Eligibility requirements include: FL-based employer, existing employees enrolled in training, and programs on the state Eligible Training Provider List (ETPL). CGI is actively in the ETPL accreditation process. We connect every client to their assigned CareerSource representative to determine eligibility. Most Tampa Bay area businesses with 5+ employees qualify."
+  },
+  {
+    q: "How long does the certification take?",
+    a: "The online self-paced G.A.I.N.S. certification takes most learners 6–8 hours to complete across the 6 modules at their own pace. The live instructor-led cohort is delivered as a 2-day program (4 hours per day) or a single full-day intensive. Each module includes a quiz and the program concludes with a 20-question final assessment. A 70% score or higher earns your digital credential."
+  },
+  {
+    q: "What is a Fractional Chief AI Officer and does my company need one?",
+    a: "A Fractional Chief AI Officer (CAIO) is an embedded AI strategy and implementation partner who serves your company on a monthly retainer — without the $250,000–$400,000 cost of a full-time hire. CGI deploys as your fractional CAIO to build your Business Brain, install AI agents across departments, train your team, and hold the strategy until you're ready to run it independently or hire your own CAIO. Companies with 20+ employees doing $2M+ in annual revenue typically see immediate ROI on the CAIO retainer."
+  },
+  {
+    q: "My employees are not technical. Can they still do this?",
+    a: "Absolutely — and that is specifically who this program is designed for. The G.A.I.N.S. curriculum is built for business leaders, managers, HR professionals, sales teams, and operations staff. Zero coding. Zero technical background required. Many of our participants come in with almost no AI experience and leave with a complete understanding of how to deploy AI tools in their specific role and industry. If you can use a smartphone, you can complete this program."
+  },
+  {
+    q: "How is CGI different from other AI training programs?",
+    a: "Three things make CGI unique. <strong>First, the grant infrastructure:</strong> we are actively working through the Florida WIOA/ETPL process so that eligible employers can pursue reimbursement for training — pending CGI’s ETPL approval. <strong>Second, the curriculum standard:</strong> our G.A.I.N.S. program includes preparation for the third-party CertNexus Agentic AIBIZ (AGZ-110) exam, which CGI is authorized to deliver instructor-led prep for. <strong>Third, the founder's proof:</strong> Dr. Majette built this entire platform as a one-person operation using the exact AI tools he teaches. He is not teaching theory. He is teaching what he lives."
+  },
+  {
+    q: "Can CGI train my entire company at once?",
+    a: "Yes. Enterprise cohort delivery is available for companies of any size. Teams of 5–200+ employees can be trained through customized on-site or virtual cohort programs at $1,250–$3,500 per seat (sliding scale by company size) for live instruction. Volume pricing is available for cohorts of 20+. The Florida WIOA maximum of $25,000 per company applies to enterprise cohorts as well — making large team training financially accessible for most qualifying businesses."
+  },
+  {
+    q: "What industries does CGI work with?",
+    a: "CGI has built industry-specific AI programs for dental practices, real estate brokerages, law firms, medical spas, staffing agencies, CPA firms, insurance agencies, restaurant groups, local government, HR departments, and sales organizations. Every industry gets a customized Business Brain architecture and industry-specific use cases — not a generic AI overview. If your industry is not listed, ask. We build for any business that has repeatable processes, customer relationships, and a desire to grow."
+  },
+  {
+    q: "What happens after the certification is complete?",
+    a: "After certification, clients have three options. <strong>Option 1:</strong> Self-implementation — you have the knowledge and tools to begin deploying AI independently. <strong>Option 2:</strong> G.A.I.N.S. Alumni Membership ($5/month) — ongoing access to resources, updates, and the CGI community as standards evolve. <strong>Option 3:</strong> Fractional CAIO engagement — CGI stays on as your embedded AI operating system partner at $8,000–$20,000/month retainer, building your full Business Brain and deploying AI across every department."
+  },
+  {
+    q: "How do I get started today?",
+    a: "Three ways. <strong>Fastest:</strong> Take the free 7-question AI Profit Audit right now in this platform — it takes 4 minutes and shows you exactly what AI is costing your business. <strong>Direct:</strong> Call Dr. Majette at (813) 463-3401 — he answers personally. <strong>Email:</strong> grants@thecgi.org or grants@thecgi.org for grant-specific questions. There is no sales team, no gatekeepers, and no obligation attached to the free audit."
+  },
+  {
+    q: "Is the $59 certification worth it if I am already using ChatGPT?",
+    a: "Using ChatGPT is like having a hammer and calling yourself a contractor. The G.A.I.N.S. certification teaches you how to build the entire house — Business Brain architecture, closed-loop departments, agentic AI systems, risk governance, and organizational adoption strategy. The $59 certification is the foundation. The companies that win the AI era are not the ones who use ChatGPT the most. They are the ones who build AI into their operating infrastructure. That is what CGI teaches."
+  }
+];
+
+/* Build FAQ */
+(function buildFAQ() {
+  const list = document.getElementById('faqList');
+  if (!list) return;
+  FAQS.forEach((item, i) => {
+    const el = document.createElement('div');
+    el.className = 'faq-item';
+    el.innerHTML = `
+      <div class="faq-q" onclick="toggleFAQ(${i})">
+        <span class="faq-q-text">${item.q}</span>
+        <span class="faq-icon" id="fi${i}">+</span>
+      </div>
+      <div class="faq-a" id="fa${i}">
+        <div class="faq-a-inner">${item.a}</div>
+      </div>`;
+    list.appendChild(el);
+  });
+})();
+
+function toggleFAQ(i) {
+  const item = document.getElementById('fa' + i).parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ═══════════════════════════════════════════
+   SOCIAL PROOF DATA
+═══════════════════════════════════════════ */
+/* COMPANIES list removed for compliance */
+
+/* TESTIMONIALS removed for compliance */
+
+/* ticker builder removed */
+
+/* testimonials builder removed */
+
+</script>
+</body>
+</html>
+"tc-stars">${t.stars}</div>
+      <div class="tc-quote">"${t.quote}"</div>
+      <div class="tc-name">${t.name}</div>
+      <div class="tc-company">${t.company}</div>`;
+    grid.appendChild(el);
+  });
+})();
+
+</script>
+</body>
+</html>

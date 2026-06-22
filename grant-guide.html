@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Florida AI Workforce Grant Guide — CGI</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#06080F;--ink2:#0C1120;--ink3:#1A2035;
+  --gold:#C9A84C;--gold-d:#8A6A1A;--gold-l:#FBF5E6;
+  --blue:#1F4E79;--blue-l:#D6E4F0;--blue-m:#2E75B6;
+  --teal:#00897B;--teal-l:#E8F5F3;
+  --green:#2E7D32;--green-l:#EBF5EC;
+  --red:#C62828;--red-l:#FEECEC;
+  --white:#FAFAF8;--off:#F2EDE6;--muted:#666;
+  --border:#DDD;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--white);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:13px;line-height:1.65;-webkit-font-smoothing:antialiased}
+@media print{body{font-size:11px}@page{margin:.5in}}
+
+/* PAGE */
+.page{max-width:860px;margin:0 auto;padding:40px 48px}
+
+/* COVER BAND */
+.cover{background:var(--blue);color:white;padding:28px 32px;margin-bottom:0;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
+.cover-left{}
+.cover-eye{font-family:'DM Mono';font-size:8px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.cover-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:white;line-height:1.05}
+.cover-title em{color:var(--gold);font-style:italic}
+.cover-sub{font-size:12px;color:rgba(255,255,255,0.75);margin-top:6px}
+.cover-right{text-align:right}
+.cover-logo{font-family:'DM Mono';font-size:9px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;line-height:1.9}
+.cover-logo strong{color:white;display:block;font-size:12px;letter-spacing:1px}
+
+/* GOLD BAND */
+.gold-band{background:var(--gold);padding:10px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.gb-text{font-family:'DM Mono';font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:700}
+.gb-url{font-family:'DM Mono';font-size:8.5px;color:var(--blue);letter-spacing:1px}
+
+/* SECTION HEADERS */
+.sec-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;margin-top:28px;padding-bottom:8px;border-bottom:2px solid var(--blue)}
+.sec-num{background:var(--blue);color:white;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Mono';font-size:9px;font-weight:700;flex-shrink:0}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--blue)}
+.sec-badge{margin-left:auto;padding:3px 10px;font-family:'DM Mono';font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;border-radius:2px;border:1px solid}
+.badge-fed{border-color:var(--blue);color:var(--blue);background:var(--blue-l)}
+.badge-fl{border-color:var(--teal);color:var(--teal);background:var(--teal-l)}
+.badge-local{border-color:var(--gold-d);color:var(--gold-d);background:var(--gold-l)}
+.badge-cgi{border-color:var(--green);color:var(--green);background:var(--green-l)}
+
+/* SUB HEADERS */
+.sub-h{font-family:'DM Sans';font-size:12px;font-weight:700;color:var(--blue);margin-top:16px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.sub-h::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* BODY TEXT */
+p{font-size:13px;color:var(--ink);line-height:1.7;margin-bottom:8px}
+p strong{color:var(--blue)}
+
+/* TABLES */
+.data-table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:12px}
+.data-table th{background:var(--blue);color:white;padding:8px 12px;text-align:left;font-family:'DM Sans';font-size:11px;font-weight:600;letter-spacing:.3px}
+.data-table td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6}
+.data-table tr:nth-child(even) td{background:var(--blue-l)}
+.data-table tr:last-child td{border-bottom:none}
+.td-label{font-weight:600;color:var(--blue);min-width:160px}
+.data-table .highlight td{background:var(--gold-l)!important;font-weight:600}
+
+/* CALLOUT BOXES */
+.callout{padding:14px 16px;margin-bottom:14px;border-radius:2px;display:flex;gap:12px}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.callout-body{flex:1}
+.callout-title{font-family:'DM Sans';font-size:12px;font-weight:700;margin-bottom:4px}
+.callout-text{font-size:12px;line-height:1.7}
+.callout-text a{color:inherit;font-weight:600;text-decoration:underline}
+.c-blue{background:var(--blue-l);border:1px solid #B3CCE0;color:var(--blue)}
+.c-green{background:var(--green-l);border:1px solid #A5D6A7;color:var(--green)}
+.c-gold{background:var(--gold-l);border:1px solid #E8C96A;color:var(--gold-d)}
+.c-teal{background:var(--teal-l);border:1px solid #A5D6D0;color:var(--teal)}
+.c-red{background:var(--red-l);border:1px solid #FFCDD2;color:var(--red)}
+
+/* GRANT MATH BOX */
+.math-box{background:var(--blue);color:white;padding:20px 24px;margin:16px 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.math-item{text-align:center}
+.math-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1}
+.math-label{font-family:'DM Mono';font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:4px}
+.math-note{font-size:10px;color:rgba(255,255,255,.6);margin-top:3px}
+
+/* URL BLOCKS */
+.url-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.url-card{background:var(--blue-l);border:1px solid #B3CCE0;padding:12px 14px}
+.url-card-title{font-family:'DM Sans';font-size:11px;font-weight:700;color:var(--blue);margin-bottom:4px}
+.url-card-desc{font-size:11px;color:var(--muted);margin-bottom:6px;line-height:1.5}
+.url-card-link{font-family:'DM Mono';font-size:9px;color:var(--blue-m);word-break:break-all;font-weight:500}
+
+/* STEP FLOW */
+.step-flow{display:flex;flex-direction:column;gap:0;margin-bottom:14px}
+.step-item{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border)}
+.step-item:last-child{border-bottom:none}
+.step-num{background:var(--gold);color:var(--ink);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Mono';font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px}
+.step-content{}
+.step-title{font-weight:700;color:var(--blue);font-size:13px;margin-bottom:3px}
+.step-detail{font-size:12px;color:var(--muted);line-height:1.65}
+.step-detail strong{color:var(--ink)}
+.step-detail a{color:var(--blue-m);font-weight:600}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+
+/* DISCLAIMER */
+.disclaimer{background:var(--off);border:1px solid var(--border);padding:12px 16px;margin-top:28px;font-size:11px;color:var(--muted);line-height:1.7}
+.disclaimer strong{color:var(--ink)}
+
+/* FOOTER */
+.footer{background:var(--blue);color:white;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:28px}
+.footer-brand{font-family:'DM Mono';font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.footer-brand strong{color:var(--gold)}
+.footer-contact{font-family:'DM Mono';font-size:8px;color:rgba(255,255,255,.7);text-align:right}
+.footer-contact strong{color:white}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border);margin:24px 0}
+
+/* PAGE BREAK HINTS */
+.page-break{page-break-before:always}
+
+@media(max-width:700px){
+  .url-grid,.two-col,.math-box{grid-template-columns:1fr}
+  .page{padding:24px 20px}
+  .cover,.gold-band,.footer{padding-left:20px;padding-right:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- COVER BAND -->
+<div class="cover">
+  <div class="cover-left">
+    <div class="cover-eye">● Official Government Grant Reference Guide · May 2026</div>
+    <div class="cover-title">Florida AI Workforce<br><em>Grant Opportunity</em></div>
+    <div class="cover-sub">A complete guide to federal and state workforce funding available to your company<br>for AI training — with all official government sources and website links.</div>
+  </div>
+  <div class="cover-right">
+    <div class="cover-logo">
+      <strong>THE CAPITAL GAINS INSTITUTE</strong>
+      My Jet LLC DBA<br>
+      thecgi.org<br>
+      grants@thecgi.org<br>
+      (813) 463-3401
+    </div>
+  </div>
+</div>
+<div class="gold-band">
+  <div class="gb-text">Prepared for: _________________________ | Date: _______________ | Employees: ______ | Estimated Grant: $_____________</div>
+  <div class="gb-url">Verify everything at: dol.gov/wioa · floridajobs.org · careersourcetampabay.com</div>
+</div>
+
+<div class="page">
+
+<!-- ═══ SECTION 1: WHAT IS WIOA ═══ -->
+<div class="sec-header">
+  <div class="sec-num">1</div>
+  <div class="sec-title">What Is WIOA? — The Federal Law Behind the Funding</div>
+  <span class="sec-badge badge-fed">Federal Law</span>
+</div>
+
+<p>The <strong>Workforce Innovation and Opportunity Act (WIOA)</strong> is a federal law signed by President Obama in 2014 — bipartisan legislation that reauthorized and improved America's public workforce system. It is the primary federal law funding job training and workforce development programs across all 50 states.</p>
+<p>WIOA is not a new program or a temporary stimulus. It has been the law of the land for over a decade, administering billions of dollars annually through state workforce agencies, local CareerSource offices, and approved training providers.</p>
+
+<div class="two-col">
+  <div class="callout c-blue">
+    <div class="callout-icon">📋</div>
+    <div class="callout-body">
+      <div class="callout-title">Federal Legislation</div>
+      <div class="callout-text">Public Law 113-128 · Signed July 22, 2014 · Reauthorized the Workforce Investment Act of 1998 · Administered by the U.S. Department of Labor Employment and Training Administration<br><br><a href="https://www.dol.gov/agencies/eta/wioa" target="_blank">dol.gov/agencies/eta/wioa</a></div>
+    </div>
+  </div>
+  <div class="callout c-blue">
+    <div class="callout-icon">💰</div>
+    <div class="callout-body">
+      <div class="callout-title">Scale of Funding</div>
+      <div class="callout-text">WIOA provides approximately $3 billion annually in federal workforce development funding across the United States. Florida alone receives tens of millions of dollars per program year — much of which goes unclaimed by eligible employers.<br><br><a href="https://www.dol.gov/general/topic/training/wioa" target="_blank">dol.gov/general/topic/training/wioa</a></div>
+    </div>
+  </div>
+</div>
+
+<div class="sub-h">The Two WIOA Funding Streams Available to You</div>
+
+<table class="data-table">
+  <thead>
+    <tr><th style="width:30%">Stream</th><th style="width:35%">Who Benefits</th><th style="width:35%">How It Works</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong style="color:#1F4E79">Stream 1: Incumbent Worker Training (IWT)</strong><br><span style="font-size:10px;color:#666">Employer Reimbursement</span></td>
+      <td>Your company as the employer. You pay for training upfront, the state reimburses you.</td>
+      <td>Company pays CGI → Employees complete G.A.I.N.S. certification → Company submits reimbursement claim → State sends payment back to company</td>
+    </tr>
+    <tr>
+      <td><strong style="color:#1F4E79">Stream 2: Individual Training Account (ITA)</strong><br><span style="font-size:10px;color:#666">Individual Voucher</span></td>
+      <td>Individual employees who qualify based on income or workforce status.</td>
+      <td>Employee qualifies at CareerSource → Receives ITA voucher → Voucher pays CGI directly → Employee attends training at zero personal cost</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ═══ SECTION 2: IWT GRANT ═══ -->
+<div class="sec-header">
+  <div class="sec-num">2</div>
+  <div class="sec-title">Stream 1 — Incumbent Worker Training (IWT) Grant</div>
+  <span class="sec-badge badge-fl">Florida Program</span>
+</div>
+
+<p>The <strong>Incumbent Worker Training (IWT) Program</strong> is administered by <strong>CareerSource Florida</strong> and funded under WIOA. It is specifically designed to help Florida businesses upgrade the skills of their current employees — exactly what the G.A.I.N.S. AI certification does.</p>
+
+<div class="callout c-teal">
+  <div class="callout-icon">🏛️</div>
+  <div class="callout-body">
+    <div class="callout-title">Official Source — CareerSource Florida</div>
+    <div class="callout-text">The IWT program is operated statewide by CareerSource Florida, a state agency created under Section 445.004, Florida Statutes. It provides reimbursement grants to businesses that pay for pre-approved, direct, training-related costs.<br><br>
+    <strong>Official program page:</strong> <a href="https://careersourceflorida.com/employers/incumbent-worker-training/" target="_blank">careersourceflorida.com/employers/incumbent-worker-training</a><br>
+    <strong>CareerSource Florida main site:</strong> <a href="https://careersourceflorida.com" target="_blank">careersourceflorida.com</a></div>
+  </div>
+</div>
+
+<div class="math-box">
+  <div class="math-item">
+    <div class="math-num">$3,500</div>
+    <div class="math-label">Per Employee</div>
+    <div class="math-note">Maximum reimbursement per enrolled employee</div>
+  </div>
+  <div class="math-item">
+    <div class="math-num">$25,000</div>
+    <div class="math-label">Per Company</div>
+    <div class="math-note">Maximum reimbursement per company per grant cycle</div>
+  </div>
+  <div class="math-item">
+    <div class="math-num">50–75%</div>
+    <div class="math-label">Reimbursement Rate</div>
+    <div class="math-note">Companies receive up to 75% of training costs back (small business priority)</div>
+  </div>
+</div>
+
+<div class="sub-h">IWT Company Eligibility Requirements</div>
+<table class="data-table">
+  <thead><tr><th>Requirement</th><th>Details</th><th>CGI Note</th></tr></thead>
+  <tbody>
+    <tr><td class="td-label">Business Type</td><td>For-profit businesses only. Must be an existing Florida business.</td><td>IWT is specifically for private sector employers — not nonprofits or government agencies.</td></tr>
+    <tr><td class="td-label">Florida Location</td><td>Business must be located and operating in Florida.</td><td>Tampa Bay area businesses fully qualify.</td></tr>
+    <tr><td class="td-label">Employee Status</td><td>Employees must be full-time employees already on payroll prior to enrollment.</td><td>CGI training is for your existing team — not new hires.</td></tr>
+    <tr><td class="td-label">Training Provider</td><td>Private training companies may be utilized upon review including accreditation, licensure, and prior CareerSource Florida approval. Provider's website and instructor resumes must be provided.</td><td>CGI is actively completing CIE licensure and CareerSource Florida approval — the required approvals for this pathway.</td></tr>
+    <tr><td class="td-label">Training Type</td><td>Training must directly upgrade employee skills relevant to the company's operations.</td><td>AI workforce certification directly upgrades employee capability in every industry.</td></tr>
+    <tr class="highlight"><td class="td-label">Priority Given To</td><td>Small businesses, rural businesses, enterprise zones, and businesses in Florida's targeted industries.</td><td>Tampa Bay small businesses in healthcare, legal, real estate, financial services — all qualify for priority consideration.</td></tr>
+  </tbody>
+</table>
+
+<div class="sub-h">Documented Results from the IWT Program</div>
+<div class="two-col">
+  <div class="callout c-green">
+    <div class="callout-icon">📊</div>
+    <div class="callout-body">
+      <div class="callout-title">From 2023–2024 Program Year</div>
+      <div class="callout-text">CareerSource Florida awarded <strong>$2.9 million</strong> in IWT grants to <strong>69 businesses</strong>, benefiting over <strong>2,700 full-time employees</strong>. Since the program's inception, more than <strong>3,100 Florida companies</strong> have utilized IWT grants.<br><br>Source: <a href="https://www.flchamber.com/elevating-floridas-workforce-through-training-grants/" target="_blank">Florida Chamber — Workforce Training Grants Report</a></div>
+    </div>
+  </div>
+  <div class="callout c-green">
+    <div class="callout-icon">📈</div>
+    <div class="callout-body">
+      <div class="callout-title">Wage Impact</div>
+      <div class="callout-text">Employees who completed IWT-supported training experienced an average wage increase of <strong>more than 11%</strong> within fifteen months of completing training.<br><br>AI-certified employees earn more AND save their employers money through automation — a double return on the training investment.<br><br>Source: <a href="https://wioaplans.ed.gov/node/27471" target="_blank">WIOA State Plan Portal — Florida Data</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 3: ITA STREAM ═══ -->
+<div class="sec-header">
+  <div class="sec-num">3</div>
+  <div class="sec-title">Stream 2 — Individual Training Accounts (ITA)</div>
+  <span class="sec-badge badge-local">CareerSource Tampa Bay</span>
+</div>
+
+<p>In addition to the employer reimbursement pathway, individual employees may qualify for <strong>WIOA Individual Training Account (ITA) vouchers</strong> — which, for those CareerSource determines eligible, pay the training provider directly and may reduce or eliminate out-of-pocket cost. Eligibility is determined by CareerSource and is not guaranteed.</p>
+
+<div class="callout c-teal">
+  <div class="callout-icon">🏢</div>
+  <div class="callout-body">
+    <div class="callout-title">Official Source — CareerSource Tampa Bay</div>
+    <div class="callout-text">CareerSource Tampa Bay administers WIOA Individual Training Accounts for residents of Hillsborough and Pinellas Counties. Once an individual is determined eligible for training services, they may select an approved provider from the Eligible Training Provider List (ETPL) and receive an ITA voucher that covers the cost of training.<br><br>
+    <strong>WIOA overview:</strong> <a href="https://careersourcetampabay.com/wioa/" target="_blank">careersourcetampabay.com/wioa</a><br>
+    <strong>Eligibility requirements:</strong> <a href="https://careersourcetampabay.com/wioa/wioa-eligibility-requirements/" target="_blank">careersourcetampabay.com/wioa/wioa-eligibility-requirements</a><br>
+    <strong>Phone:</strong> 813-930-7400<br>
+    <strong>Contact Melissa Carroll:</strong> carrollm@careersourcetb.com</div>
+  </div>
+</div>
+
+<div class="sub-h">Individual Employee Eligibility — CareerSource Tampa Bay</div>
+<table class="data-table">
+  <thead><tr><th>Requirement</th><th>Who Qualifies</th></tr></thead>
+  <tbody>
+    <tr><td class="td-label">Geographic Residency</td><td>Must be a resident of Hillsborough or Pinellas County.</td></tr>
+    <tr><td class="td-label">Age</td><td>Must be 18 years of age or older.</td></tr>
+    <tr><td class="td-label">Citizenship</td><td>Must meet U.S. citizenship or lawful permanent resident requirements.</td></tr>
+    <tr><td class="td-label">Adult Income Eligibility</td><td>If household income is less than 250% of the Federal Poverty Level, the individual may qualify for fully-funded training.</td></tr>
+    <tr><td class="td-label">Dislocated Worker</td><td>Individuals who lost a job through no fault of their own (layoff, company closure, military spouse relocation) qualify regardless of income level.</td></tr>
+    <tr class="highlight"><td class="td-label">ITA Voucher Amount</td><td>Vouchers pay the approved training provider directly. Amount determined by local CareerSource board and available funding. CGI will guide each qualifying employee through the eligibility process at no charge.</td></tr>
+  </tbody>
+</table>
+
+<div class="callout c-gold">
+  <div class="callout-icon">💡</div>
+  <div class="callout-body">
+    <div class="callout-title">Why Both Streams Matter for Your Company</div>
+    <div class="callout-text">Your company may qualify for Stream 1 (IWT employer reimbursement) for some employees while individual employees simultaneously qualify for Stream 2 (ITA vouchers). CGI evaluates both pathways for every client company and pursues the maximum available funding from both sources.</div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 4: ETPL ═══ -->
+<div class="sec-header">
+  <div class="sec-num">4</div>
+  <div class="sec-title">The ETPL — What It Is and Why CGI Is Pursuing It</div>
+  <span class="sec-badge badge-fl">Florida State</span>
+</div>
+
+<p>The <strong>Eligible Training Provider List (ETPL)</strong> is the official state-approved list of training institutions that are authorized to receive WIOA funding on behalf of their students and employer-clients. Think of it as the state's seal of approval on a training provider.</p>
+<p>For an individual employee's ITA voucher to pay CGI directly, CGI must be on the ETPL. For an employer's IWT reimbursement claim to reference CGI specifically, CGI must be approved by CareerSource Florida as a training provider. <strong>Both approvals require the same foundational step: CIE licensure.</strong></p>
+
+<div class="callout c-red">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body">
+    <div class="callout-title">Important Transparency Notice</div>
+    <div class="callout-text">CGI's ETPL approval is currently in process. CGI has filed its CIE Provisional License application with the Florida Commission for Independent Education and has initiated the Employ Florida ETPL registration. <strong>Companies that enroll in G.A.I.N.S. certification now are positioned as founding clients — first in line for grant reimbursement processing the moment CGI's ETPL approval is granted.</strong> The certification itself is fully valid and deliverable today, independent of ETPL status. The grant reimbursement pathway activates upon ETPL approval.</div>
+  </div>
+</div>
+
+<div class="sub-h">The ETPL Approval Process — Three Official Steps</div>
+
+<div class="step-flow">
+  <div class="step-item">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-title">CIE Provisional License — Florida Commission for Independent Education</div>
+      <div class="step-detail">All private postsecondary training institutions in Florida must be licensed by the Florida Commission for Independent Education before they can operate or be approved as an ETPL provider. This is the foundational requirement. CGI's application is filed and under review.<br><br>
+      <strong>Official agency:</strong> Florida Commission for Independent Education (CIE)<br>
+      <strong>Phone:</strong> (850) 245-3200<br>
+      <strong>Email:</strong> cieinfo@fldoe.org<br>
+      <strong>Website:</strong> <a href="https://www.fldoe.org/policy/cie/" target="_blank">fldoe.org/policy/cie</a><br>
+      <strong>Governing statute:</strong> Sections 1005.01–1005.39, Florida Statutes</div>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-title">State ETPL Registration — Florida Department of Commerce via Employ Florida</div>
+      <div class="step-detail">Once CIE-licensed, training providers apply for inclusion on the State ETPL through the Employ Florida portal. As of July 1, 2024, the ETPL application process is managed by Florida Commerce via a statewide process. State ETPL approval is required before applying to any local CareerSource ETPL.<br><br>
+      <strong>Official portal:</strong> <a href="https://www.employflorida.com" target="_blank">employflorida.com</a> → Sign In/Register → Provider<br>
+      <strong>State ETPL Coordinator email:</strong> ETPL@commerce.fl.gov<br>
+      <strong>Florida Department of Commerce:</strong> <a href="https://floridajobs.org" target="_blank">floridajobs.org</a><br>
+      <strong>Governing policy:</strong> CareerSource Florida Administrative Policy -090-</div>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-title">Local ETPL — CareerSource Tampa Bay (July–September 2026 Window)</div>
+      <div class="step-detail">Once on the State ETPL, providers apply to the local CareerSource board for inclusion on the local ETPL. The CareerSource Tampa Bay local ETPL application window opens annually in July. State ETPL approval is a prerequisite. Once on the local ETPL, CGI can accept ITA vouchers directly from CareerSource Tampa Bay on behalf of qualifying individual employees.<br><br>
+      <strong>CareerSource Tampa Bay:</strong> <a href="https://careersourcetampabay.com" target="_blank">careersourcetampabay.com</a><br>
+      <strong>Training provider information:</strong> <a href="https://atlas.careersourcetampabay.com/pages/vendors" target="_blank">atlas.careersourcetampabay.com/pages/vendors</a><br>
+      <strong>CGI Contact at CareerSource TB:</strong> Melissa Carroll · carrollm@careersourcetb.com · (813) 397-2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 5: GRANT MATH ═══ -->
+<div class="sec-header">
+  <div class="sec-num">5</div>
+  <div class="sec-title">The Grant Math — What This Means for Your Company</div>
+  <span class="sec-badge badge-cgi">CGI Analysis</span>
+</div>
+
+<p>The following calculations are based on official IWT program parameters as published by CareerSource Florida. These are estimates for planning purposes — actual reimbursement amounts are determined by the state and local CareerSource board.</p>
+
+<table class="data-table">
+  <thead><tr><th>Team Size</th><th>CGI Certification Cost (Online $59/person)</th><th>CGI Live Cohort Cost ($1,250–$3,500/seat)</th><th>Estimated IWT Reimbursement</th><th>Estimated Net Cost After WIOA Reimbursement*</th></tr></thead>
+  <tbody>
+    <tr><td><strong>3 employees</strong></td><td>$177</td><td>$3,750</td><td>Up to $10,500</td><td class="td-label" style="color:#2E7D32">$0 est.* (if reimbursement approved)</td></tr>
+    <tr><td><strong>5 employees</strong></td><td>$295</td><td>$6,250</td><td>Up to $17,500</td><td class="td-label" style="color:#2E7D32">$0 est.* (if reimbursement approved)</td></tr>
+    <tr><td><strong>7 employees</strong></td><td>$413</td><td>$8,750</td><td>Up to $24,500</td><td class="td-label" style="color:#2E7D32">$0 est.* (if reimbursement approved)</td></tr>
+    <tr class="highlight"><td><strong>8+ employees</strong></td><td>$472+</td><td>$10,000+</td><td><strong>$25,000 (maximum cap)</strong></td><td class="td-label" style="color:#2E7D32"><strong>$0 or net positive est.*</strong></td></tr>
+    <tr><td><strong>15 employees</strong></td><td>$885</td><td>$18,750</td><td>$25,000 (capped)</td><td class="td-label" style="color:#2E7D32">$0 est.* (if reimbursement approved)</td></tr>
+    <tr><td><strong>25 employees</strong></td><td>$1,475</td><td>$31,250</td><td>$25,000 (capped)</td><td>$6,250 est. net (live cohort) or $0 est. (online)*</td></tr>
+  </tbody>
+</table>
+
+<div class="callout c-gold">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body">
+    <div class="callout-title">Important Disclaimer on All Estimates</div>
+    <div class="callout-text">These figures are estimates based on published IWT program parameters. <strong>Actual reimbursement amounts are determined exclusively by CareerSource Florida, the Florida Department of Commerce, and/or CareerSource Tampa Bay</strong> — not by CGI. Reimbursement is subject to company eligibility, program funding availability, CGI's ETPL approval status, and proper documentation. CGI makes no guarantee of specific reimbursement amounts.</div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 6: OFFICIAL LINKS ═══ -->
+<div class="sec-header">
+  <div class="sec-num">6</div>
+  <div class="sec-title">Official Government Sources — Verify Everything Yourself</div>
+  <span class="sec-badge badge-fed">All Verified Links</span>
+</div>
+
+<p>CGI encourages every company to verify all information about WIOA grants and the ETPL process directly from official government sources. Every link below is a live government or official agency website.</p>
+
+<div class="sub-h">Federal Government Sources</div>
+<div class="url-grid">
+  <div class="url-card">
+    <div class="url-card-title">U.S. Department of Labor — WIOA Overview</div>
+    <div class="url-card-desc">The official federal agency administering WIOA. Complete law text, program guides, and state funding allocations.</div>
+    <div class="url-card-link">dol.gov/agencies/eta/wioa</div>
+  </div>
+  <div class="url-card">
+    <div class="url-card-title">DOL — Training & Employment Guidance</div>
+    <div class="url-card-desc">Official policy letters, program guidance, and employer training grant information from the Employment and Training Administration.</div>
+    <div class="url-card-link">dol.gov/general/topic/training/wioa</div>
+  </div>
+  <div class="url-card">
+    <div class="url-card-title">Training Provider Results</div>
+    <div class="url-card-desc">The national database of WIOA-approved training providers and their performance outcomes. Searchable by state, program, and credential.</div>
+    <div class="url-card-link">trainingproviderresults.gov</div>
+  </div>
+  <div class="url-card">
+    <div class="url-card-title">WIOA Full Text — Public Law 113-128</div>
+    <div class="url-card-desc">The complete text of the Workforce Innovation and Opportunity Act as signed into federal law on July 22, 2014.</div>
+    <div class="url-card-link">congress.gov/bill/113th-congress/house-bill/803</div>
+  </div>
+</div>
+
+<div class="sub-h">Florida State Government Sources</div>
+<div class="url-grid">
+  <div class="url-card">
+    <div class="url-card-title">CareerSource Florida — IWT Program</div>
+    <div class="url-card-desc">The state agency administering Florida's Incumbent Worker Training grant program. Official program guidelines, application information, and employer resources.</div>
+    <div class="url-card-link">careersourceflorida.com/employers/incumbent-worker-training</div>
+  </div>
+  <div class="url-card">
+    <div class="url-card-title">FloridaJobs.org — WIOA Program</div>
+    <div class="url-card-desc">The Florida Department of Commerce workforce development portal. WIOA program FAQ, ETPL policy documents, and state-level program administration.</div>
+    <div class="url-card-link">floridajobs.org</div>
+  </div>
+  <div class="url-card">
+    <div class="url-card-title">Employ Florida — ETPL Portal</div>
+    <div class="url-card-desc">The official Florida state portal for ETPL registration and management. Training providers register here. Employers can verify provider status.</div>
+    <div class="url-card-link">employflorida.com</div>
+  </div>
+  <div class="url-card">
+    <div class="url-card-title">Florida Commission for Independent Education</div>
+    <div class="url-card-desc">Licenses all private postsecondary educational institutions in Florida. Verify any institution's licensure status. CGI's application is filed and under review.</div>
+    <div class="url-card-link">fldoe.org/policy/cie · Phone: (850) 245-3200</div>
+  </div>
+</div>
+
+<div class="sub-h">CareerSource Tampa Bay — Your Local Office</div>
+<div class="url-grid">
+  <div class="url-card">
+    <div class="url-card-title">CareerSource Tampa Bay — WIOA</div>
+    <div class="url-card-desc">Your local WIOA administrator for Hillsborough and Pinellas Counties. Employer services, individual training accounts, and IWT grant processing.</div>
+    <div class="url-card-link">careersourcetampabay.com/wioa · Phone: 813-930-7400</div>
+  </div>
+  <div class="url-card">
+    <div class="url-card-title">WIOA Eligibility Requirements</div>
+    <div class="url-card-desc">The official CareerSource Tampa Bay eligibility requirements page. Verify individual employee eligibility for ITA vouchers here.</div>
+    <div class="url-card-link">careersourcetampabay.com/wioa/wioa-eligibility-requirements</div>
+  </div>
+  <div class="url-card">
+    <div class="url-card-title">Approved Training Providers 2025–2026</div>
+    <div class="url-card-desc">The current CareerSource Tampa Bay approved training provider list. Updated annually. CGI is actively pursuing inclusion on this list.</div>
+    <div class="url-card-link">careersourcetampabay.com/approved-training-vendors-and-targeted-occupations-lists</div>
+  </div>
+  <div class="url-card">
+    <div class="url-card-title">Employer Rapid Response — IWT</div>
+    <div class="url-card-desc">CareerSource Tampa Bay's employer services page specifically covering Incumbent Worker Training funding. Contact information for employer IWT claims.</div>
+    <div class="url-card-link">careersourcetampabay.com/employers/rapidresponse · Email: employerservices@careersourcetb.com</div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 7: CGI ROLE ═══ -->
+<div class="sec-header">
+  <div class="sec-num">7</div>
+  <div class="sec-title">What CGI Does For You — The Complete Grant Service</div>
+  <span class="sec-badge badge-cgi">CGI Services</span>
+</div>
+
+<p>Navigating the WIOA grant system is genuinely complex. There are multiple agencies, multiple approval pathways, documentation requirements, and strict timelines. <strong>CGI handles every step of this process for every client company at no additional charge beyond the training tuition.</strong></p>
+
+<div class="step-flow">
+  <div class="step-item">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-title">Free Eligibility Assessment</div>
+      <div class="step-detail">CGI evaluates your company's eligibility for both IWT employer reimbursement and individual employee ITA vouchers in a 20-minute discovery session. We identify the maximum available funding from both streams before you spend a dollar on training.</div>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-title">Documentation Preparation</div>
+      <div class="step-detail">CGI prepares all documentation templates required for your WIOA reimbursement claim — employee rosters, training completion records, payroll verification formats, and claim forms — so your submission is complete and accurate.</div>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-title">Training Delivery</div>
+      <div class="step-detail">CGI delivers the full G.A.I.N.S. Certification — 6 modules, online self-paced at $59/person or live instructor-led cohort at $1,250–$3,500/seat (sliding scale by company size). All employees receive verifiable digital credentials upon passing the final assessment. Credentials are issued by CGI; the curriculum includes preparation for the third-party CertNexus Agentic AIBIZ (AGZ-110) exam.</div>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-title">CareerSource Warm Referral</div>
+      <div class="step-detail">CGI provides a direct warm introduction to the Client's assigned CareerSource Tampa Bay representative for grant processing. CGI's existing relationship with CareerSource Tampa Bay staff ensures your application receives appropriate attention and guidance.</div>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <div class="step-title">Reimbursement Claim Support</div>
+      <div class="step-detail">CGI guides your company through the complete reimbursement submission process — from initial claim filing through funds receipt. We are available to answer CareerSource questions, provide supplemental documentation, and ensure your claim is processed correctly.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 8: NEXT STEPS ═══ -->
+<div class="sec-header">
+  <div class="sec-num">8</div>
+  <div class="sec-title">Your Next Steps — Starting Today</div>
+  <span class="sec-badge badge-cgi">Action Items</span>
+</div>
+
+<table class="data-table">
+  <thead><tr><th>Step</th><th>Action</th><th>Who Does It</th><th>Time Required</th></tr></thead>
+  <tbody>
+    <tr><td><strong>1</strong></td><td>Run the free CGI AI Profit Audit — 7 questions, 4 minutes, shows your company's specific AI gap cost</td><td>You + CGI</td><td>4 minutes at thecgi.org</td></tr>
+    <tr><td><strong>2</strong></td><td>Execute the CGI Client Service Agreement — enrolls your company in the grant pathway and secures your founding client status</td><td>You + Dr. Majette</td><td>10 minutes today</td></tr>
+    <tr><td><strong>3</strong></td><td>Identify which employees to enroll — CGI recommends starting with 3-7 employees in the first cohort</td><td>You</td><td>Same day</td></tr>
+    <tr><td><strong>4</strong></td><td>Complete G.A.I.N.S. Certification — online self-paced starts immediately; live cohort scheduled within 30 days</td><td>Your team</td><td>6-8 hours online or 2-day cohort</td></tr>
+    <tr class="highlight"><td><strong>5</strong></td><td>CGI files grant reimbursement documentation on your behalf the moment ETPL approval is granted — you receive funds directly from the state</td><td>CGI + CareerSource</td><td>Automatic upon CGI ETPL approval</td></tr>
+  </tbody>
+</table>
+
+<div class="two-col">
+  <div class="callout c-blue">
+    <div class="callout-icon">📞</div>
+    <div class="callout-body">
+      <div class="callout-title">Contact CGI to Get Started</div>
+      <div class="callout-text"><strong>Dr. Michael Majette</strong><br>Founder & Registrar<br>The Capital Gains Institute<br><br><strong>(813) 463-3401</strong><br>grants@thecgi.org<br>thecgi.org</div>
+    </div>
+  </div>
+  <div class="callout c-teal">
+    <div class="callout-icon">🏢</div>
+    <div class="callout-body">
+      <div class="callout-title">Contact CareerSource Tampa Bay Directly</div>
+      <div class="callout-text"><strong>Employer Services</strong><br>CareerSource Tampa Bay<br><br><strong>813-930-7400</strong><br>careersourcetampabay.com<br><br>Serving Hillsborough and Pinellas County employers. Verify your eligibility directly with the agency at no cost.</div>
+    </div>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <strong>Important Disclaimer:</strong> All information in this guide is sourced from official U.S. Department of Labor, Florida Department of Commerce, CareerSource Florida, and CareerSource Tampa Bay publications and websites as of May 2026. WIOA program guidelines, funding levels, and eligibility requirements are subject to change by the administering agencies. CGI makes no guarantee of grant approval, reimbursement amounts, or program availability. All grant eligibility determinations are made exclusively by the applicable government agency. This document is provided for informational purposes to help companies understand available workforce development funding. Always verify current program requirements directly with the administering agency. <strong>CGI is not a government agency and is not affiliated with CareerSource Florida, CareerSource Tampa Bay, or the Florida Department of Commerce.</strong>
+</div>
+
+</div><!-- /page -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand"><strong>THE CAPITAL GAINS INSTITUTE</strong> · My Jet LLC DBA · 13016 Beech Street, Odessa FL 33556</div>
+  <div class="footer-contact"><strong>(813) 463-3401</strong> · grants@thecgi.org · thecgi.org · Florida AI Workforce Grant Guide · May 2026</div>
+</div>
+
+</body>
+</html>
