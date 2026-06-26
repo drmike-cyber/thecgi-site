@@ -84,6 +84,23 @@
   footer a{color:var(--gold-bright);text-decoration:none}
   .err{color:#ff9a9a;font-size:12.5px;margin-top:8px;display:none}
   .err.show{display:block}
+
+  /* ---------- Ambient music toggle ---------- */
+  .music-toggle{position:fixed;right:18px;bottom:18px;z-index:30;width:48px;height:48px;border-radius:50%;
+    border:1px solid rgba(201,162,75,.5);background:rgba(17,28,51,.72);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--gold-bright);cursor:pointer;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px -10px rgba(0,0,0,.7);
+    transition:transform .15s ease,box-shadow .2s ease}
+  .music-toggle:hover{transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(201,162,75,.5)}
+  .music-toggle .ico-note{font-size:19px;line-height:1}
+  .music-toggle .eq{display:none;align-items:flex-end;gap:2px;height:18px}
+  .music-toggle .eq i{width:3px;background:var(--gold-bright);border-radius:2px;transform-origin:bottom;animation:eq .9s ease-in-out infinite}
+  .music-toggle .eq i:nth-child(1){height:9px;animation-delay:0s}
+  .music-toggle .eq i:nth-child(2){height:17px;animation-delay:.18s}
+  .music-toggle .eq i:nth-child(3){height:12px;animation-delay:.36s}
+  @keyframes eq{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+  .music-toggle.playing .ico-note{display:none}
+  .music-toggle.playing .eq{display:flex}
 </style>
 </head>
 <body>
@@ -99,7 +116,7 @@
     <div class="overlay"></div>
 
     <div class="hero-inner">
-      <div class="monogram">C&nbsp;·&nbsp;G&nbsp;·&nbsp;I</div>
+      <div class="monogram">C&nbsp;&middot;&nbsp;G&nbsp;&middot;&nbsp;I</div>
       <div class="eyebrow">The Capital Gains Institute</div>
       <h1>Welcome to the<br><span class="accent">Capital Gains Institute</span></h1>
       <p class="slogan">The recursive brain, behind your company's gains.</p>
@@ -130,6 +147,12 @@
     </div>
   </section>
 
+  <audio id="bgsong" loop preload="none"><source src="that-happy-feeling.mp3" type="audio/mpeg"></audio>
+  <button class="music-toggle" id="musicToggle" type="button" aria-label="Play background music" title="Play music">
+    <span class="ico-note" aria-hidden="true">&#9835;</span>
+    <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+  </button>
+
 <script>
   /* floating particles */
   (function(){
@@ -146,6 +169,22 @@
     }
   })();
 
+  /* ambient music toggle */
+  const song=document.getElementById('bgsong');
+  const mt=document.getElementById('musicToggle');
+  song.volume=0.42;
+  function setPlaying(on){
+    mt.classList.toggle('playing',on);
+    mt.setAttribute('aria-label',on?'Pause background music':'Play background music');
+    mt.title=on?'Pause music':'Play music';
+  }
+  function playSong(){ if(song.paused){ song.play().then(()=>setPlaying(true)).catch(()=>{}); } }
+  mt.addEventListener('click',function(){
+    if(song.paused){ playSong(); } else { song.pause(); setPlaying(false); }
+  });
+  song.addEventListener('play',()=>setPlaying(true));
+  song.addEventListener('pause',()=>setPlaying(false));
+
   /* email gate */
   const form=document.getElementById('gateForm');
   const email=document.getElementById('email');
@@ -159,22 +198,6 @@
     const v=email.value.trim();
     if(!valid(v)){err.classList.add('show');email.focus();return;}
     err.classList.remove('show');
-
-    /* ===== EMAIL CAPTURE WIRING =====================================
-       Recommended: Beehiiv. Once you create your free Beehiiv account,
-       paste your publication's subscribe endpoint below and uncomment
-       the fetch block. Beehiiv also gives you a ready-made embed you can
-       drop straight into this card.
-
-       fetch('https://api.beehiiv.com/v2/publications/PUB_ID/subscriptions',{
-         method:'POST',
-         headers:{'Authorization':'Bearer YOUR_API_KEY','Content-Type':'application/json'},
-         body:JSON.stringify({email:v, reactivate_existing:true, send_welcome_email:true})
-       });
-
-       Until that's wired, submissions are saved in this browser (below)
-       so the page is fully demoable.
-       ================================================================ */
     try{
       const list=JSON.parse(localStorage.getItem('cgi_leads')||'[]');
       list.push({email:v, ts:new Date().toISOString()});
@@ -185,6 +208,7 @@
     document.getElementById('gateSub').classList.add('gone');
     form.classList.add('gone');
     success.classList.add('show');
+    playSong();
   });
 </script>
 </body>
