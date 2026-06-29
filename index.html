@@ -116,7 +116,7 @@
     <div class="overlay"></div>
 
     <div class="hero-inner">
-      <div class="monogram">C&nbsp;&middot;&nbsp;G&nbsp;&middot;&nbsp;I</div>
+      <div class="monogram">C&nbsp;·&nbsp;G&nbsp;·&nbsp;I</div>
       <div class="eyebrow">The Capital Gains Institute</div>
       <h1>Welcome to the<br><span class="accent">Capital Gains Institute</span></h1>
       <p class="slogan">The recursive brain, behind your company's gains.</p>
@@ -135,9 +135,9 @@
 
         <div class="success" id="success">
           <div class="check">&#10003;</div>
-          <h2>You're in.</h2>
-          <p class="gh" style="margin-top:6px">Check your inbox for your free AI Profit Audit. Step inside to explore the Institute.</p>
-          <a class="enter-btn" href="institute.html" id="enterBtn">Enter the Institute &rarr;</a>
+          <h2>Almost in.</h2>
+          <p class="gh" style="margin-top:6px">One quick step &mdash; confirm your details and step inside the Institute.</p>
+          <a class="enter-btn" href="signup.html" id="enterBtn">Continue &rarr;</a>
         </div>
       </div>
 
@@ -198,6 +198,22 @@
     const v=email.value.trim();
     if(!valid(v)){err.classList.add('show');email.focus();return;}
     err.classList.remove('show');
+
+    /* ===== EMAIL CAPTURE WIRING =====================================
+       Recommended: Beehiiv. Once you create your free Beehiiv account,
+       paste your publication's subscribe endpoint below and uncomment
+       the fetch block. Beehiiv also gives you a ready-made embed you can
+       drop straight into this card.
+
+       fetch('https://api.beehiiv.com/v2/publications/PUB_ID/subscriptions',{
+         method:'POST',
+         headers:{'Authorization':'Bearer YOUR_API_KEY','Content-Type':'application/json'},
+         body:JSON.stringify({email:v, reactivate_existing:true, send_welcome_email:true})
+       });
+
+       Until that's wired, submissions are saved in this browser (below)
+       so the page is fully demoable.
+       ================================================================ */
     try{
       const list=JSON.parse(localStorage.getItem('cgi_leads')||'[]');
       list.push({email:v, ts:new Date().toISOString()});
@@ -208,6 +224,7 @@
     document.getElementById('gateSub').classList.add('gone');
     form.classList.add('gone');
     success.classList.add('show');
+    document.getElementById('enterBtn').href = 'signup.html?email=' + encodeURIComponent(v);
     playSong();
   });
 </script>
