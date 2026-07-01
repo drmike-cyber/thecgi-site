@@ -78,9 +78,9 @@
       <select name="monthly_revenue" required>
         <option value="" disabled selected>Select a range</option>
         <option>Under $25,000</option>
-        <option>$25,000 – $100,000</option>
-        <option>$100,000 – $500,000</option>
-        <option>$500,000 – $1M</option>
+        <option>$25,000 &ndash; $100,000</option>
+        <option>$100,000 &ndash; $500,000</option>
+        <option>$500,000 &ndash; $1M</option>
         <option>Over $1M</option>
       </select>
 
@@ -96,7 +96,6 @@
   </div>
 
   <script>
-    /* Pre-fill the email captured on the landing gate (passed as ?email=) */
     (function(){
       try{
         var em = new URLSearchParams(location.search).get('email');
